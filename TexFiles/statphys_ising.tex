@@ -51,9 +51,9 @@ Z(T,N,B) &= \sum_{\{S_{i}\}=\pm 1}\; e^{\beta J \sum_{ i} S_{i }S_{i+1} + \frac{
   e^{j  S_{i }S_{i+1} + \frac{b}{2} (S_{i}+S_{i+1})}\;.
 \end{align*}
 %
-We introduced the abbreviations $j = \beta J$ and $b = \mu B \beta$.
+We introduced the abbreviations $j = \beta J$ for the exchange coupling and $b = \mu B \beta$ for the magnetic flux density.
 We also define the 
-{\bf Transfermatrix}
+{\bf transfer matrix}
 %
 \begin{subequations}\label{eq:transfer:1d}
 \begin{align}
@@ -178,13 +178,14 @@ It depends on the order of the limits. If we first set $B=0$, we obtain for any 
 M(T,N,B=0) &= 0
 \end{align*}
 %
-a vanishing magnetization.
+a vanishing magnetization, since $\sinh(\mu\beta B)$ always yields $0$ indepedent of $\beta$.
 In the opposite order, i.e. keeping $B>0$ finite and let  $T$ go to zero, i.e.$\beta\to\infty$ we obtain
 %
 \begin{align*}
 M(T,B\ne 0) &=
 N \mu \frac{\sinh(\mu \beta B)}{\sqrt{\underbrace{\sinh^{2}(\mu\beta B)}_{\gg 1} + \underbrace{e^{-4 J \beta}}_{\ll 1}}}\\
-&\underset{T\to 0}{\longrightarrow} \;N \mu\;\text{sign}(B)\;.
+&\underset{T\to 0}{\longrightarrow} \;N \mu\; \frac{\sinh(\mu\beta B)}{\pm\sinh(\mu\beta B)} \\
+&= \;N \mu\;\text{sign}(B)\;.
 \end{align*}
 %
 In this limiting  case we get perfect alignment of all spins, even if we now let $B$ go to zero. 
@@ -239,7 +240,7 @@ and obtain
 H &= -J \sum_{\langle ij\rangle} S_{i}S_{j} - 
 h \sum_{i} S_{i}
 \end{align*}
-The mean field approximation is defined for any two dynamical variables $A$ and $B$
+Which is precisely the Hamiltonian of the Ising model. The mean field approximation is defined for any two dynamical variables $A$ and $B$
 by
 %
 \begin{align*}
@@ -266,13 +267,13 @@ H_\text{MFA} &= - J  \sum_{\langle ij\rangle}  \langle S \rangle S_{i}
 \end{align*}
 %
 Since we have used the convention that the sum over nearest neighbours avoids
-double counting, each site $i$ has $z/2$ nearest neighbours, where for sc.lattices $z=2d$ is defined as the total number of nearest neighbours.
+double counting, each site $i$ has $z/2$ nearest neighbours, where for simple cubic lattices $z=2d$ is defined as the total number of nearest neighbours.
 Hence:
 %
-\begin{align*}
+\begin{align*} %TODO: Added factor 1/2 here, is it correct?
 H_\text{MFA} 
 &= - J z  \langle S \rangle \sum_{i}  S_{i}
-+ J N z  \langle S \rangle^{2}
++ \frac{J N z}{2}  \langle S \rangle^{2}
   - h
 \sum_{i} S_{i} \;.
 \end{align*}
@@ -323,14 +324,14 @@ Hence
 \avg{\cal S} &=k_{B}T\frac{\partial \ln(Z)}{\partial h'}
 = N \tanh(\beta h')\;.
 \end{align}
-We introduce the magnetization per site and divided by $\mu$
+We introduce as $m$ the magnetization per site, divided by $\mu$
 %
 \begin{align}
 m &= \frac{M}{\mu N} = \frac{1}{N}\langle\sum_{i}S_{i}  \rangle = \langle S \rangle\;.
 \end{align}
 %
 %
-and obtain the equation of state
+and obtain the equation of state by using $h' = h + J z \langle S \rangle $ and dividing by $N$:
 \tboxitp{Magnetization}{of the Ising model}{
 %
 \begin{align}\label{eq:eos:ising}
@@ -339,7 +340,7 @@ m &= \tanh\bigg( \beta \big(J z m + h\big)\bigg)\;.
 %
 }
 We are particularly interested in the spontaneous magnetization, i.e. the magnetization for
-$B\to 0$. So we seek the solution of
+$B\to 0 \Rightarrow h\to 0$. So we seek the solution of
 %
 \begin{align}\label{eq:magnetization:mfa}
 m &= \tanh\big( \beta J z m\big)\;.
@@ -362,7 +363,7 @@ or rather with $x = \frac{T^{*}}{T}m$
 x &= \frac{T^{*}}{T} \tanh\big( x \big)\;.
 \end{align}
 The function $\tanh(x)$ starts at $x=0$ with the value $0$ and slope 1, then it increases monotonically with  decreasing slope and approaches $1$ for $x\to \infty$.  
-\eq{eq:magnetization:mf} has always the trivial solution $M=0$. For the non-trivial solution,
+\eq{eq:magnetization:mf} has always the trivial solution $x=0 \Leftrightarrow  M=0$. For the non-trivial solution,
 we need $\frac{T^{}*}{T}>1$, or rather $T<T^{*}$. According to the behaviour of $\tanh(x)$, for $\frac{T^{}*}{T}> 1$ there is precisely one non-trivial solution.
 So we see that $T^{*}$ is indeed the critical/ Curie temperature, i.e
 %
@@ -375,7 +376,7 @@ In 2D, we have $(\beta_{c} J)=.25$, as compared to the exact value $\beta_{c}J=0
 This not so bad, however, for 1D the mean-field result predicts a phase-transition at $(\beta_{c} J)=.5$, while the exact result is $\infty$.
 
 In figure \ref{fig:M:mfa:ising}, the magnetization, obtained from \eq{eq:magnetization:mfa}, is depicted as function of $T$. Interestingly, the curve is independent of the spatial dimension.
-The later only enters in the value of $T_{c}$
+The latter only enters in the value of $T_{c}$
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=7.5cm]{M_mfa_ising}
@@ -402,7 +403,7 @@ m&= 3\tau \sqrt{1- \tau} \propto \varepsilon^{\frac{1}{2}}\\
 The  critical exponent is therefore $\beta=1/2$. 
 
 
-\subsection{Magnetic susceptibility}
+\subsection{Magnetic susceptibility} %TODO: left out T=0?
 
 Starting from the definition of the susceptibility via
 %
@@ -413,7 +414,7 @@ Starting from the definition of the susceptibility via
 we obtain with $M=m N\mu$ and $B=h/\mu$ the relation 
 %
 \begin{align*}
-\chi &= \mu^{2} N\pder{m}{h}{T,h=0}
+\chi &= \left[ \frac{\partial M}{\partial m} \frac{\partial h}{\partial B} \frac{\partial m}{\partial h}  \right]_{T,h=0} = \mu^{2} N\pder{m}{h}{T,h=0}
 \end{align*}
 We start out from 
 %
@@ -427,8 +428,8 @@ The derivative w.r.t. $h$ is
 \xi=\pder{m}{h}{T, h=0} &=
 \frac{\beta + \frac{T_{C}}{T} \xi}{\cosh^{2}\big( \beta h  +  \frac{T_{C}}{T} m \big)}\bigg|_{h=0}=
 \frac{\beta + \frac{T_{C}}{T} \xi}{\cosh^{2}\big(\frac{T_{C}}{T} m \big)}\\
-\xi \cosh^{2}\big(\frac{T_{C}}{T} m \big) &= \beta+ \frac{T_{C}}{T} \xi \\
-\xi\bigg( \cosh^{2}\big(\frac{T_{C}}{T} m \big) - \frac{T_{C}}{T} \bigg) &= \beta\;.
+\xi \cosh^{2}\left(\frac{T_{C}}{T} m \right) &= \beta+ \frac{T_{C}}{T} \xi \\
+\xi\bigg( \cosh^{2}\left(\frac{T_{C}}{T} m \right) - \frac{T_{C}}{T} \bigg) &= \beta\;.
 \end{align*}
 %
 Close to $T_{C}$ the magnetisation is very small and we can Taylor expand the magnetisation
@@ -805,6 +806,7 @@ which have solved numerically before, we can plot the specific heat.
 \begin{center}
 \includegraphics[width=7.5cm]{C_mfa_ising}
 \caption{{\it Specific heat of the Ising model in MFA.}}
+%TODO: Include also a plot of the internal energy in this
 \end{center}
 \end{figure}
 
