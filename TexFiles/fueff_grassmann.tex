@@ -1,0 +1,516 @@
+%!TEX root =    a_fueff.tex
+%newcommand{\Int}{\int\ldots\int}
+\newcommand{\sgn}{{\rm sgn}}
+\chapter{Grassmann Algebra}
+%****************************************************************************************************************************************************************
+\subsection{Matrix elements of $M$, $M b^{\dagger}$, and $M b$ in phonon eigen vectors
+ }
+ 
+ \subsection{Bogolubov}
+ 
+ 
+ \subsubsection{Useful relation for coherent states}
+
+We proof that 
+%
+\begin{align}
+e^{A+B} &= e^{A} e^{B} e^{-\frac{1}{2}[A,B]}\label{eq:Glauber}
+\end{align}
+%
+provided, $[A,B]$ commutes with $A$ and $B$.
+\subsubsection{Proof due to Glauber}
+%
+\begin{align*}
+f(x)&:=e^{x A}e^{x B}\\
+f'(x) &=e^{x A}A e^{x B} +e^{x A}e^{x B} B\\
+&=e^{x A} e^{x B}  e^{-x B}A e^{x B} +e^{x A}e^{x B} B\\
+&=f(x) \bigg(  \underbrace{e^{-x B}A e^{x B}}_{:=A(x)} + B\bigg)\;.
+\end{align*}
+%
+%
+\begin{align*}
+A'(x) &= e^{-x B}[A,B] e^{x B} \overset{[[A,B],B]=0}{=} [A,B]\\
+A(x) &= A + [A,B] \;x
+\end{align*}
+%
+%
+\begin{align*}
+f'(x) &=f(x) \bigg(\big(A+B\big) + [A,B] \;x\bigg)\\
+f(x) &= e^{\big(A+B\big)x} e^{\frac{1}{2}[A,B]x^{2}}\\
+f(1)&=  e^{A+B} e^{\frac{1}{2}[A,B]}\\
+&\overset{\text{def.}}{=} e^{A}e^{B}
+\end{align*}
+%
+\subsubsection{Application to coherent states}
+We consider
+%
+\begin{align*}
+U(\gamma)&:= e^{\overbrace{-\gamma\dag{a}{}}^{:=A}+\overbrace{\gamma^{*}\nodag{a}{}}^{:=B}} \;.
+\end{align*}
+The commutator $[A,B]$ is
+%
+\begin{align*}
+[A,B] &= -\abs{\gamma}^{2} [\dag{a}{},\nodag{a}{}] =  \abs{\gamma}^{2}\;.
+\end{align*}
+%
+Clearly, it commutes with all operators. So we can use the above equation
+and obtain
+%
+\begin{align}\label{eq:coherent:1}
+ e^{-\gamma\dag{a}{}+\gamma^{*}\nodag{a}{}} &= 
+ e^{-\frac{\abs{\gamma}^{2}}{2}}\;
+ e^{-\gamma \dag{a}{}} e^{\gamma^{*} \nodag{a}{}} 
+\end{align}
+%
+
+Alternatively, we can start from
+%
+\begin{align*}
+U(\gamma)&:= e^{\overbrace{\gamma^{*}\nodag{a}{}}^{:=A}\overbrace{-\gamma\dag{a}{}}^{:=B}} \;.
+\end{align*}
+The commutator $[A,B]$ is
+%
+\begin{align*}
+[A,B] &= \abs{\gamma}^{2} [\nodag{a}{},\dag{a}{}] =  -\abs{\gamma}^{2}\;.
+\end{align*}
+%
+And we end up with
+%
+\begin{align*}
+ e^{\gamma^{*}\nodag{a}{}-\gamma\dag{a}{}} &= 
+ e^{\frac{\abs{\gamma}^{2}}{2}}\;
+e^{\gamma^{*} \nodag{a}{}} \; e^{-\gamma \dag{a}{}} \;.
+\end{align*}
+%
+We use \eq{eq:coherent:1} to compute the following matrix elements
+%
+\begin{align*}
+\bra{m} e^{\gamma^{*}\nodag{a}{}-\gamma\dag{a}{}} \ket{n} &=
+e^{-\frac{1}{2}\abs{\gamma}^{2}} 
+\bra{m} e^{-\gamma\dag{a}{}} 
+e^{\gamma^{*}\nodag{a}{}}
+\ket{n}
+\end{align*}
+%
+%
+\begin{align*}
+e^{\gamma^{*}\nodag{a}{}} \ket{n} &= 
+\sum_{\nu=0}^{\infty} \frac{(\gamma^{*})^{\nu}}{\nu!}
+(\nodag{a}{})^{\nu} \frac{1}{\sqrt{n!}} (\dag{a}{})^{n}\ket{0}
+\end{align*}
+%
+Clearly, the sum is restricted to $\nu\le n$ end we get
+\begin{align*}
+e^{\gamma^{*}\nodag{a}{}} \ket{n} &= 
+\sum_{\nu=0}^{n} \frac{(\gamma^{*})^{\nu}}{\nu!}
+\frac{\sqrt{(n-\nu)!}}{\sqrt{n!}} \ket{n-\nu}
+\end{align*}
+Similarly,
+\begin{align*}
+e^{-\gamma^{*}\nodag{a}{}} \ket{m} &= 
+\sum_{\mu=0}^{m} \frac{(-\gamma^{*})^{\mu}}{\mu!}
+\frac{\sqrt{(m-\mu)!}}{\sqrt{m!}} \ket{m-\mu}\\
+\bra{m} e^{-\gamma\dag{a}{}}  &= 
+\sum_{\mu=0}^{m} \frac{(-\gamma)^{\mu}}{\mu!}
+\frac{\sqrt{(m-\mu)!}}{\sqrt{m!}} \bra{m-\mu}\;.
+\end{align*}
+
+The sought-for matrix element therefore reads according to \eq{eq:coherent:1}
+%
+\begin{align*}
+\bra{m} e^{\gamma^{*}\nodag{a}{}-\gamma\dag{a}{}} \ket{n} &=
+e^{-\frac{1}{2}\abs{\gamma}^{2}}
+\sum_{\mu=0}^{m} \frac{(-\gamma)^{\mu}}{\mu!}
+\frac{\sqrt{(m-\mu)!}}{\sqrt{m!}} 
+%%
+\sum_{\nu=0}^{n} \frac{(\gamma^{*})^{\nu}}{\nu!}
+\frac{\sqrt{(n-\nu)!}}{\sqrt{n!}} \underbrace{\braket{m-\mu}{n-\nu}}_{=\delta_{m-\mu,n-\nu}}
+\end{align*}
+%
+For $m\ge n$ we eliminate $\mu$ with $\delta_{\mu,m-n+\nu}$. The
+constraint due the sum $\sum_{\mu=0}^{m}$ is $0\le \mu\le m$ and it yields
+%
+\begin{align*}
+0&\le m-n+\nu \le m\\
+-(m-n)&\le \nu\qquad \wedge \nu\le n
+\end{align*}
+Both conditions are fulfilled by the constraint of the sum over $\nu$. So we get
+%
+\begin{align*}
+\bra{m} e^{\gamma^{*}\nodag{a}{}-\gamma\dag{a}{}} \ket{n} &=
+e^{-\frac{1}{2}\abs{\gamma}^{2}}
+\sum_{\nu=0}^{n}  \frac{(-\gamma)^{m-n+\nu}}{(m-n+\nu)!}
+\frac{\sqrt{(m-(m-n+\nu))!}}{\sqrt{m!}} 
+%%
+ \frac{(\gamma^{*})^{\nu}}{\nu!}
+\frac{\sqrt{(n-\nu)!}}{\sqrt{n!}} \\
+&=e^{-\frac{1}{2}\abs{\gamma}^{2}}
+\frac{(-\gamma)^{m-n}}{\sqrt{m!n!}}
+\sum_{\nu=0}^{n} \big(-\abs{\gamma}^{2}\big)^{\nu}\;
+%%
+ \frac{(n-\nu)! 
+ }{\nu!(m-n+\nu)!}
+\;:
+\end{align*}
+For $m\le n$ we eliminate $\nu$ with $\delta_{\nu,n-m+\mu}$. The
+constraint due the sum $\sum_{\nu=0}^{n}$ is $0\le \nu\le n$ and it yields
+%
+\begin{align*}
+0&\le n-m+\mu \le n\\
+-(n-m)&\le \mu\qquad \wedge \mu\le m
+\end{align*}
+Both conditions are again fulfilled by the constraint of the sum over $\mu$. 
+We obtain
+%
+\begin{align*}
+\bra{m} e^{\gamma^{*}\nodag{a}{}-\gamma\dag{a}{}} \ket{n} 
+&=e^{-\frac{1}{2}\abs{\gamma}^{2}}\frac{1}{\sqrt{n! m!}}
+\sum_{\mu=0}^{m} \frac{(-\gamma)^{\mu}}{\mu!}
+\sqrt{(m-\mu)!}
+%%
+\frac{(\gamma^{*})^{n-m+\mu}}{(n-m+\mu)!}
+\sqrt{(n-(n-m+\mu))!}\\
+&=e^{-\frac{1}{2}\abs{\gamma}^{2}}\frac{(\gamma^{*})^{n-m}}{\sqrt{n! m!}}\;
+\sum_{\mu=0}^{m} \big(-\abs{\gamma}^{2}\big)^{\mu}
+%%
+\frac{(m-\mu)!}{\mu!(n-m+\mu)!}
+\end{align*}
+%
+So in summary we have
+\tboxit{}{
+%
+\begin{align*}
+\bra{m} e^{\gamma^{*}\nodag{a}{}-\gamma\dag{a}{}} \ket{n} 
+&=e^{-\frac{1}{2}\abs{\gamma}^{2}}\frac{c^{|n-m|}}{\sqrt{n! m!}}\;
+\sum_{\mu=0}^{L} \big(-\abs{\gamma}^{2}\big)^{\mu}
+%%
+\frac{(L-\mu)!}{\mu!\;(|n-m|+\mu)!}\\
+L &=\min(m,n)\\
+c&=
+\begin{cases}
+-\gamma &\text{for } n\le m\\
+\gamma^{*} &\text{for } m\le n
+\end{cases}
+\end{align*}
+%
+}
+
+ 
+%****************************************************************************************************************************************************************
+\section {Das Dimer Problem}
+%****************************************************************************************************************************************************************
+
+Wir wollen alle erlaubten Dimer-Konfigurationen über Grassmann Variablen erzeugen.
+Wir betrachten dazu die Exponentialfunktion
+\begin{align*}
+    \omega(\xi) &= e^{\sum_{i<j} b_{ij} \xi_i\xi_j}\;.
+\end{align*}
+Hierbei läuft $i$ über die $L_x$ x-Koordinaten der Gitterpunkte und $j$ entsprechend über die 
+$L_y$ y-Koordinaten der Gitterpunkte. Insgesamt gibt es demnach  $N=L_x*L_y$ Gitterpunkt. Die Zahl der Dimere ist $N_D=N/2$. Eine vollständige Dimer-Belegung ist
+natürlich nur möglich, wenn die Zahl der Plätze gerade ist.
+Zunächst werden wir alle $b_{ij}$, die nicht zu nächsten Nachbar Paaren gehören auf Null setzen. Damit kommen in den Summen nur noch Indizes zu 
+benachbarten Gitterplätzen vor.
+Da Paare von Grassmann Variablen  zu ${\cal A}_+$ gehören, vertauschen sie. Außerdem ist verschwindet das Quadrat und jede höhere 
+Potenz dieser Paare und wir können für die Exponentialfunktion umformen in
+schreiben
+\begin{align*}
+    \omega(\xi) &= \prod_{i<j}\; e^{b_{ij} \xi_i\xi_j}  \\
+    &= \prod_{i<j}\;\bigg(1 + b_{ij}\xi_i\xi_j    \bigg)\;,
+\end{align*}
+Jeder Faktor steht für genau eines der $N_{nn}=2*N$ n.N. Paare.
+Wenn wir die Produkte ausrechnen, erhalten 
+wir eine Summe, bei der das Paar $8ij)$ entweder als $1=:(b_{ij} \xi_i\xi_j)^0$ oder $b_{ij} \xi_i\xi_j=:(b_{ij} \xi_i\xi_j)^1$ beiträgt. Wir führen
+pro Paar die "Dimerbesetzung" $n_{ij}=0 (1)$ ein und können die Summe, die aus $2^{N_nn}$ Termen besteht schreiben als
+\begin{align}\label{eq:gv1}
+    \omega(\xi) &= \sum_{\{n_{ij} \}}\; \prod_{ij}\;(b_{ij}\xi_i\xi_j)^n_{ij}\;.
+\end{align}
+In dieser Summe dürfen keine Grassmann Variablen wegen des Pauliprinzips doppelt vorkommen.
+Wenn wir nun noch über $\omega(\xi)$ integrieren
+\begin{align*}
+    I &=\Int\;\omega(\xi)\;\prod_{\nu=1}^N d\xi_\nu\;
+\end{align*}
+tragen nur noch solche Terme der Summe in \eqref{eq:gv1} bei, bei denen jeder Gitterpunkt (und somit jedes $\xi_i$) genau einmal vorkommt. Damit repräsentiert
+jeder Term der Summe eine erlaubte Dimer Konfiguration. Die Summe läuft demnach über aller erlaubten Dimer Konfigurationen ${\cal D}$. Die Indizes des $\nu$-ten Paares 
+in der der Dimer Konfiguration ${\cal D}$ bezeichnen wir mit $(d^\nu_1,d^\nu_2)$. Aus dem Integral wird dann
+
+\begin{align}\label{eq:gv3}
+    I =  \sum_{\cal D}\; \prod_{\nu=1}^{N/2}\;b_{d^\nu_1,d^\nu_2} \Int \; \prod_{\nu=1}^{N/2}\;\xi_{d^\nu_1}\xi_{d^\nu_2}\;\prod_{\nu=1}^N d\xi_\nu\;.
+\end{align}
+Wir bringen die Grassmann Variablen im Integranden in die absteigende Reihenfolge 
+\begin{align}\label{eq:gv2}
+    \prod_{\nu=1}^{N/2}\;\xi_{d^\nu_1}\xi_{d^\nu_2} &= 
+    \sgn\big(D^\nu\big)\;\prod_{j=N}^1\;\xi_j\;,
+\end{align}
+wobei $\sgn(D^\nu)$ das Vorzeichen angibt, dass beim Vertauschen der Grassmann Variablen entsteht. Das Integral ergibt nach der Umsortierung der
+$\xi$ Eins. Damit haben wir
+
+\begin{align*}
+    I =  \sum_{\cal D}\; \underbrace{\prod_{\nu}\;b_{d^\nu_1,d^\nu_2} \;\sgn\big(D^\nu\big)}_{=:\omega(D)}
+\end{align*}
+Wir betrachten einmal die Dimer Konfiguration $D_0$ mit perfekter paralleler Ausrichtung aller Dimere in x-Richtung. Wenn wir die Gitterplätze in x-Richtung fortlaufend
+durchnummerieren ($1,\ldots L_x$ in der  Zeile, $L_x+1,\ldots 2*L_x$, etc.) so haben die Paare immer benachbarte Indizes $(i,i+1)$. Damit erhalten wir wir für diese
+Konfiguration den Beitrag
+\begin{align*}
+    b_{1,2} b_{3,4}\ldots b_{N-1,N} \prod_{i=1}^N \xi_i &=
+    b_{1,2} b_{3,4}\ldots b_{N-1,N} \prod_{i=N}^1 \xi_i\;.
+\end{align*}
+Das Vorzeichen $\sgn(D_0)=1$. Bei den nN Paaren handelt es sich ausschließlich um Paare in x-Richtung. Wir wählen speziell
+\begin{equation}\label{eq:gv_b}
+    b_{(i_x,i_y),(i_x+1,i_y)} = 1\;,
+\end{equation}
+dann ist auch das Produkt der b-s Eins und somit auch das Gewicht $\omega(D_0)$ der Konfiguration $D_0$
+\begin{equation}\label{eq:gv_d0}
+    \omega(D_0) = 1\;.
+\end{equation}
+Tatsächlich liefert jeder einzelne Dimer individuell den Beitrag $+1$. Hierauf werden wir später zurückkommen und $D_0$ als Referenz Konfiguration auswählen.
+
+Wenn wir erreichen wollen, dass $I=N({\cal D})$, die Zahl der Dimer Konfigurationen ist, dann müssen alle Summanden durch geeignete Wahl der $b_{ij}$
+zu Eins gemacht werden. Wir können uns hierbei auf $b_{ij}=\pm 1$ beschränken, da das bereits zum Ziel führen wird.
+Jeder der Summanden kann dann auch nur $\pm 1$ sein. Wir vergleichen das Vorzeichen zweier beliebiger Dimer Konfigurationen ${\cal D}$ und ${\cal D}'$.
+Legt man diese Konfigurationen im Graphen übereinander, dann entstehen geschlossene Schleifen. Die kleinste Schleife besteht dabei aus einem n.N.-Paar.
+Damit das graphisch eine Schleife wird, biegen wir ein Dimer etwas nach oben und das ander etwas nach unten.
+
+Um Paare von Indizes auch in Absteigender Reihenfolge durchlaufen zu können führen wir ein, dass
+\begin{align*}
+    b_{ji} = - b_{ij}
+\end{align*}
+sein soll. Damit ist 
+\begin{align*}
+    b_{ij}\xi_i\xi_j = b_{ji}\xi_j\xi_i\;.
+\end{align*}
+Wir werden nun alle oben besprochenen Schleifen im Urzeigersinn durchlaufen und die darin vorkommenden Indizes fortlaufend durchnummerieren.
+Dabei werden alternierend Dimere von der einen und der anderen Konfiguration enthalten sein. Wir beginnen o.B.d.A. in allen Schleifen mit der Konfiguration ${\cal D}'$.
+Alternativ könnten wir auch immer mit ${\cal D}'$ beginnen. In der $\mu$-ten Schleife sind die Indizes 
+der darin enthaltenen Dimere von ${\cal D}$ 
+\begin{align*}
+    (I^\mu_1,I^\mu_2), (I^\mu_3,I^\mu_4),\ldots,(I^\mu_{n^\mu-1,n^\mu})\;,
+\end{align*}
+die von der Konfiguration ${\cal D}'$ sind dann
+\begin{align*}
+    (I^\mu_2,I^\mu_3), (I^\mu_4,I^\mu_5),\ldots,(I^\mu_{n^\mu,1})\;,
+\end{align*}
+
+Wir multiplizieren nun die Gewichte dieser beiden Dimer Konfigurationen miteinander und faktorisieren sie in die auftretenden Schleifen
+\begin{align*}
+    \omega({\cal D})\;\omega({\cal D}') &= \prod_{\mu} \omega(S_\nu) \;
+\end{align*}
+Das erste Produkt läuft über die individuellen Schleifen und $\omega(S_\mu)$ ist das zugehörige Gewicht für das gilt:
+\begin{align*}
+    \omega(S_\nu)  &=  \prod_{j=1}^{n^\mu/2}\; b_{I^\mu_{2j-1},I^\mu_{2j}} 
+\end{align*}
+Die Länge der $\mu$-ten Schleife wurde mit $n^\mu$ bezeichnet.
+Da jede Schleife eine gerade Anzahl von Punkten enthält, kann man die $\xi$, so wie sie in den Schleifen vorkommen ohne zusätzliche Vorzeichen umsortieren.
+Wenn sich in einem Dimer die Reihenfolge ändert, wird das Vorzeichen durch die Antisymmetrie der b-s, die ja ebenfalls umnummeriert werden, abgefangen.
+
+\section{Wahl der b-s}
+Wir gehen nun zu \eqref{eq:gv3} zurück und betrachten hiervon den Beitrag der Dimer Konfigurationen ${\cal D}$ und ${\cal D}'$
+Wir faktorisieren nach den $N_s^\nu$ Schleifen,
+die durch ${\cal D}$ und  ${\cal D}'$ festgelegt werden. Für ${\cal D}$ lautet der Beitrag
+\begin{align*}
+\prod_{\nu=1}^{N/2}\;b_{d^\nu_1,d^\nu_2}  \; \prod_{\nu=1}^{N/2}\;\xi_{d^\nu_1}\xi_{d^\nu_2} &=
+\prod_{\mu=1}^{N^\nu_s}\;
+X_\mu^\nu\;.
+\end{align*}
+%
+Analog gilt für ${\cal D}'$
+\begin{align*}
+\prod_{\nu=1}^{N/2}\;b_{{d'}^\nu_1,{d'}^\nu_2}  \; \prod_{\nu=1}^{N/2}\;\xi_{{d'}^\nu_1}\xi_{{d'}^\nu_2} &=
+\prod_{\mu=1}^{N^\nu_s}\;
+{X'}_\mu^\nu\;.
+\end{align*}
+Um die Darstellung einigermaßen transparent zu halten unterdrücken wir im folgenden den Index $\nu$ der zugrunde liegenden Dimerkonfiguration
+und den Index $\mu$ der betrachteten Schleife. Für die
+Faktoren $X_\mu^\nu$ gilt dann
+\begin{align*}
+    X = \underbrace{b_{I_1 I_2}\ldots b_{I_{L-1}I_L}}_{X_b}\;\;\xi_{I_1}\ldots\xi_{I_L}\;,
+\end{align*}
+wobei $L$ die Länge der Schleife ist.
+Dieselbe Schleife führt bei der Konfiguration ${\cal D}'$ zu dem Beitrag
+\begin{align*}
+    X' &= b_{I_2 I_3}\ldots b_{I_{L}I_1}\;\;\xi_{I_2}\ldots\xi_{I_L}\xi_{1}\\
+    &= - \underbrace{b_{I_2 I_3}\ldots b_{I_{L}I_1}}_{{X'}_b}\;\;\xi_{I_1}\ldots\xi_{I_L}\\
+\end{align*}
+Das heißt, die Integration über die GV, die in der Schleife enthalten sind liefert nun in beiden Fällen dasselbe Vorzeichen.
+Wenn es uns gelingt, sicherzustellen, dass b-abhängigen Anteile in $X$ und $X'$ unterschiedliche Vorzeichen haben, wäre der Beitrag beider Schleifen 
+gleich .
+
+
+
+
+Wir multiplizieren hierzu die b-abhängigen Anteile und gruppieren die Faktoren geeignet um. Die Forderung ist dann
+\begin{align*} 
+    X_b \;{X'}_b &= \prod_{i=1}^{L-1} b_{I_i,I_{i+1}} \overset{!}{=} -1\;.
+\end{align*}
+Wenn das durch geeignete Wahl der b-s erreicht werden kann, sind die Beiträge zum Gewicht $\omega(D)$ bzw. $\omega(D')$ in jeder Schleife für $D$ und $D'$
+gleich. Wählen wir als Referenz Konfiguration $D=D_0$, dann wissen wir, dass das Gewicht der Dimere in $D'$ in jeder Schleifen  Eins ist, da das für $D_0$
+der Fall ist. Damit wäre sichergestellt, dass $\omega(D)=$ für alle $D$.
+
+Für die kleinstmögliche Schleife mit 2 Plätzen ist dies immer erfüllt, wegen $I_3=I_2$ und $I_4=1$
+\begin{align*}
+    b_{I_1,I_2}b_{I_3,I_4} &=    b_{I_1,I_2}b_{I_2,I_1}= -b_{I_1,I_2}^2 =-1\;.
+\end{align*}
+Die nächstgrößere Schleife  besteht aus 4 Plätzen und liefert
+\begin{align*}
+   \omega_Q &=  b_{(i_x,i_y),(i_x,i_y+1)} b_{(i_x,i_y+1),(i_x+1,i_y+1)}b_{(i_x+1,i_y+1),(i_x+1,i_y)}b_{(i_x+1,i_y),(i_x,i_y)}
+\end{align*}
+Wir hatten uns bereits darauf festgelegt, dass
+\begin{align*}
+    b_{(i_x,i_y+1),(i_x+1,i_y+1)} = 1\; .
+\end{align*}
+Deshalb ist der 2. Faktor 1 und der vierte -1. Somit gilt für das elementare Quadrat
+\begin{align*}
+    \omega_Q &= - b_{(i_x,i_y),(i_x,i_y+1)} b_{(i_x+1,i_y+1),(i_x+1,i_y)}\;.
+\end{align*}
+Offensichtlich können wir das Hüpfen in y- Richtung nicht auch auf 1 setzen. Stattdessen benötigen wir alternierende Vorzeichen je nach x-Koordinate
+\begin{align}\label{eq:b_y}
+    b_{(i_x,i_y),(i_x,i_y+1)} &= (-)^i_x\;,
+\end{align}
+denn dann ist  $\omega_Q=-1$. Wir können nun jede beliebige Schleife dadurch erhalten,dass ausgehend vom elementaren Quadrat sukzessive elementare Quadrate anbauen.
+Angenommen wir haben bereits eine bestimmte Schleife $S$ mit dem Gewicht $\omega_S$ berechnet. Nun hängen wir an einer passenden Stelle ein elementares Quadrat an.
+Das Quadrat selbst liefert einen zusätzlichen Faktor (-1). Jede Seite, die das elementare Quadrat mit der Schleife S gemeinsam hat, löschen wir aus. Dazu berücksichtigen wir, 
+dass die Seiten in S und dem Quadrat in entgegengesetzter Richtung durchlaufen werden und somit jede Seite einen Faktor (-1) liefert. Insgesamt erhalten wir also zum Gewicht von 
+S bei $\nu$ gemeinsamen Seiten ein Vorzeichen $(-1)^{(\nu+1)}$. Das sieht zunächst nicht so gut aus. Wir müssen aber berücksichtigen, dass nicht alle Schleifenformen tatsächlich 
+durch $D$ und $D'$ erzeugt werden. Wenn im Inneren einer Schleife Gitterpunkte vorkommen, die nicht zur Schleife gehören, dann müssen diese Teil einer (mehrerer) Schleife(n)
+sein. Das heißt, die Zahl der inneren Punkte muss gerade sein. Wenn wir nun ein elementares Quadrat hinzufügen ändert sich die Zahl der inneren je nach Zahl der gemeinsamen Kanten
+
+\begin{tabular}{||l|l|l||}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  N(gem. Kanten) & $\Delta N$ (innere Punkte) & Änderung des Vorzeichens von $\omega$\\
+  \hline
+  1 & 0, -2  & +1\\
+  2 & 1, -1 & -1\\
+  3 & 0, +2  & +1\\
+  \hline
+\end{tabular}
+
+Ein Wechsel von einer geraden Anzahl innerer Punkte auf eine ungerade oder umgekehrt bringt einen Vorzeichenwechsel in $\omega$ mit sich.
+Bleibt die Anzahl der inneren Punkte (un-)gerade ändert sich das Vorzeichen nicht. Daraus folgt,
+dass mit gerader Zahl innerer Punkte auch das Vorzeichen der Schleife das vom Ausgangangsquadrat, also -1, ist. Damit haben wir unser Ziel erreicht und 
+$I$ ist identisch mit der Zahl der Dimer-Konfigurationen. Wir gehen nun noch einen Schritt weiter und multiplizieren die b-s mit den Variablen $h$ ($v$) je nachdem, ob es
+um einen horizontalen oder vertikalen Dimer handelt. Dann ist offensichtlich
+\begin{equation}\label{eq:gv5}
+    I_2 = \sum_{\cal D} h^{n_h(D)} v^{n_v(D)}\;,
+\end{equation}
+wobei $n_h(D)$  ($n_v(D)$) die Zahl der horizontalen (vertikalen) Dimere in $D$ ist.
+Für die Summe muss gelten $n_h(D) + n_v(D) =N_D$. Wir können $I_2$ nach den möglichen Zahlen $n$ der horizontalen Dimere
+umgruppieren
+\begin{align*}
+    I_2 &= \sum_{\cal D} h^{n_h(D)} v^{N_D - n_h(D)}\; \sum_{n=0}^{N_d} \delta{n,n_h(D)}\\
+    &=  \sum_{n=0}^{N_d}  h^n v^{N-n}\;\underbrace{\sum_{\cal D}\;\delta{n,n_h(D)}}_{=:N(n)}\\
+    &=  \sum_{n=0}^{N_d}  N(n)\;h^n v^{N-n}\;.
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Auswertung}
+
+
+Im folgenden vertauschen wir oBdA  die x- und y-Richtung.
+Die Matrixelemente des 2d Gitters lauten
+\begin{align*}
+    M_{i_x,i_y;j_x,j_y} &= \overbrace{\delta_{i_x,j_x} h \cdot M^{(y)}_{i_y,j_y}}^\text{Hüpfen in y-Richtung} +
+    \overbrace{v\cdot M^{(x)}_{i_x,j_x} D_{i_y,j_y}}^\text{Hüpfen in x-Richtung}
+    \intertext{mit der Diagonalmatrix}
+    D_{ij} &:= \delta_{ij} \;(-)^{i}\\
+\end{align*}
+
+Hierbei hat  die Matrix $M^{\alpha}$ die Dimension $L_\alpha\times L_\alpha$ und die Form der antisymmetrischen tight-binding MAtrix
+\begin{align*}
+    M^{\alpha}
+    &=
+    \begin{pmatrix}
+    0&1&0&0&0\\
+    -1&0&1&0&0\\
+    0&-1&0&1&0\\
+    0&0&-1&0&1\\
+       0& 0&0&-1&0\\
+       &&&&&\ddots
+    \end{pmatrix}
+\end{align*}
+
+
+Die Matrixelemente sind die Elemente eins Tensorproduktes
+\begin{align*}
+    M_{i_x,i_y;j_x,j_y} &= \langle i_x,i_y | M |j_x,j_y\rangle\\
+    M   &= v\cdot \EE\otimes M^{(y)} +  h\cdot M^{(x)}\otimes D\\
+    M_{i_x,i_y;j_x,j_y} &= v\cdot\langle i_x | \EE |j_x\rangle \langle i_y | M^{y} |j_y\rangle +
+    h\cdot \langle i_x | M^{x} |j_x\rangle \langle i_y | D |j_y\rangle
+\end{align*}
+
+Es gilt
+\begin{align*}
+    (D M) _{ij} &= (-)^i M_{ij} = \begin{pmatrix}
+    0&-1&0&0&0\\
+    -1&0&1&0&0\\
+    0&1&0&-1&0\\
+    0&0&-1&0&1\\
+       0& 0&0&1&0\\
+       &&&&&\ddots
+    \end{pmatrix}\\
+    (M D) _{ij} &=  M_{ij}(-)^j = \begin{pmatrix}
+    0&1&0&0&0\\
+    1&0&1&0&0\\
+    0&-1&0&-1&0\\
+    0&0&-1&0&1\\
+       0& 0&0&1&0\\
+       &&&&&\ddots
+           \end{pmatrix}\\
+           \qquad\Rightarrow\\
+       D M + M D &=0
+\end{align*}
+Die Matrizen $M$ und $D$ antikommutieren und deshalb gilt zusammen mit $D^2=\EE$
+\begin{align*}
+    M^2 &= \bigg(v\cdot\EE\otimes M^{(y)} + h\cdot  M^{(x)}\otimes D\bigg)^2\\
+    &=v^2\cdot \EE\otimes \big(M^{(y)}\big)^2 + h\cdot \big(M^{(x)}\big)^2\otimes \EE + v\cdot h \cdot M^{(x)}\otimes \underbrace{\big(D M^{y} +M^{y} D\big)}_{=0}\\
+    &=v^2\cdot \EE\otimes \big(M^{(y)}\big)^2 +  h^2\cdot \big(M^{(x)}\big)^2\otimes \EE\;.
+\end{align*}
+Die Eigenvektoren hiervon sind die direkten Produkte der Eigenvektoren der beiden Matrizen $M^{\alpha}$ in den beiden Unterräumen.
+Die Eigenwerte ist die Summe der individuellen Eigenwerte multipliziert mit $v^2$ bzw. $h^2$.
+
+
+
+Die Eigenvektoren von $M^{\alpha}$ haben die Komponenten  $x_l =  i^l\;\sin{k l}$ liefert für die $l-te$ Gleichung
+\begin{align*}
+    (M \vec x)_l &= i^{l+1}\sin(k(l+1)) - i^{l-1}\sin(k(l-1))\\
+    &= i^{l} \bigg(i \sin(k(l+1)) + i^{1}\sin(k(l-1))\bigg)\\
+    &= i i^{l} \bigg(\sin(kl)\cos(k) + \cos(kl)\sin(k) + \sin(kl)\cos(k)-\cos(kl)\sin(k)\bigg)\\
+        &= 2 i \cos(k) \;i^{l} \sin(kl)\;.
+\end{align*}
+Der zugehörige Eigenwert ist demnach $2i\cos(k)$.
+Die erste Randgleichung
+sind automatisch erfüllt, da für sie dieselben Gleichungen verwendet werden können , wenn $x_0=0$ und $x_{L_\alpha+1}=0$ gefordert wird.
+Die erste Bedingung ist immer erfüllt und die letzte fordert $k_\alpha=\pi*n/(L_\alpha+1)$
+Die Eigenwerte zum Quadrat sind also
+\begin{align*}
+    \lambda^2_k := - 4\cos^2(k)
+\end{align*}
+Damit sind die Eigenwerte von $M^2$ von der Form
+\begin{align*}
+    \lambda_{n_x,n_y} &= 4 h^2 \cos^2\big(\frac{\pi n_x}{L_x+1}\big) + 
+    4 v^2 \cos^2\big(\frac{\pi n_y}{L_y+1}\big)
+\end{align*}
+Schließlich wissen wir, dass 
+\begin{align*}
+    I_2 &= {\rm Pf}\big( M\big)\intertext{und somit}
+    I_2^4 &= {\rm Pf}^4\big( M\big) = \det\big( M^2\big)\\
+    &= \prod_{n_x=1}^{L_x} \prod_{n_y=1}^{L_y} 
+    \bigg(    4 h^2 \cos^2\big(\frac{\pi n_x}{L_x+1}\big) +    4 v^2 \cos^2\big(\frac{\pi n_y}{L_y+1}\big)    \bigg)\\
+        &= 2^{4 N_D}\;\prod_{n_x=1}^{L_x} \prod_{n_y=1}^{L_y}
+    \bigg(    h^2 \cos^2\big(\frac{\pi n_x}{L_x+1}\big) +    v^2 \cos^2\big(\frac{\pi n_y}{L_y+1}\big)    \bigg)\\
+    I_2^4 &= {\rm Pf}^4\big( M\big) = \det\big( M^2\big)\\
+    &= \prod_{n_x=1}^{L_x} \prod_{n_y=1}^{L_y}
+    \bigg(    4 h^2 \cos^2\big(\frac{\pi n_x}{L_x+1}\big) +    4 v^2 \cos^2\big(\frac{\pi n_y}{L_y+1}\big)    \bigg)\\
+   I_2        &= 2^{N_D} \left[\;\prod_{n_x=1}^{L_x} \prod_{n_y=1}^{L_y}
+    \bigg(    h^2 \cos^2\big(\frac{\pi n_x}{L_x+1}\big) +    v^2 \cos^2\big(\frac{\pi n_y}{L_y+1}\big)    \bigg)\right]^{1/4}\\
+\end{align*}
+

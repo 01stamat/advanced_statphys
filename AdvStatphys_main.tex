@@ -1,0 +1,106 @@
+
+
+
+%\includeonly{./TexFiles/samuel}
+
+
+\documentclass[12pt,openany]{book}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[german]{babel}
+%\usepackage{german}
+%\usepackage{t1enc}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{hyperref}
+
+\usepackage{comment}
+
+\usepackage{xparse}
+\usepackage{physics}
+
+\usepackage{mparhack}
+\usepackage{subfigure}
+
+\usepackage{changebar}
+
+\normalem
+%\usepackage{aurical}
+\usepackage[T1]{fontenc}
+
+\pagestyle{headings}
+\addtolength{\topmargin}{-27pt}
+\addtolength{\textheight}{60pt}
+
+\newfont{\msbm}{msbm10 at 12pt}
+\newfont{\msbms}{msbm10 at 8pt}
+
+\graphicspath{{./Images/}}
+
+\usepackage{ulem}
+\usepackage{cancel}
+
+\input{./BibsAndMacros/stat_phys_defs.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[printwatermark]{xwatermark}
+%\usepackage{xcolor}
+%\usepackage{tikz}
+%\newsavebox\mybox
+%\savebox\mybox{\tikz[color=gray,opacity=0.2]\node{preliminary DRAFT};}
+%\newwatermark*[
+%  allpages,
+%  angle=45,
+%  scale=6,
+%  xpos=-20,
+%  ypos=15
+%]{\usebox\mybox}
+
+\begin{document}
+\title{Advanced Statistical Physics\\(preliminary draft)}
+\author{Univ. Prof. Dr. Wolfgang von der Linden
+\hfill(Stand 6.12.2023)\\
+\hline\\[1.5cm]
+\includegraphics[width=7.5cm]{ising_spins}
+ \includegraphics[width=7.5cm]{ising}\\[1.5cm]
+$M(T,N,B) = N \mu \frac{\sinh(\mu \beta B)}{\sqrt{\sinh^{2}(\mu\beta B) + e^{-4 J \beta}}}$
+\\[2.5cm]}
+\parindent = 0pt
+\maketitle
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+%\pagenumbering{roman}
+\tableofcontents
+
+%
+%
+%
+%
+\include{./TexFiles/statphys_ising}	
+
+%\include{./TexFiles/samuel}% extra material: 
+%\include{./TexFiles/fueff_grassmann}% extra material: 
+%\chapter{Real Gases, see additional topics in the book of Schwabl}
+\include{./TexFiles/statphys_RNG}	 
+\include{./TexFiles/statphys_phase_transition}	   
+% extra material: \include{./TexFiles/statphys_phases_addons}	
+\include{./TexFiles/statphys_magnetism}
+% extra material:%\chapter{Non-equlibrium physics}
+% extra material:%\include{./TexFiles/statphys_noneq}
+%% appendices
+\include{./TexFiles/statphys_appendix_new}
+\include{./TexFiles/statphys_literatur}
+%%\include{statphys_todos}
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

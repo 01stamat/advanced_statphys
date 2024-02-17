@@ -1,0 +1,1201 @@
+
+\chapter{Appendix}
+
+
+
+
+\section{Sommerfeld expansion}\label{Sommerfeld}
+We are interested in integrals of the form
+%
+\begin{align*}
+I&=\int_{0}^{\infty}  f(\varepsilon) n_{F}(\varepsilon|\mu,T)\; d\varepsilon
+\end{align*}
+%
+for low temperatures. The function $f(\varepsilon)$ is  assumed to be independent of $T$
+and regular at $\varepsilon=\mu$.
+First we split the integral as follows
+%
+\begin{align*}
+I&=\int_{0}^{\mu }  f(\varepsilon) \frac{1}{e^{\beta(\varepsilon-\mu)}+1}\; d\varepsilon
++
+\int_{\mu}^{\infty }  f(\varepsilon) \frac{1}{e^{\beta(\varepsilon-\mu)}+1}\;  d\varepsilon\;,
+\end{align*}
+%
+and modify the first term using $1/(e^{x}+1)=1-1/(e^{-x}+1)$
+\begin{align*}
+I&=\underbrace{
+\int_{0}^{\mu }  f(\varepsilon)\;d\varepsilon
+}_{\color{blue} = I_{1}}
+-\underbrace{
+\int_{0}^{\mu }  f(\varepsilon) \frac{1}{e^{-\beta(\varepsilon-\mu)}+1}\; d\varepsilon
+}_{\color{blue} = I_{2}}
++
+\underbrace{
+\int_{\mu}^{\infty }  f(\varepsilon) \frac{1}{e^{\beta(\varepsilon-\mu)}+1}\;  d\varepsilon
+}_{\color{blue} = I_{3}}
+\end{align*}
+In $I_{2}$ we use the transformation 
+%
+\begin{align*}
+x &= -\beta(\varepsilon-\mu)\;,\\
+\varepsilon &= \mu- k_{B}T \;x\;,\\
+d\varepsilon &= -k_{B}T d x\;,
+\end{align*}
+%
+and find
+%
+\begin{align*}
+I_{2} &= -k_{B}T\int_{0}^{\beta\mu} \frac{f(\mu-k_{B}T x)}{e^{x}+1}\;.
+\end{align*}
+%
+The kernel $1/(e^{x}-1)$ decreases rapidly with $x$; and for small values of  $T$ the upper integration limit $\beta \mu$ is much greater than 1, so we can as well extend the integral all the way up 
+to infinity
+\begin{align*}
+I_{2} &= -k_{B}T\int_{0}^{\infty} \frac{f(\mu-k_{B}T x)}{e^{x}+1}\;.
+\end{align*}
+%
+For $I_{3}$ we introduce the substitution 
+\begin{align*}
+x &= \beta(\varepsilon-\mu)\;,\\
+\varepsilon &= \mu+ k_{B}T \;x\;,\\
+d\varepsilon &= k_{B}T d x\;,
+\end{align*}
+%
+and obtain
+%
+\begin{align*}
+I_{3}&= k_{B}T\int_{0}^{\infty} \frac{f(\mu+k_{B}T x)}{e^{x}+1}\;.
+\end{align*}
+%
+Since $1/(e^{x}+1)$ decreases rapidly, $x$ is essentially restricted to $x\lessapprox 1$. 
+Hence $k_{B}T x\lessapprox k_{B}T$. So if $k_{B}T/\mu$ is small, then we can use a Taylor expansion
+%
+\begin{align*}
+f(\mu+ s k_{B}T x) &= \sum_{n=0}^{\infty} s^{n}\frac{(k_{B}T x)^{n}}{n!} f^{(n)}(\mu)\;.
+\end{align*}
+%
+We need 
+%
+\begin{align*}
+I_{3}-I_{2} &=k_{B}T\int_{0}^{\infty}dx 
+\bigg( f(\mu+k_{B}Tx) - f(\mu-k_{B}Tx) \bigg)\frac{1}{e^{x}+1}\\
+ &=2  \sum_{n=1}^{\text{odd}}
+\frac{\big(k_{B}T\big)^{n+1}}{n!} f^{(n)}(\mu)\;
+\int_{0}^{\infty}dx
+ \frac{x^{n}}{e^{x}+1}\\
+  &=2  \sum_{n=1}^{\text{odd}}
+\frac{\big(k_{B}T\big)^{n+1}}{n!}\;f^{(n)}(\mu)\;
+\big(1-\frac{1}{2^{n}}\big)\Gamma(n+1)\zeta(n+1)\;.
+% &=2  \sum_{n=1}^{\text{odd}}\big(1-\frac{1}{2^{n}}\big)\;\zeta(n+1)
+%\big(k_{B}T\big)^{n+1}\;f^{(n)}(\mu)\;
+\end{align*}
+%
+The final result reads
+%
+\tboxit{Sommerfeld expansion}{
+\begin{align}\label{eq:}
+\int_{0}^{\infty}  f(\varepsilon) n_{F}(\varepsilon|\mu,T) d\varepsilon
+ &=\int_{0}^{\mu} f(\varepsilon)d\varepsilon + 2  \sum_{n=1}^{\text{odd}}\big(1-\frac{1}{2^{n}}\big)\;\zeta(n+1)
+\big(k_{B}T\big)^{n+1}\;f^{(n)}(\mu)\;
+\end{align}}
+%
+So the leading order terms in the Sommerfeld expansion are
+%
+\begin{align*}
+I &= \int_{0}^{\mu} f(\varepsilon) d\varepsilon +  \frac{\pi^{2}}{6}\;\big(k_{B}T\big)^{2} \;f'(\mu)+ {\cal O}(\big(\frac{k_{B}T}{\mu}\big)^{4})
+\end{align*}
+%
+%=========================================================
+\section{Euler Mac-Laurin formula}\label{app:Euler:MacLaurin}
+We are interested in sums of the form
+$\sum_{n=0}^{\infty} f(n+\tfrac{1}{2})$.
+We begin with the integral over $f(x)$, which shall be differentiable at least twice and the integral over $(0,\infty)$ shall exist. Then
+%
+%
+\begin{align*}
+\int_{0}^{\infty} f(x) dx
+&=\sum_{n=0}^{\infty}\int_{n}^{n+1}  f(x)dx
+=\sum_{n=0}^{\infty}\int_{-\tfrac{1}{2}}^{\tfrac{1}{2}}
+  f(n+\tfrac{1}{2} + \xi)d\xi\\
+&=
+  \sum_{n=0}^{\infty}\int_{-\tfrac{1}{2}}^{\tfrac{1}{2}}
+  \bigg(f(n+\tfrac{1}{2}) + f'(n+\tfrac{1}{2}) \xi
+  +f''(n+\tfrac{1}{2}) \frac{\xi^{2}}{2} +\ldots \bigg)d\xi\\
+  &=
+  \sum_{n=0}^{\infty}
+  \bigg(f(n+\tfrac{1}{2})\int_{-\tfrac{1}{2}}^{\tfrac{1}{2}} d\xi + f'(n+\tfrac{1}{2}) 
+  \int_{-\tfrac{1}{2}}^{\tfrac{1}{2}} 
+  \xi d\xi
+  +\frac{f''(n+\tfrac{1}{2})}{2} \int_{-\tfrac{1}{2}}^{\tfrac{1}{2}}\;\xi^{2} d\xi+\ldots \bigg)d\xi\\
+&=
+  \sum_{n=0}^{\infty}
+  \bigg(f(n+\tfrac{1}{2}) 
+  +f''(n+\tfrac{1}{2})\frac{2}{2\cdot 3 \cdot 2^{3}}+\ldots \bigg)d\xi\;.
+\end{align*}
+The leading order terms are
+%
+\begin{align*}
+\sum_{n=0}^{\infty} f(n+\tfrac{1}{2}) &= \int_{0}^{\infty}
+f(x) dx - \frac{1}{24} \sum_{n=0}^{\infty} f''(n+\tfrac{1}{2})+\ldots
+\end{align*}
+%
+We can use this formula again to express the sum on the rhs also by an integral, resulting in 
+\begin{align*}
+\sum_{n=0}^{\infty} f(n+\tfrac{1}{2}) &= 
+\int_{0}^{\infty}f(x) dx 
+- \frac{1}{24} \bigg(\int_{0}^{\infty}f''(x) dx  -\frac{1}{24} \sum_{n=0}^{\infty} f^{(iv)}(n+\tfrac{1}{2})\bigg)+\ldots\;,
+\end{align*}
+%
+and we obtain 
+
+%
+\tboxitp{Euler-MacLaurin formula}{leading order}{
+\begin{align}\label{eq:Euler:MacLaurin}
+\sum_{n=0}^{\infty} f(n+\tfrac{1}{2}) &= 
+\int_{0}^{\infty}f(x) dx  +\frac{1}{24} f'(0)-\frac{1}{24} f'(\infty)  + \ldots 
+\end{align}}
+%
+These are actually the first terms of the {\em Euler MacLaurin formula} formula.
+
+
+%=========================================================
+
+\section{One-particle density of states } \label{app:dos}
+
+The one-particle density of states in D spatial dimensions is
+%
+\begin{align*}
+\rho^{(D)}(\varepsilon) &= \sum_{\vv k}\delta(\varepsilon-\frac{\hbar^{2} \vv k^{2}}{2m})\\
+ &= \frac{V^{(D)}}{(2\pi)^{D}}\int d^{D}\vv k\; \delta\bigg(\varepsilon-\bigg(\frac{\hbar \vv k}{\sqrt{2m}}\bigg)^{2}\bigg)\\
+&=\frac{V^{(D)}}{(2\pi)^{D}}\bigg( \frac{\sqrt{2m}}{\hbar}\bigg)^{D}\int d^{D}\vv x \delta(\varepsilon-\vv x^{2})\\
+&=\frac{ V^{(D)} (2m)^{D/2}}{(2\pi)^{D} \hbar^{D}}\;\Omega_{D} \;\int_{0}^{\infty} d x x^{D-1}\delta(\varepsilon-x^{2})\\
+&=\frac{V^{(D)} (2m)^{D/2}}{(2\pi)^{D} \hbar^{D}}\;\Omega_{D}
+\;\theta(\varepsilon\ge 0) \;\int_{0}^{\infty} d x x^{D-1}\frac{\delta(x-\sqrt{\varepsilon})}{2 x}\\
+&=\frac{V^{(D)} (2m)^{D/2}}{(2\pi)^{D} \hbar^{D}}\;\frac{\Omega_{D}}{2} \;
+\varepsilon^{\frac{D-2}{2}}\;\theta(\varepsilon\ge 0)\\
+\end{align*}
+%
+In appendix C of the statistics I script we have derived the surface $\Omega_{D}$ of a
+a $D$-dimensional hypersphere of unit radius
+%
+\begin{align*}
+\Omega_{D} &= \frac{2\pi^{D/2}}{\Gamma(D/2)}\;.
+\end{align*}
+%
+The D-dimensional dos of the free electron gas is therefore
+%
+\tboxitp{Density of states}{D-dimensional free electron gas}{
+\begin{subequations}
+\begin{align}\label{eq:}
+\rho^{(D)}(\varepsilon) &=
+\frac{V^{(D)} m^{\frac{D}{2}} }{\hbar^{D} (2\pi)^{\frac{D}{2}}\Gamma\big(\frac{D}{2}\big)}\;
+\;\varepsilon^{\frac{D-2}{2}}\;\theta(\varepsilon\ge 0)\;.\\
+\rho^{(1)}(\varepsilon) &=
+\frac{L \sqrt{m} }{\hbar \sqrt{2} \pi}\;
+\;\frac{1}{\sqrt{\varepsilon}}\;\theta(\varepsilon\ge 0)\;.\\
+\rho^{(2)}(\varepsilon) &=
+\frac{V^{(2)} m }{\hbar^{2} \;2\;\pi}\;\theta(\varepsilon\ge 0)\;,\\
+\rho^{(3)}(\varepsilon) 
+%&=\frac{V m^{\frac{3}{2}} }{\hbar^{3} (2\pi)^{\frac{3}{2}} \sqrt{\pi}/2}\;
+%\;\sqrt{\varepsilon}\;.\\
+&=\frac{V m^{\frac{3}{2}} }{\hbar^{3} \sqrt{2} \pi^{2}}\;
+\;\sqrt{\varepsilon}\;\theta(\varepsilon\ge 0)\;.
+\end{align}
+\end{subequations}}
+%
+
+\section{Eigenvalues of the free electron gas in a homogeneous magnetic field}
+Here we determine the one-particle eigenvalues of
+ the free electron gas in a homogeneous magnetic field. Since the electron do not interact
+ with each other, it suffices to consider the hamiltonian of  single electron, which
+reads
+%
+\begin{align*}
+H &= \frac{\big( \hat{\vv p} +e \hat{\vv A} \big)^{2}}{2m} + \mu_{B} g_{e} \vv B \hat{\vv S}\;,
+\end{align*}
+%
+where $\vv S$ is the vector operator of the electronic spin. The direction of the magnetic field
+field defines the $z$-direction. Since there is no spin-orbit coupling, the eigenvector is a tensor product of the  orbital and spin degrees of freedom. For the letter the vector is the eigenvector
+of the operator $S_{z}$, i.e.
+%
+\begin{align*}
+\ket{\psi} &= \ket{\Phi}\otimes \ket{\sigma}
+\end{align*}
+%
+The eigenvalue problem turns into
+%
+\begin{align*}
+H\ket{\psi} &= \ket{\sigma} \otimes\bigg( \frac{\big( \hat{\vv p} +e \hat{\vv A} \big)^{2}}{2m} 
++ \underbrace{
+\frac{\mu_{B}\hbar g_{e}}{2}
+}_{\color{blue} = b} \sigma \bigg)\ket{\Phi} = \varepsilon \ket{\sigma}\otimes\ket{\Phi}
+\end{align*}
+%
+The orbital part of the eigenvalue problem reads
+\begin{align*}
+ \frac{\big( \hat{\vv p} +e \hat{\vv A} \big)^{2}}{2m} \ket{\Phi} =\varepsilon' \ket{\Phi}
+\end{align*}
+and the the eigenvalues of the entire hamitonian are
+%
+\begin{align*}
+\varepsilon &= \varepsilon' + b\sigma\;.
+\end{align*}
+%
+The vector potential for the homogeneous magnetic field in $z$-direction can be chosen (Landau gauge) as
+%
+\begin{align*}
+\vv A &= B (0,x,0)\;.
+\end{align*}
+%
+We readily see that it gives the correct $\vv B$ field
+%
+\begin{align*}
+\vv B &=\nabla \times \vv A \\
+&= 
+\begin{pmatrix}
+	\partial_{y} A_{z}  - 	\partial_{z} A_{y}\\
+		\partial_{z} A_{x}  - 	\partial_{x} A_{z}\\
+			\partial_{x} A_{y}  - 	\partial_{y} A_{x}
+\end{pmatrix}\\
+&= B 
+\begin{pmatrix}
+	0\\
+	0\\
+	1
+\end{pmatrix}\;.
+\end{align*}
+%
+Inserting $\vv A$ into the orbital eigenvalue problem gives
+%
+\begin{align*}
+ \frac{\hat p_{x}^{2}+(\hat p_{y}+e B \hat x)^{2}+\hat p_{z}^{2}}{2m} \ket{\Phi} =\varepsilon' \ket{\Phi}
+\end{align*}
+%
+The $y$ and $z$ coordinate only enters via the momenta, therefore, the eigenvector is a tensor
+product of the form
+%
+\begin{align*}
+\ket{\Phi} &= \ket{\Phi_{x}}\otimes\ket{p_{y}}\otimes\ket{p_{z}}\;,
+\end{align*}
+%
+where $\ket{k_{x}}$ ($\ket{k_{x}}$) is an eigenvector of the momentum operator $p_{x}$
+($p_{y}$) with the corresponding eigenvalue. Then
+\begin{align*}
+ \frac{\hat p_{x}^{2}+(\hat p_{y}+e B \hat x)^{2}+\hat p_{z}^{2}}{2m}   \ket{\Phi}&=
+\ket{p_{y}}\otimes\ket{p_{z}}\otimes \frac{\hat p_{x}^{2}+(p_{y}+e B \hat x)^{2}+p_{z}^{2}}{2m} \ket{\Phi_{x}} \\
+&=\ket{p_{y}}\otimes\ket{p_{z}}\otimes \bigg(\varepsilon' \ket{\Phi_{x}}\bigg)
+\end{align*}
+The remaining 1D problem reads
+%
+\begin{align*}
+ \frac{\hat p_{x}^{2}+(p_{y}+e B \hat x)^{2}+p_{z}^{2}}{2m} \ket{\Phi_{x}} 
+&=\varepsilon' \ket{\Phi_{x}}
+\end{align*}
+%
+The electron gas is confined to a box of size $L_{x}\times L_{y}\times L_{y}$. The momentum eigenvalues are therefore quantized as
+%
+\begin{align}
+p_{y} &= \hbar \frac{2\pi}{L_{y}} n_{y}\;,\qquad \text{with } n_{y}\in \mathbf N \\
+p_{z} &= \hbar \frac{2\pi}{L_{z}} n_{z}\;,\qquad \text{with } n_{z} \in \mathbf N\\
+\end{align}
+%
+The 1D hamiltonian can be rewritten in the form
+\begin{align*}
+\bigg( \frac{1}{2m}\hat p_{x}^{2}+ \frac{e B}{2m} (\hat x + \underbrace{
+\frac{p_{y}}{eB}
+}_{\color{blue} := -x_{0}} )^{2}+
+ \frac{p_{z}^{2}}{2m} \bigg)\ket{\Phi_{x}} 
+&=\varepsilon' \ket{\Phi_{x}}
+\end{align*}
+This is the hamiltonian of a harmonic oscillator shifted by $x_{0}$. 
+The prefactor of the $x^{2}$ term corresponds to $\omega_{c}/2$, hence $\omega_{c}=eB/m$. 
+The  eigenvalues of the harmonic oscillator yield
+%
+\begin{align*}
+\varepsilon' &=  \frac{p_{z}^{2}}{2m}  + \hbar \omega_{c} \big( n + \tfrac12 \big)\;.
+\end{align*}
+%
+These eigenvalues are independent of $p_{y}$ and, therefore, degenerate. $p_{y}$ defines the 
+center $x_{0}$ of the harmonic oscillator, which has to be within $(0,L_{x})$, resulting in the condition
+%
+\begin{align*}
+0\le \frac{p_{y}}{e B} \le L_{x} \\
+0\le \frac{\hbar 2\pi }{L_{y} e B}n_{y} \le L_{x} \\
+0\le n_{y} \le \frac{L_{x} L_{y} e B}{ 2\pi\hbar}\;.
+\end{align*}
+%
+The number of allowed $p_{y}$ values defines the degeneracy
+%
+\begin{align*}
+N_\text{deg} &= \bigg\lfloor\frac{L_{x} L_{y} e B}{ 2\pi\hbar }\bigg\rfloor\; +1.
+\end{align*}
+%
+This number will be much greater than 1 and we can, therefore, ignore the fact that it has to be an integer and we simply use
+\begin{align}
+N_\text{deg} &= \frac{L_{x} L_{y} e B}{ 2\pi\hbar }\;.
+\end{align}
+
+
+
+\section{Langevin Diamagnetismus}
+Now we consider the entire free-electron gas model.
+The single electron energies are now
+%
+\begin{align*}
+\varepsilon_{n,\sigma}(k_{z}) &=\varepsilon(k_{z})
++\hbar \omega_{c} (n+\tfrac{1}{2}) + \sigma b\\
+\varepsilon(k_{z}) &=\frac{\hbar^{2} k_{z}^{2}}{2m}
+\end{align*}
+%
+with $b=\frac{\mu_{B} g_{e}}{2}$ and the cyclotron frequency $\omega_{c} = \frac{e B}{m}$, and $\mu_{B} = \frac{e \hbar}{2m}$.  
+The degeneracy of these levels is 
+%
+\begin{align*}
+N_\text{deg} &= \frac{L_{x}L_{y} e B}{2 \pi \hbar} = B C_{deg}\;.
+\end{align*}
+%
+We use again the formula for the grand canonical partition function of non-interacting particles 
+%
+\begin{align*}
+\ln(Z)
+&= \sum_{\nu} \ln\big( 1+^{-\beta(\varepsilon_{\nu}-\mu)} \big)
+\end{align*}
+%
+Inserting the one particle energies results in
+%
+\begin{align}
+\ln(Z)
+&= B C_{deg}\sum_{\sigma} \sum_{n=0}^{\infty}\underbrace{
+\int d\varepsilon\rho^{(1d)}(\varepsilon)
+\ln\bigg( 1+e^{-\beta(\varepsilon + \hbar \omega_{c}(n+\tfrac{1}{2}) + b\sigma-\mu)} \bigg)
+}_{\color{blue} := \underbrace{
+F(\mu - \hbar \omega_{c}(n+\tfrac12) -b\sigma)
+}_{\color{blue} := f(n+\tfrac12)}}\;.
+\end{align}
+%
+Now we invoke the leading Euler-Mac-Laurin formula in \eq{eq:Euler:MacLaurin} to leading order 
+and use $f'(\infty)=0$.
+%
+\begin{align*}
+\sum_{n=0}^{\infty} f(n+\tfrac12) &= \int_{0}^{\infty} f(x) dx
++\frac{1}{24} f'(0) +\ldots\\
+&=\int_{0}^{\infty} F(\mu-\hbar \omega_{c} x -b \sigma ) dx
++\frac{1}{24}\frac{\partial }{\partial x} F(\mu-\hbar \omega_{c} x -b \sigma )\bigg|x=0 +\ldots\\
+&=\frac{1}{\hbar \omega_{c}}\int_{0}^{\infty} F(\mu-y -b \sigma) dy
+-\frac{\hbar \omega_{c}}{24}\frac{\partial }{\partial \mu} F(\mu-b \sigma ) +\ldots\;.
+\end{align*}
+%
+Next we expand this expression in terms of $B$, or rather $b$, up to second order. We also include already the sum over the electronic spin, which allows to omit term proportional to $\sigma^{m}$ for odd $m$.
+%
+\begin{align*}
+\sum_{\sigma} \sum_{n} f(n+\tfrac12) &=\sum_{\sigma}
+\frac{1}{\hbar \omega_{c}} 
+\bigg(
+\int_{0}^{\infty} F(\mu-y)dy - \canceled{b \sigma} \int_{0}^{\infty} \frac{\partial }{\partial \mu}F(\mu-y)dy +\\
+&\quad + \frac{b^{2}}{2}\int_{0}^{\infty} \frac{\partial^{2} }{\partial \mu^{2}}F(\mu-y)dy
+ -\frac{(\hbar \omega_{c})^{2}}{24}\frac{\partial }{\partial \mu} 
+ F(\mu)   
+ +{\cal O}(B^{4})\bigg)\\
+ %=========
+ &=
+\frac{2}{\hbar \omega_{c}} 
+\bigg(
+\int_{-\infty}^{\mu} F(z)dz  +\\
+&\quad + \frac{b^{2}}{2}\int_{0}^{\infty} \frac{\partial^{2} }{\partial y^{2}}F(\mu-y)dy
+ -\frac{(\hbar \omega_{c})^{2}}{24}\frac{\partial }{\partial \mu}  F(\mu)   
+ +{\cal O}(B^{4})\bigg)\\
+  &=
+\frac{2}{\hbar \omega_{c}} 
+\bigg(
+\int_{-\infty}^{\mu} F(z)dz  +\\
+&\quad + \frac{b^{2}}{2}\big(\frac{\partial }{\partial \mu}F(\mu-y)\big)\bigg|_{y=0}^{y=\infty}
+ -\frac{(\hbar \omega_{c})^{2}}{24}\frac{\partial }{\partial \mu}  F(\mu)   
+ +{\cal O}(B^{4})\bigg)\\
+   &=
+\frac{2}{\hbar \omega_{c}} 
+\bigg(
+\int_{-\infty}^{\mu} F(z)dz 
+ +\frac{1}{2}\big( b^{2}-\frac{(\hbar \omega_{c})^{2}}{12}\big)
+ \frac{\partial }{\partial \mu}F(\mu)
+ +{\cal O}(B^{4})\bigg)\;.
+\end{align*}
+%
+Inserting the definition of $\omega_{c}$ and $b$
+yields
+%
+\begin{align*}
+b^{2} -\frac{\big(\hbar \omega_{c}\big)^{2}}{12} 
+&=B^{2}\bigg( \mu_{B}^{2}\bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{1}{12}\bigg(\frac{\hbar e}{m}\bigg)^{2} \bigg)\\
+&=B^{2}\mu_{B}^{2}\bigg( \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{4}{12} \bigg)\\
+\end{align*}
+%
+The grand potential up to order $B^{2}$ reads 
+%
+\begin{align*}
+\Omega &= -k_{B}T \ln(Z)\\
+&=\underbrace{-
+\frac{2 k_{B} T C_{deg}B}{\hbar \omega_{c}} 
+}_{\color{blue} = D}
+\bigg(
+\int_{0}^{\infty} F(\mu-y)dy  
+ +\frac{\mu_{B}^{2}B^{2}}{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{4}{12}  \bigg)
+ \frac{\partial }{\partial \mu}F(\mu)\bigg)\\
+ &=
+D  \int_{0}^{\infty} F(\mu-y)dy  
+ +\frac{1}{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{4}{12}  \bigg)
+\;D \frac{\partial }{\partial \mu} F(\mu)\;.
+\end{align*}
+%
+For $B=0$ we obtain
+%
+\begin{align*}
+\Omega(T,\mu,B=0) &= D  \int_{0}^{\infty} F(\mu-y)dy 
+\end{align*}
+%
+We can exploit
+%
+\begin{align*}
+\frac{\partial }{\partial \mu} \int_{-\infty}^{\mu} F(z)dz &= F(\mu)\\
+\Rightarrow\qquad  \frac{\partial }{\partial \mu}F(\mu) &= \frac{\partial^{2} }{\partial \mu^{}2} \int_{-\infty}^{\mu} F(z)dz 
+\end{align*}
+%
+to rewrite  the grand potential as
+%
+\begin{align*}
+\Omega(T,\mu,B) &= \Omega(T,\mu,B=0) +
+\frac{\mu_{B}^{2}B^{2}}{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{1}{3}  \bigg)
+ \frac{\partial^{2} }{\partial \mu^{2}}\Omega(T,\mu,B=0)\;.
+\end{align*}
+%
+The susceptibility is defined as 
+%
+\begin{align*}
+\chi&= -\frac{\partial \Omega}{\partial B^{2}}\bigg|_{\mu,T} = 
+-\mu_{B}^{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{1}{3}  \bigg)
+ \frac{\partial^{2} }{\partial \mu^{2}}\Omega(T,\mu,B=0)\;,
+\end{align*}
+%
+Finally, we exploit the equation  $\pder{\Omega}{\mu}{T,B}=N(T,\mu,B)$ resulting in
+\begin{align*}
+\chi&= -\frac{\partial \Omega}{\partial B^{2}}\bigg|_{\mu,T} = 
+ \bigg(  1 - \frac{1}{3} \bigg(\frac{2}{g_{e}}\bigg)^{2} \bigg)
+\bigg(\mu_{B}^{2}\bigg(\frac{g_{e}}{2}\bigg)^{2}  \frac{\partial }{\partial \mu}N(T,\mu,B=0)\bigg)\;,
+\end{align*}
+
+
+According to \eq{eq:Pauli:dN:dmu} the last bracket is equal to the Pauli-spin susceptibility, i.e.
+
+\begin{align*}
+\chi&= 
+\chi_{P} - \frac{1}{3} \bigg(\frac{2}{g_{e}}\bigg)^{2} \chi_{P}
+\end{align*}
+
+The additional term is called {\em Landau Diamagnetism} and for $g_{e}\approx 2$ is 
+is
+%
+\begin{align*}
+\chi_{L}&=-\frac{1}{3} \chi_{P}
+\end{align*}
+%
+The total susceptibility is still positive 
+%
+\begin{align*}
+\chi &\approx \frac{2}{3} \chi_{P}\;.
+\end{align*}
+%
+
+\section{Proof of the Mermin-Wagner Theorem\label{app:mermin:wagner}}
+The proof is based on the
+\tboxit{Bogoliubov inequality}{
+%
+\begin{align}\label{eq:}
+\frac{\beta}{2} \avg{[A,A^{\dagger}]_{+}}\;
+\avg{\big[[C,H]_{-},C^{\dagger}\big]_{-}} &\ge \abs{[C,A]_{-}}^{2}
+\end{align}}
+%
+the proof of which is given in \app{app:Bogoliubov}.
+
+Now we start with the Mermin-Wagner theorem, which is valid for the 
+following  hamiltonian 
+ %
+\begin{align}\label{eq:}
+H &= -\sum_{jj'}J_{jj'} \vv S_{j} \vv S_{j'} + b    S^{z}_{\vv Q}\;.
+\end{align}
+%
+%
+The division by $\hbar$ makes the order parameter dimensionless and the factor
+$1/N$ leads to the magnetization per site in the ferromagnetic case.
+%
+The  spin operators obey the common commutator relations of angular momenta
+\begin{subequations}\label{eq:}
+\begin{align}
+\big[ S^{z}_{j} S^{\pm}_{j'}\big] &= \pm \delta_{jj'} \hbar S_{j}^{\pm}\\
+\big[ S^{+}_{j} S^{-}_{j'}\big] &= \delta_{jj'} 2 \hbar S_{j}^{z}\;.
+\end{align}
+\end{subequations}
+%
+It is expedient to introduce Fourier transformed operators
+
+\begin{subequations}\label{eq:FT:magnetism}
+\begin{align}
+S_{k}^{\alpha} &= \sum_{j} S_{j}^{\alpha} e^{i \vv k \vv R_{j}}\;,\qquad \alpha\in\{x,y,z\}\\
+S_{j}^{\alpha}&=\frac{1}{N} \sum_{k}^{1.Bz} S_{k}^{\alpha} e^{-i \vv k \vv R_{j}}
+\end{align}
+\end{subequations}
+%
+From that we obtain
+%
+\begin{align}
+S_{\vv k}^{\pm} &:= \sum_{j} e^{i\vv k \vv R_{j}} S_{j}^{\pm}
+=\sum_{j} e^{i\vv k \vv R_{j}}\big(S_{j}^{x}+i S_{j}^{y}\big)
+= S_{\vv k}^{x} \pm i S_{\vv k}^{y}
+\end{align}
+%
+The commutation relations in these operators are
+\begin{subequations}\label{eq:}
+\begin{align}
+\big[ S^{z}_{k} S^{\pm}_{k'}\big] &= \pm \hbar S_{k+k'}^{\pm}\\
+\big[ S^{+}_{k} S^{-}_{k'}\big] &= 2 \hbar S_{k+k'}^{z}\;.
+\end{align}
+\end{subequations}
+%
+
+We assume that the exchange coupling decays rapidly enough to ensure
+%
+\begin{align}\label{eq:X}
+X&:=\frac{S(S+1)\hbar^{2}}{N} \sum_{jj'} \abs{J_{jj'}} \abs{\vv R_{j}-\vv R_{j'}}^{2} < \infty\;,&&\forall N\;.
+\end{align}
+%
+For the proof of the Mermin-Wagner theorem the following operators are used
+%
+\begin{subequations}\label{eq:MW:operators}
+\begin{align}\label{eq:}
+A = A_{\vv k}&=S^{-}_{\vv Q-\vv k}\;,&A^{\dagger}_{\vv k} &=S^{+}_{\vv k-\vv Q}\\
+C = C_{\vv k} &=S^{+}_{\vv k}\;,&C^{\dagger}_{\vv k} &=S^{-}_{-\vv k}\;.
+\end{align}
+\end{subequations}
+%
+The first term in  the Bogoliubov inequality that we compute is
+%
+\begin{align}\label{eq:MW:1}
+\avg{\big[ C_{\vv k},A_{\vv k} \big]_{-}}  &= \avg{\big[ S^{+}_{\vv k},S^{-}_{\vv Q-\vv k} \big]}
+= 2 \hbar N\;{\cal S}^{z}_{\vv Q}(T,b) \;.
+\end{align}
+%
+The second term  that we consider is
+%
+\begin{align}\label{eq:}
+\sum_{\vv k} \avg{\big[ A_{\vv k},A_{\vv k}^{\dagger} \big]_{+} } 
+&=\sum_{\vv k}\avg{  S^{-}_{\vv Q-\vv k} S^{+}_{\vv k - \vv Q}
++S^{+}_{\vv k - \vv Q} S^{-}_{\vv Q-\vv k}}\\
+&=\sum_{jj'}\sum_{\vv k} e^{i(\vv Q - \vv k)\vv R_{j}}e^{i(\vv k - \vv Q )\vv R_{j'}}\avg{  S^{-}_{j} S^{+}_{j'}
++S^{+}_{j'} S^{-}_{j}}\\
+&=\sum_{jj'} e^{i \vv Q (\vv R_{j}- \vv R_{j'})}
+\underbrace{
+\sum_{\vv k} e^{-i \vv k(\vv R_{j}-\vv R_{j'})} 
+}_{\color{blue} = N \delta_{jj'}}
+\avg{  S^{-}_{j} S^{+}_{j'}
++S^{+}_{j'} S^{-}_{j}}\\
+&=N \;\sum_{j} 
+\avg{  S^{-}_{j} S^{+}_{j}
++S^{+}_{j} S^{-}_{j}}\\
+%%%
+&=2N\sum_{j} \avg{ \big(S^{x}_{y}\big)^{2}+\big(S^{y}_{j}\big)^{2}}\;,
+\end{align}
+%
+This term can be estimated by
+%
+\begin{align*}
+\sum_{\vv k} \langle\big[ A_{\vv k},A_{\vv k}^{\dagger} \big]_{+}  \rangle 
+&\le 2N\sum_{j}\; \underbrace{
+\avg{ \big(\vv S_{j}\big)^{2}}
+}_{\color{blue} = \hbar^{2}S(S+1)}
+=2N^{2}\hbar^{2}S(S+1)\;,
+\end{align*}
+%
+resulting in
+%
+\begin{align}\label{eq:MW:2}
+ \beta N^{2} \hbar^{2} S(S+1)&\ge
+  \frac{\beta}{2}\sum_{\vv k} \langle\big[ A,A^{\dagger} \big]_{+}  \rangle  \;,
+\end{align}
+%
+For the remaining term in the Bogoliubov inequality we find (proof in appendix \app{app:prove:Bogoliubov:3})
+%
+\begin{align}\label{eq:MW:3}
+4 \hbar^{2} N\big( \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2} X \big)\ge 
+ \avg{\bigg[ \big[C_{\vv k},H  \big]_{-},C^{\dagger}_{\vv k} \bigg]_{-}}
+\end{align}
+%
+with the definition of $X$ in \eq{eq:X}.
+The Bogoliubov inequality reads
+%
+\begin{align*}
+\frac{\beta}{2} \avg{[A_{\vv k},A_{\vv k}^{\dagger}]_{+}}\;
+\avg{\big[[C_{\vv k},H]_{-},C_{\vv k}^{\dagger}\big]_{-}} &\ge \abs{\avg{[C_{\vv k},A_{\vv k}]_{-}}}^{2}
+\end{align*}
+%
+According to \eq{eq:schwarz:3} the second factor is greater zero, therefore
+%
+\begin{align*}
+\frac{\beta}{2} \avg{[A_{\vv k},A_{\vv k}^{\dagger}]_{+}}\;
+ &\ge \frac{\abs{\avg{[C_{\vv k},A_{\vv k}]_{-}}}^{2}}{ \avg{\big[[_{\vv k}C,H]_{-},C_{\vv k}^{\dagger}\big]_{-}}}\\
+\Rightarrow\qquad \frac{\beta}{2}\sum_{\vv k} \avg{[A_{\vv k},A_{\vv k}^{\dagger}]_{+}}\;
+ &\ge\sum_{\vv k} \frac{\abs{\avg{[C_{\vv k},A_{\vv k}]_{-}}}^{2}}{ \avg{\big[[C_{\vv k},H]_{-},C_{\vv k}^{\dagger}\big]_{-}}}\;.
+\end{align*}
+%
+Finally, we use the operators in \eq{eq:MW:operators} in the Bogoliubov inequality, sum over
+$\vv k$ and use \eq{eq:MW:1},\eq{eq:MW:2} and \eq{eq:MW:3}, resulting in
+%
+\begin{align*}
+ \beta N^{2} \hbar^{2} S(S+1) &\ge 
+   \frac{\beta}{2}\sum_{\vv k} \langle\big[ A_{\vv k},A_{\vv k}^{\dagger} \big]_{+}  \rangle  \\
+ & \ge\sum_{\vv k} \frac{\abs{[C_{\vv k},A_{\vv k}]_{-}}^{2}}{ \avg{\big[[C_{\vv k},H]_{-},C_{\vv k}^{\dagger}\big]_{-}}}\\
+ %%%%%
+     \beta N^{2} \hbar^{2} S(S+1)   &\ge \frac{4\hbar^{2} N^{2} {\cal S}^{2}_{\vv Q}(T,b)}{4  N} \;\sum_{\vv k} \frac{1}{
+   \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2}   X }\\
+%%%
+ \beta  S(S+1)   &\ge \frac{{\cal S}_{\vv Q}(T,b)}{ N} \;\sum_{\vv k} \frac{1}{
+   \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2}   X }\\
+ \beta  S(S+1)       &\ge {\cal S}^{2}_{\vv Q}(T,b)\;I\;,
+\end{align*}
+%
+with
+%
+\begin{align*}
+I&:= \frac{1}{N}\sum_{\vv k} \frac{1}{
+   \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2}  X }\\
+   &=\frac{V}{N (2\pi)^{D}} \int_{V_{1bc}} d^{D}k\;
+   \frac{1}{
+   \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2} X }
+\end{align*}
+%
+The volume $V_{1bc}$ of integration is the first Brillouin zone of a simple square lattice, i.e.
+a $D$-dimensional cube with edges ranging from $-\pi$
+to $\pi$. Since the integrand is positive, the integral  becomes smaller, if we replace the volume
+by that of a sphere, $V_{sp}$, that lies entirely within $V_{1bc}$, i.e,.
+%
+\begin{align*}
+I&\ge I_{sp}\\
+I_{sp}&=\frac{V}{N (2\pi)^{D}} \int_{V_{sp}} d^{D}k\;
+   \frac{1}{
+   \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2} X}\\
+   &=
+    \frac{V \Omega_{D}}{N (2\pi)^{D}}\;\int_{0}^{k_{0}} dk
+   \frac{k^{D-1}}{
+   \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2} X}\\
+   &=
+    \frac{const}{\abs{b {\cal S}_{\vv Q}(T,b)}} \;\int_{0}^{k_{0}} \frac{dk}{k}
+   \frac{k^{D}}{
+1 +  \underbrace{
+\vv k^{2}\frac{X}{   \abs{b {\cal S}_{\vv Q}(T,b)}}
+}_{\color{blue} := x^{2}}}\\
+   &=
+    \frac{const}{\abs{b {\cal S}_{\vv Q}(T,b)}} \;
+\bigg(    \frac{   \abs{b {\cal S}_{\vv Q}(T,b)}}{X}\bigg)^{D/2}
+    \;\int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }\frac{dx}{x}
+   \frac{x^{D}}{
+1 +  x^{2}}\\
+   &=
+const \;
+  \abs{b {\cal S}_{\vv Q}(T,b)}^{\frac{D-2}{2}}
+    \;\int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }
+\frac{dx}{x}
+   \frac{x^{D}}{
+1 +  x^{2}}\;.
+\end{align*}
+%
+So finally we have
+%
+\begin{align*}
+S(S+1) 
+   &\ge const \; k_{B}T
+\frac{{\cal S}^{2}_{\vv Q}(T,b)}{\hbar^{2}}
+  \abs{b {\cal S}_{\vv Q}(T,b)}^{\frac{D-2}{2}}
+    \;\int_{0}^    {k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }
+\frac{dx}{x}
+   \frac{x^{D}}{1 +  x^{2}}\;,
+\end{align*}
+%
+or alternative
+\begin{align}\label{eq:ineq}
+1  &\ge const \;\cdot  T\cdot 
+\bigg|{\cal S}_{\vv Q}(T,b)\bigg|^{\frac{D+2}{2}}
+  \abs{b}^{\frac{D-2}{2}}
+    \;\underbrace{
+\int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }\frac{dx}{x}
+   \frac{x^{D}}{
+1 +  x^{2}}
+}_{\color{blue} = K_{D}}\;.
+\end{align}
+%
+We are interested in the spontaneous magnetizaton $b\to 0$, i.e. the upper integration limit goes to $\infty$.
+
+\subsubsection{1D}
+%
+In the 1D case, the integral for $b\to 0$ becomes
+%
+\begin{align*}
+K_{1}&=\int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }dx 
+   \frac{1}{1 +  x^{2}}\underset{b\to 0}{ \longrightarrow }
+\int_{0}^{\infty}dx  \frac{1}{1 +  x^{2}}    = \frac{\pi}{2}
+\end{align*}
+%
+Hence 
+%
+\begin{align*}
+1&\ge  const \;T \bigg({\cal S}_{\vv Q}(T,b)\bigg)^{\frac{3}{2}}
+  \abs{b}^{-\frac{1}{2}}\\
+\frac{  \abs{b}}{T^{2}}&\ge const \;\bigg( {\cal S}_{\vv Q}(T,b)\bigg)^{3}\\
+{\cal S}_{\vv Q}(T,b)&\le \bigg(\frac{  \abs{b}}{T^{2}}\bigg)^{1/3} \;.
+\end{align*}
+%
+For finite temperature, the rhs tends to zero for $b\to 0$.
+Hence for 1D and finite $T$
+%
+\begin{align}\label{eq:}
+\lim_{b\to 0}{\cal S}_{\vv Q}(T,b)&= 0 \;,
+\end{align}
+%
+i.e. there is no spontaneous magnetization, irrespective of $\vv Q$, for finite $T$.
+\red{The inequality does not rule out a finite spontaneous magnetization for $T=0$.}
+\subsubsection{2D}
+%
+In the 2D case, the integral $K_{D}$  is a bit more tricky as it diverges for $b\to 0$
+%
+\begin{align*}
+K_{2}&=\int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }dx 
+   \frac{x}{1 +  x^{2}}\\
+   &=\frac{1}{2}\int_{0}^{\frac{k_{0}^{2} X}{  \abs{b {\cal S}_{\vv Q}(T,b)}}}  dz
+   \frac{1}{1 +  z}\\
+   &=\frac{1}{2}\;\ln\big( 1+\frac{k_{0}^{2} X}{  \abs{b {\cal S}_{\vv Q}(T,b)}} \;.
+\end{align*}
+%
+For $b\to 0$ it behaves like
+%
+\begin{align*}
+  K_{2} &=\frac{1}{2}\;\ln\big( \frac{k_{0}^{2} X}{  \abs{b {\cal S}_{\vv Q}(T,b)}} \big)
+  = -\frac{1}{2}\;\ln\big( 
+  \frac{  \abs{b {\cal S}_{\vv Q}(T,b)}} {k_{0}^{2} X}
+  \big)
+  = \frac{1}{2}\;
+  \abs{\ln\big( 
+  \big|\frac{b}{b_{0}}\big|\big)}\;,
+\end{align*}
+%
+where we have defined the positive parameter $b_{0}= k_{0}^{2} X / |S_{\vv Q}(T,b)|$ and we have used that $b\to 0$ result in a negative logarithm.
+%
+Then  the inequality \eq{eq:ineq} yields 
+%
+\begin{align*}
+1&\ge \frac{const}{2} \;T \bigg({\cal S}_{\vv Q}(T,b)\bigg)^{2}
+  \abs{b}^{0} \;\big|  \ln\big( \abs{b/b_{0}}  \big)\big|
+  \\
+   \bigg({\cal S}_{\vv Q}(T,b)\bigg)^{2}&\le\frac{const}{T
+  \big|  \ln\big( \abs{b/b_{0}}  \big)\big| 
+   } \;.
+\end{align*}
+%
+The story is the same as in 1D. The rhs goes to zero for $b\to 0$ and finite T.
+\red{Nothing can be said about $T=0$.}
+
+\subsubsection{3D}
+%
+Eventually in the 3D case, the integral $K_{D}$ yields
+%
+\begin{align*}
+K_{3} &= \int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} }dx 
+   \frac{x^{2}}{1 +  x^{2}}\\
+    &= \int_{0}^{k_{0}\sqrt{\frac{X }{   \abs{b {\cal S}_{\vv Q}(T,b)}}} } dx 
+\bigg(   1-\frac{1}{1 +  x^{2}}\bigg)\\
+&=\sqrt{\frac{c}{ \abs{b {\cal S}_{\vv Q}(T,b)}}}  -\underbrace{
+ K_{1D}
+}_{\color{blue} = \pi/2}
+\end{align*}
+%
+Inserting in the inequality \eq{eq:ineq} yields
+%
+\begin{align*}
+1&\ge const \;T 
+\bigg({\cal S}_{\vv Q}(T,b)\bigg)^{\frac{5}{2}}
+  \abs{b}^{\frac{1}{2}}
+    \;
+    \bigg(\frac{c}{\sqrt{  \abs{b {\cal S}_{\vv Q}(T,b)}}}  - \canceled{\frac{\pi}{2}}  \bigg)\\
+&    \ge const \;T 
+\bigg({\cal S}_{\vv Q}(T,b)\bigg)^{2}\\
+\bigg({\cal S}_{\vv Q}(T,b)\bigg)^{2} &\le  \frac{const}{T}
+\end{align*}
+%
+In this case we do not obtain  a useful inequality. \red{In other words, the Mermin-Wagner theorem 
+does not rule out spontaneous magnetization for finite $T$ in 3D.}
+
+
+%%%%%
+
+\subsection{Bogoliubov inequality }\label{app:Bogoliubov}
+
+Here we will prove the Bogoliubov inequality.
+To this end we will exploit the Schwarz inequality
+%
+\begin{align}\label{eq:schwarz:a}
+\abs{\big( A|B \big)}^{2} \le \big( A|A \big)\big( B|B \big)\;,
+\end{align}
+%
+where $(X|Y)$ are scalar products between any  vectors $A$ and $B$.
+To be able to use this relation, we have to introduce a suitable scalar product, that 
+involves the operators $A$ and $B$
+%
+\begin{align*}
+\big( A|B \big) &:=\sum^{E_{m}\ne E_{n}}_{n,m}
+\bra{m} A^{\dagger} \ket{n} \bra{n} B\ket{m}
+\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}
+\intertext{with}
+\rho_{m} &=\frac{e^{-\beta E_{m}}}{\tr{e^{-\beta H}}}\;.
+\end{align*}
+%.
+This product fulfils the four defining properties of a scalar product
+\begin{itemize}
+	\item $\big( A|B \big)  = \big( B|A \big)^{*} $.
+
+This is obviously the case
+%
+\begin{align*}
+\big( B|A\big)^{*} &=\sum^{E_{m}\ne E_{n}}_{n,m}
+\big(\bra{m} B^{\dagger} \ket{n} \bra{n} A\ket{m}\big)^{*}
+\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}\\
+%&=\sum^{E_{m}\ne E_{n}}_{n,m}
+%\bra{n} A\ket{m}^{*} \bra{m} B^{\dagger} \ket{n}^{*}
+%\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}\\
+&=\sum^{E_{m}\ne E_{n}}_{n,m}
+\bra{m} A^{\dagger}\ket{n} \bra{n} B \ket{m}
+\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}\;,\\
+&=\big( A|B\big)\;.\qquad\checkmark
+\end{align*}
+\item Linearity $\big( A|\alpha B_{1} + \beta B_{2}\big) =\alpha \big( A| B_{1}\big) + \beta \big(A|B_{2}\big) $, which follows from the linearity of the matrix elements
+$\bra{n} B\ket{m}$.
+\item $\big( A|A \big)\ge 0$, since 
+%
+\begin{align*}
+\big( A|A \big) &= \sum^{E_{m}\ne E_{n}}_{n,m}
+\underbrace{
+\abs{\bra{n} A^\dagger \ket{m}\big)}^{2}
+}_{\color{blue} \ge 0 }
+\underbrace{
+\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}
+}_{\color{blue} \ge 0 }\;.
+\end{align*}
+%
+\item From  $A=0$ follows clearly $\big( A|A \big)= 0$, but not conversely  
+%
+\end{itemize}
+So we can conclude that $( A|B )$ is a semi-definite scalar product, for which the
+Schwarz inequality applies.
+In addition, the product has the special feature
+%
+\begin{align}\label{eq:schwarz}
+\big( H|A \big)  &= 0\;,\qquad \forall \text{operators } A\;.
+\end{align}
+%
+This is easily seen, since $\bra m H^{\dagger} \ket{n} = E_{n} \delta_{mn}$; but $m=n$
+is excluded from he sum.
+
+
+
+Next we exploit it for the prove of the Bogoliubov inequality. To this end, we first use
+$B=[C^{\dagger},H]$ in the Schwarz relation. For the lhs we need $(A|B)$
+%
+\begin{align*}
+\big( A|B \big) &=\big( A|[C^{\dagger},H]\big)\\
+&=\sum^{E_{m}\ne E_{n}}_{mn}
+\bra{m} A^{\dagger}\ket{n}\;\bra{n}\big[ C^{\dagger},H \big]\ket{m}
+\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}\\
+&=\sum^{E_{m}\ne E_{n}}_{mn}
+\bra{m} A^{\dagger}\ket{n}\;\bra{n}C^{\dagger}\ket{m}\big( E_{m}-E_{n} \big)
+\frac{\rho_{n}-\rho_{m}}{E_{m}-E_{n}}\\
+&=\sum^{E_{m}\ne E_{n}}_{mn}
+\bra{m} A^{\dagger}\ket{n}\;\bra{n}C^{\dagger}\ket{m}
+\big(\rho_{n}-\rho_{m}\big)\;.
+\end{align*}
+%
+Now we can omit the restriction in the sum, since $\big(\rho_{n}-\rho_{m}\big)$ 
+is zero for $n=m$, anyways. Then
+\begin{align*}
+\big( A|B \big) &=\sum_{mn}
+\rho_{n} \bra{n}C^{\dagger}\ket{m} \;\bra{m} A^{\dagger}\ket{n}\;
+-
+\sum_{mn}\rho_{m}
+\bra{m} A^{\dagger}\ket{n}\;\bra{n}C^{\dagger}\ket{m}
+\;.
+\end{align*}
+%
+Renaming $n\leftrightarrow m$ in the last term 
+eventually leads to
+\begin{align}\label{eq:schwarz:2}
+\big( A|B \big) &=\avg{ \big[C^{\dagger}, A^{\dagger}\big]_{-}}\;
+\end{align}
+If we also choose  $A=B=[C^{\dagger},H]_{-}$ in \eq{eq:schwarz:2}, we obtain
+%
+\begin{align}\label{eq:schwarz:3}
+\big( B|B  \big) &= 
+\avg{ \big[C^{\dagger}, \big[ H,C \big]_{-}\big]_{-}}
+=\avg{ \big[\big[ C,H \big],C^{\dagger}\big]_{-}}\ge 0\;.
+\end{align}
+%
+For the next steps we use ($\rho_{m}= e^{-\beta E_{m}}/Z$)
+%
+\begin{align*}
+\rho_{m} &> \rho_{n} \;\quad \text{if}\quad E_{n} > E_{m}\;.
+\end{align*}
+%
+Hence, for any $E_{n}\ne E_{m}$
+%
+\begin{align}\label{eq:bogoliubov1}
+0 &< \frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}} = \frac{\rho_{m}+\rho_{n}}{E_{n}-E_{m}}\cdot 
+\frac{\rho_{m}-\rho_{n}}{\rho_{m}+\rho_{n}}\;.
+\end{align}
+%
+The second factor can be modified 
+%
+\begin{align*}
+\frac{\rho_{m} - \rho_{n}}{\rho_{m}+\rho_{n}} &= 
+\frac{e^{-\beta E_{m}}-e^{-\beta E_{m}}}{e^{-\beta E_{n}}+e^{-\beta E_{m}}}\\
+&=\frac{e^{-\frac{\beta}{2} E_{m}}e^{-\frac{\beta}{2} E_{n}}}{e^{-\frac{\beta}{2} E_{m}}e^{-\frac{\beta}{2} E_{n}}}\;
+\frac{
+e^{-\frac{\beta}{2} \big(E_{m}-E_{n}\big)}-e^{-\frac{\beta}{2} \big(E_{n}-E_{m}\big)}
+}{
+e^{-\frac{\beta}{2} \big(E_{m}-E_{n}\big)}+e^{-\frac{\beta}{2} \big(E_{n}-E_{m}\big)}
+}\\
+&=\tanh\bigg( \frac{\beta}{2}\big(E_{n}-E_{m}\big) \bigg)
+\end{align*}
+%
+Then \eq{eq:bogoliubov1} yields
+%
+\begin{align*}
+0<&\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}  = \frac{\beta}{2}\;\big(\rho_{m}+\rho_{n}\big) \frac{\tanh\big(\frac{ \beta}{2}(E_{n}-E_{m} \big)}{\frac{\beta }{2} \big( E_{n}-E_{m} \big)}\;.
+\end{align*}
+%
+Since $\tanh(x)/x < 1$, we find
+\begin{align*}
+0 &< \frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}} 
+< \frac{\beta}{2}\;\big(\rho_{m}+\rho_{n}\big) \;.
+\end{align*}
+From this relation we obtain
+%
+\begin{align*}
+\big( A|A \big) &= \sum_{mn}^{E_{m}\ne E_{n}}
+\bra{n} A^{\dagger} \ket{m}\bra{m} A\ket{n}\frac{\rho_{m}-\rho_{n}}{E_{n}-E_{m}}
+&< \frac{\beta}{2}\sum_{mn}^{E_{m}\ne E_{n}}
+\bra{n} A^{\dagger} \ket{m}\bra{m} A\ket{n}\;\big(\rho_{m}+\rho_{n}\big)\;.
+\end{align*}
+%
+The omitted terms for $E_{n}=E_{m}$ are positive, so including them does not violate  the inequality
+%
+\begin{align}\label{eq:schwarz:4}
+\big( A|A \big) &< \frac{\beta}{2}\sum_{mn}
+\bra{n} A^{\dagger} \ket{m}\bra{m} A\ket{n}\;\big(\rho_{m}+\rho_{n}\big)
+=\frac{ \beta}{2} \langle \big[A^{\dagger},A \big]_{+}\rangle
+\end{align}
+%
+
+Now we return to the Schwarz inequality in \eq{eq:schwarz:a} 
+\begin{align}
+\abs{\big( A|B \big)}^{2} \le \big( A|A \big)\big( B|B \big)\;,
+\end{align}
+and insert piece by piece the relations we just derived for the various terms. Beginning with \eq{eq:schwarz:2} and \eq{eq:schwarz:3} we get
+\begin{align*}
+\big|\avg{\big[ C,A \big]}\big|^{2}
+ \le \big( A|A \big)\avg{ \big[\big[ C,H \big],C^{\dagger}\big]_{-}}\;,
+\end{align*}
+
+Along with \eq{eq:schwarz:4} we finally obtain
+\begin{align}
+\big|\avg{\big[ C,A \big]}\big|^{2}
+ \le \frac{\beta}{2}\langle \big[A^{\dagger},A \big]_{+}\rangle \avg{ \big[\big[ C,H \big],C^{\dagger}\big]_{-}}\;,
+\end{align}
+which proves the Bogoliubov inequality.
+
+
+
+\subsection{Proof used for the Mermin-Wagner theorem \label{app:prove:Bogoliubov:3}}
+
+Here we prove the relation
+%
+\begin{align}\label{eq:tobeproven}
+ \avg{\bigg[ \big[C,H  \big]_{-},C^{\dagger} \bigg]_{-}}&\le 
+4 \hbar^{2} N\bigg( \abs{b {\cal S}_{\vv Q}(T,b)} +  \vv k^{2} X \bigg)\;.
+\end{align}
+%
+We recall that 
+%
+\begin{align*}
+C&=S^{+}_{\vv k} = \sum_{l} e^{i \vv k\vv R_{l}} S^{+}_{l}\;.
+\end{align*}
+Hence
+%
+%
+We begin with $[S_{k}^{+},H]_{-}$
+%
+\begin{align*}
+[C,H_{H}]_{-} &= [S^{+}_{\vv k},H_{H}]_{-} \\
+&=-\sum_{l}e^{i\vv R_{l}\vv k} \sum_{jj'}J_{jj'}\bigg(\big[ S_{l}^{+},S^{+}_{j} S^{-}_{j'}\big]
++ \big[S_{l}^{+},S^{z}_{j} S^{z}_{j'}\big]\bigg)\\
+&=-\sum_{l}e^{i\vv R_{l}\vv k} \sum_{jj'}J_{jj'}\bigg(S^{+}_{j}\big[ S_{l}^{+}, S^{-}_{j'}\big]
++ S^{z}_{j}\big[S_{l}^{+}, S^{z}_{j'}\big]
++ \big[S_{l}^{+},S^{z}_{j}\big] S^{z}_{j'}
+\bigg)\\
+&=-\hbar \sum_{l}e^{i\vv R_{l}\vv k} \sum_{jj'}J_{jj'}\bigg(2 S^{+}_{j}
+\delta_{lj'} S^{z}_{l}
+- S^{z}_{j} \delta_{lj'} S_{l}^{+}
+- \delta_{lj}S_{l}^{+}S^{z}_{j'}
+\bigg)\\
+&=-\hbar \sum_{l}e^{i\vv R_{l}\vv k} \sum_{j}J_{jl} \bigg(2 S^{+}_{j}
+ S^{z}_{l}
+-S^{z}_{j} S_{l}^{+}
+-  S_{l}^{+}S^{z}_{j}\bigg)\\
+&=-2\hbar \sum_{l}e^{i\vv R_{l}\vv k} \sum_{j}J_{jl} 
+\bigg(S^{+}_{j} S^{z}_{l}- S_{l}^{+}S^{z}_{j}\bigg)\;.
+\end{align*}
+%
+We have used the symmetry $J_{jj'}=J_{j'j}$ and $S^{z}_{j} S_{l}^{+}=
+S_{l}^{+} S^{z}_{j} +[S^{z}_{j}S_{l}^{+}] $. The commutator is proportional to $\delta_{jl}$ and hence to $J_{jj}$, which is zero. Meanwhile we have
+\begin{align*}
+[C,H_{H}]_{-}
+&=-2\hbar \sum_{lj} \big(e^{i\vv R_{l}\vv k}  - e^{i\vv R_{j}\vv k} \big)\;J_{jl}
+\;S^{+}_{j} S^{z}_{l}\;.
+\end{align*}
+We continue with the second commutator 
+%
+\begin{align*}
+\big[[C,H_{H}]_{-},C^{\dagger}\big]_{-}&=
+-2\hbar \sum_{lj} \big(e^{i\vv R_{l}\vv k}  - e^{i\vv R_{j}\vv k} \big)\;J_{jl}
+\;\sum_{l'} e^{-i\vv k\vv R_{l'}}\big[S^{+}_{j} S^{z}_{l},S^{-}_{l'}\big]\;.
+\end{align*}
+%
+With
+%
+\begin{align*}
+\big[S^{+}_{j} S^{z}_{l},S^{-}_{l'}\big] &=
+S^{+}_{j}  \big[S^{z}_{l},S^{-}_{l'}\big]
++\big[S^{+}_{j},S^{-}_{l'}\big] S^{z}_{l}\\
+&=-\delta_{ll'}\hbar S^{+}_{j}  S^{-}_{l}
++2 \hbar \delta_{l'j} S^{z}_{j}S^{z}_{l}
+\end{align*}
+%
+we obtain
+\begin{align*}
+\big[[C,H_{H}]_{-},C^{\dagger}\big]_{-}&=
+-2\hbar^{2} \sum_{lj} \big(e^{i\vv R_{l}\vv k}  - e^{i\vv R_{j}\vv k} \big)\;J_{jl}
+\bigg(- e^{-i\vv k\vv R_{l}}S^{+}_{j}  S^{-}_{l}
++2 e^{-i\vv k\vv R_{j}} S^{z}_{j}S^{z}_{l}
+\bigg)\\
+&=
+2\hbar^{2} \sum_{lj}\;J_{jl}
+\bigg(  \big(1 - e^{i(\vv R_{j}-\vv R_{l})\vv k} \big)S^{+}_{j}  S^{-}_{l}
+-2\big( e^{-i(\vv R_{j}-\vv R_{l})\vv k} -1\big) S^{z}_{j}S^{z}_{l}
+\bigg)\\
+&=
+2\hbar^{2} \sum_{lj}\;J_{jl}
+  \bigg(1 - e^{i(\vv R_{j}-\vv R_{l})\vv k} \bigg)
+\bigg(S^{+}_{j}  S^{-}_{l} + 2 S^{z}_{j}S^{z}_{l}\bigg)\;.
+\end{align*}
+In the last step we have substituted $j\leftrightarrow l$ and used the symmetry of $J_{jl}$.
+Finally, we repeat the calculation for the field term
+%
+\begin{align*}
+[C,H_{b}]_{-} &= [S^{+}_{\vv k},H_{b}]_{-} 
+= b \sum_{ll'}e^{i\vv R_{l}\vv k} e^{i\vv R_{l'}\vv Q}\;\underbrace{
+\big[ S_{l}^{+},S^{z}_{l'}\big]
+}_{\color{blue} = -\delta_{ll'}\hbar S^{+}_{l}}\\
+&=b\hbar \sum_{l}  e^{i\vv R_{l}(\vv k +\vv Q)}	 S^{+}_{l}\;.
+\end{align*}
+%
+Then
+\begin{align*}
+\big[[C,H_{b}]_{-},C^{\dagger}\big] 
+&=b\hbar \sum_{l}  e^{i\vv R_{l}(\vv k +\vv Q)}	\sum_{l'}e^{-i \vv k\vv R_{l'}} 
+\underbrace{
+\big[S^{+}_{l},S^{-}_{l'}\big]
+}_{\color{blue} = \delta_{ll'} 2\hbar S^{z}_{l}}\\
+&=2 b\hbar^{2} \sum_{l}  e^{i\vv R_{l} \vv Q}	 S^{z}_{l}\\
+&=2 b\hbar^{2}  S^{z}_{\vv Q} \\
+&= 2 b N \hbar^{2}{\cal S}_{\vv Q}(T,b)\;.
+\end{align*}
+Hence for $C=C_{\vv k}$ we have
+\begin{align*}
+\avg{\big[[C_{\vv k},H]_{-},C^{\dagger}_{\vv k}\big] }
+&=2 bN\hbar^{2}  {\cal S}_{Q}(T,b)\\
+&+\quad 2\hbar^{2} \sum_{lj}\;J_{jl}
+  \bigg(1 - e^{i(\vv R_{j}-\vv R_{l})\vv k} \bigg)
+\bigg(\underbrace{
+\langle S^{+}_{j}  S^{-}_{l}\rangle + \langle S^{z}_{j}S^{z}_{l}\rangle
+}_{\color{blue} = \avg{\vv S_{j}\cdot \vv S_{l}}}
++\langle S^{z}_{j}S^{z}_{l}\rangle\bigg)\\
+&=2 b N\hbar^{2}  {\cal S}_{Q}(T,b)\\
+&+\quad 2\hbar^{2} \sum_{lj}\;J_{jl}
+  \bigg(1 - e^{i(\vv R_{j}-\vv R_{l})\vv k} \bigg)
+\bigg( \avg{\vv S_{j}\cdot \vv S_{l}}
++\avg{S^{z}_{j}S^{z}_{l}}\bigg)\;.
+\end{align*}
+%
+From \eq{eq:schwarz:3} we know  that $\big[[C,H_{b}]_{-},C^{\dagger}\big] $ originates from the scalar product  $(B|B)$. It is therefore a real and non-negative function for all $\vv k$. Then
+%
+\begin{align*}
+\avg{\big[[C_{\vv k},H]_{-},C^{\dagger}_{\vv k}\big] } &\le 
+\avg{\big[[C_{\vv k},H]_{-},C^{\dagger}_{\vv k}\big] }+
+\avg{\big[[C_{-\vv k},H]_{-},C^{\dagger}_{-\vv k}\big] }
+\\
+\avg{\big[[C_{\vv k},H]_{-},C^{\dagger}_{\vv k}\big] }  &\le 4 b\hbar^{2} N {\cal S}_{Q}(T,b)\\
+&+\quad 4\hbar^{2} \sum_{lj}\;J_{jl}
+  \bigg(1 - \cos\big(\vv R_{j}-\vv R_{l})\vv k\big) \bigg)
+\bigg( \avg{\vv S_{j}\cdot \vv S_{l}}
++\avg{S^{z}_{j}S^{z}_{l}}\bigg)\\
+&\le 4 N\hbar^{2}  \abs{b{\cal S}_{Q}(T,b)}\\
+&+\quad 4\hbar^{2} \sum_{lj}\;
+\underbrace{
+\abs{J_{jl}}
+  \bigg(1 - \cos\big(\vv R_{j}-\vv R_{l})\vv k\big) \bigg)
+}_{\color{blue}  \ge 0}
+\bigg( \abs{\avg{\vv S_{j}\cdot \vv S_{l}}}
++\abs{\avg{S^{z}_{j}S^{z}_{l}}}\bigg)\;.
+\end{align*}
+%
+Finally, we can use the Schwarz inequality for the scalar products $\avg{\vv S_{j} \cdot \vv S	_{l}}$
+%
+\begin{align*}
+\abs{\avg{\vv S_{j} \cdot \vv S	_{l}}}^{2} &\le 
+\avg{\vv S_{j}^{2}}
+\avg{\vv S_{l}^{2} }
+ =\bigg(\hbar^{2} S(S+1)\bigg)^{2}\\
+ \abs{\avg{\vv S_{j} \cdot \vv S	_{l}}}&\le \hbar^{2}S(S+1)\;.
+\end{align*}
+%
+Moreover, $\abs{\avg{S^{z}_{j}S^{z}_{l}}}\le \abs{\avg{S_{j}S_{l}}}\le \hbar^{2}S(S+1)$.
+In total we have
+%
+\begin{align*}
+\avg{\big[[C,H]_{-},C^{\dagger}\big] } &\le 
+4 N \hbar^{2}  \bigg(\abs{b{\cal S}_{Q}(T,b)}
++ 2S(S+1)\hbar^{2}\;
+\frac{1}{N}\sum_{jl}\abs{J_{jl}}
+  \bigg(1 - \cos\big(\vv R_{j}-\vv R_{l})\vv k\big) \bigg)
+\bigg)
+\end{align*}
+%
+Moreover we use
+%
+\begin{align*}
+1-\cos(x) \le \frac{x^{2}}{2}\;,
+\end{align*}
+%
+and obtain
+\begin{align*}
+\avg{\big[[C,H]_{-},C^{\dagger}\big] } &\le 
+4 N \hbar^{2}  \bigg(\abs{b{\cal S}_{Q}(T,b)}
++ \;\vv k^{2}
+\underbrace{
+\frac{S(S+1)\hbar^{2}}{N}\sum_{jl}\abs{J_{jl}}\abs{\vv R_{j}-\vv R_{l}}^{2}
+}_{\color{blue} = X \text{with } 0\le X < \infty}
+   \bigg)
+\bigg)
+\end{align*}
+Which proves \eq{eq:tobeproven}.

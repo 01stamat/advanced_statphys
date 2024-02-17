@@ -1,0 +1,282 @@
+
+
+\section{Work, Heat, Entropy}
+
+Wir wollen hier verschiedene Zustandsaenderungen des idealen Gases betrachten, von dem wir im thermischen Gleichgewicht wissen, dass die Energie in $d$ Raumdimensionen gegeben ist durch
+\begin{align}\label{eq:heat:eNkT}
+E &= \frac{d}{2} N k_{B} T\;.
+\end{align} 
+Moreover gilt die Zustandsgleichung 
+\begin{align*}
+p V &= N k_{B} T\;.
+\end{align*}
+Diese Gleichung besagt aber nicht unmittelbar, wie sich
+Druck, und Temperatur verhalten, wenn wir  das System komprimieren, d.h. das Volumen verkleinern aber die Teilchenzahl festhalten.
+Wir wollen den Kolben nun mit einer sehr kleinen konstanten Geschwindigkeit $u$ verschieben, so dass sich das Volumen der Box dabei adiabatisch verringert. Ein Teilchen, bewege sich auf den Kolben zu. Die $x$-Komponente seiner Geschwindigkeit sei $v_{x}$. 
+Wir wechseln kurzfristig in das Bezugssystem, das sich mit dem Kolben mitbewegt. Darin ist die Geschwindigkeit des Teilchens
+\begin{align*}
+\tilde v_{x} &= v_{x} + u\;.
+\end{align*}
+%Nach dem Stoß mit der Band hat das Teilchen die Geschwindigkeit
+\begin{align*}
+\tilde v'_{x} &= -v_{x} - u\;.
+\end{align*}
+Wenn wir diese Geschwindigkeit wieder in das ursprüngliche System zurück transformieren erhalten wir
+\begin{align*}
+v'_{x} &= -v_{x} - 2 u\;.
+\end{align*}
+%Der Impulsübertrat durch den Stoß am ruhenden Kolben ist 
+\begin{align*}
+\Delta  P_{x} &= - 2 m v_{x}\;.
+\end{align*}
+%Die Zahl der Teilchen, die in der Zeit $dt$ mit der Wand stoßen ist
+\begin{align*}
+d N &= \rho A v_{x} dt\;,
+\end{align*}
+%allerdings sind das nur solche, deren Geschwindigkeit 
+%$v_{x}$ positiv ist. $A$ ist die Kolbenfläche.
+%Der gesamte mittlere Impulsübertrag in der Zeit $dt$, dividiert durch die Zeit, liefert dann
+\begin{align*}
+F_{x}= \frac{d}{dt} P^\text{ges}_{x} &= -2 m A 
+ \langle v_{x}^{2}\rangle'  \rho \;.
+\end{align*}
+Man beachte noch einmal, dass bei der Mittelwertbildung $\langle \cdot \rangle'$ nur der Teil $v_{x}>0$ der Geschwindigkeitsverteilung verwendet wird, so dass $\langle v_{x}\rangle' $ nicht Null ist. Es gilt aber 
+$\langle v_{x}^{2}\rangle'=\langle v_{x}^{2}\rangle$.
+%Nach dem Newton'schen Gesetz ist das die Kraft $F_{x}$, die auf den Kolben wirkt, bzw. wegen Actio gleich Reactio, ist das auch die Kraft, die auf die Teilchen übertragen wird. Die elastischen Stöße mit der Wand, erzeugen somit den  Druck 
+\begin{align}\label{eq:heat:druck}
+p &= \frac{|F_{x}|}{A}=
+  2 m \langle v_{x}^{2}\rangle'  \rho 
+=     m \langle v_{x}^{2}\rangle  \rho \;.
+\end{align}
+Im zweiten Schritt haben wir nun die gesamte Geschwindigkeitsverteilung eingeführt.
+Nun gilt weiter
+\begin{align*}
+     m \langle v_{x}^{2}\rangle  \rho &=
+     2  \langle \big(\frac{m}{2}v_{x}^{2}\big)\rangle  \frac{N}{V} \\
+     &=     2 \frac{E_{kin,x}}{V}
+     =2 \frac{N k_{B} T}{2V }\\
+     \Rightarrow\quad p V &= N k_{B} T\;.
+\end{align*}
+ Die wohlbekannte ideale Gasgleichung.
+% Nun betrachten wir den Zusatzterm, der durch die Kolbenbewegungn hinzu kommt. Die kinetische Energie eines Teilchens ändert sich durch den Stoß
+% gemäß
+ \begin{align*}
+\Delta E_{kin,x} &= \frac{m}{2}\bigg(
+\big(v_{x} + u\big)^{2}
+- v_{x}^{2} 
+\bigg)\\
+&= 2 m v_{x} u + O(u^{2})\;.
+\end{align*}
+%Da die Kolbenbewegung adiabatisch sein soll können wir $O(u^{2})$ vernachlässigen. Wir multiplizieren das mit der Zahl der Teilchen, die in $dt$ mit der Wand stoßen und erhalten
+\begin{align*}
+d  E_{kin,x} &= \rho A v_{x} dt (2 m v_{x} u)\\
+&= 2 m \rho v_{x}^{2} \;A\;u\;dt
+\end{align*}
+Nun ist $u dt = -dx$ die Strecke, die der Kolben in der Zeit $dt$ zurücklegt, wobei das Volumen verkleinert wird. Es folgt wenn wir noch über die Geschwindigkeiten mitteln und 
+$\langle v_{x}^{2}\rangle'=\langle v_{x}^{2}\rangle$ berücksichtigen
+\begin{align*}
+d  \langle E_{kin,x}\rangle 
+&= m \rho \langle v_{x}^{2}\rangle \;(-\underbrace{
+A dx
+}_{\color{blue} = dV})\;.
+\end{align*}
+Dieser Ausdruck ist positiv und die kinetische Energie das Gases nimmt zu, wenn man das Volumen verkleinert.
+%Wir setzen nun noch \eq{eq:heat:druck} ein und erhalten schließlich
+\begin{align*}
+d \langle E_{kin,x}\rangle
+&= - p dV
+\end{align*}
+Das ist die mikroskopische Herleitung der Formel, die wir bereits makroskopisch hergeleitet hatten.
+%Das ideale Gas hat nur kinetische Energie. Die Änderung seiner Energie durch die Arbeit des Kolbens ist also
+\begin{align*}
+dE &= - pdV  = -dW\;.
+\end{align*}
+%Das ist der Zusammenhang zwischen Energie,Arbeit und Volumensänderung. Das Vorzeichen der Arbeit
+%$dW$ wurde wie folgt gewählt: wenn das System Arbeit verrichtet (Energie abgibt) , ist $dW>0$:
+\begin{align*}
+dW = pdV =
+\begin{cases}
+	> 0&\text{wenn } dV >0\\
+		< 0&\text{wenn } dV <0
+\end{cases}\;.
+\end{align*}
+%Mit der Arbeit des Kolbens ändert sich die Energie, und da diese beim idealen Gas nur von $T$ abhängt, da $N$ konstant ist, gilt also
+\begin{align*}
+dE &= \frac{3}{2} N k_{B}\;dT= - pdV\;.
+\end{align*}
+Wir wollen nun den Zusammenhang $T$ und $V$ herausarbeiten. Deshalb ersetzen wir $p$ durch
+$N k_{B} T/V$ und erhalten
+\begin{align*}
+\frac{3}{2} N k_{B}\;dT&= - \frac{N k_{B} T}{V}
+\;dV\\
+\frac{dT}{T}&= - \frac{2}{3}\frac{ dV}{V}\\
+\ln(T) &= C + \ln\big(V^{-2/3}\big)\\
+T &\propto V^{-2/3}\;. 
+\end{align*}
+Bezogen auf einen Referenzzustand $(T_{0},V_{0})$ folgt
+\tboxit{}{
+\begin{align*}
+\frac{T}{T_{0}} &= \bigg(\frac{V}{V_{0}}\bigg)^{-2/3}\;.
+\end{align*}}
+%Schließlich wollen wir noch den Zusammenhang zwischen Druck und Volumen bei der adiabatischen Volumensänderung herleiten.
+%Wir nutzen hierzu wieder die ideale Gasgleichung und ersetzen auf der linken Seite der letzten Gleichung
+die Temperaturen durch
+\begin{align*}
+T &= \frac{p V}{N k_{B}}\;.
+\end{align*}
+Daraus folgt
+\begin{align*}
+\frac{T}{T_{0}} &= \frac{p }{p_{0}}\frac{V}{V_{0}} = \bigg(\frac{V}{V_{0}}\bigg)^{-2/3}\;.
+\end{align*}
+\tboxit{}{
+\begin{align}\label{eq:}
+\frac{p}{p_{0}}&= \bigg(\frac{V}{V_{0}}\bigg)^{-5/3}\;.
+\end{align}}
+That means $p\propto V^{-5/3}$. 
+
+%Als nächstes betrachten wir eine {\color{blue}isotherme} Zustandsänderung. Hierbei soll also die Temperatur konstant gehalten werden. Das geht nur durch die Kopplung an ein Wärmebad. Wenn sich die Temperatur des idealen Gases nicht ändert gilt wegen der Zustandsgleichung 
+\begin{align*}
+ d(p V)&=  d (N k_{B} T) = 0\\
+\Rightarrow\quad  p dV &= -V dp\\
+\frac{dV}{V} &= - \frac{dp}{p}\;.
+\end{align*}
+Das ergibt
+\tboxit{}{
+\begin{align*}
+\frac{p}{p_{0}} &= \bigg(\frac{V}{V_{0}}\bigg)^{-1}
+\end{align*}}
+%Die Druckänderung 
+ist in diesem Fall geringer als bei der adiabatischen Kompression.
+
+%Das Verhalten so zu verstehen, dass
+die Teilchen durch die Arbeit des Kolbens zwar zunächst kinetische Energie aufnehmen, diese aber
+anschließend an das Wärmebades abgeben. Die  Zunahme  an kinetischer Energie 
+im Fall der adiabatischen Kompression führt zu einem zusätzlichen Beitrag zum Druck. 
+
+Die zusätzliche kinetische Energie geht nun zur Gänze  an  das Wärmebad. Eine solche Energieänderung,
+die nicht mit Arbeit zusammenhängt, nennt man {\color{blue}Wärme}.
+Wärmeübertragung ist generell der Transport von Energie infolge eines Temperaturunterschiedes zwischen verschiedenen thermodynamischen
+Teilsystemen.Diese transportierte Energie wird als Wärme bezeichnet. Man unterscheidet drei Arten von Transportvorgängen:
+\begin{enumerate}
+	\item Wärmetransport (was wir gerade beahndelt haben)
+	\item Wärmestrahlung. Erfolgt durch Strahlung (siehe Schwarzkörperstrahlung)
+	\item Konvektion. Ein zirkulierendes Fluid (Gas) transportiert Energie von einem wärmeren Bereich zu einem kälteren, verliert dort kinetische Energie und fließt dann wieder zum wärmeren Bereich. 
+\end{enumerate}
+
+Wir machen nun mit dem idealen Gas weiter.
+Die (kinetische) Energie des Systems ändert sich ja nicht, wenn $T$ konstant gehalten wird (siehe \eq{eq:heat:eNkT}).
+Es gilt also 
+\begin{align}\label{eq:heat:EQW}
+dE &= dQ - dW \;.
+\end{align}
+Hierbei ist $dE$ die Änderung der gesamten Energie des Systems, $dQ$  die Wärme die das System aufnimmt. Wenn $dQ$ positiv ist, wird Wärme abgegeben, sonst aufgenommen. Wir werden den Begriff noch genauer definieren. $dW$ is die Arbeit, die das System verrichtet, oder die am System verrichtet wird.  
+Im isothermen Fall ($T$ bleibt konstant. $\Rightarrow E$ bleibt konstant ) gilt $dE=0$ und somit
+\begin{align*}
+dQ &= dW\;.
+\end{align*}
+Wenn Arbeit am  System verrichtet wird ist $dW<0$ und somit auch $dQ<0$, was wiederum bedeutet dass das System Wärme abgibt. Umgekehrt, wenn wir das Volumen des System sich ausdehnen lassen,
+dann verrichtet das System Arbeit und es gilt 
+$dW>0$. Daraus folgt $dQ>0$ und es fließt Wärme aus dem Bad in das System, die notwendig ist, um die ansonsten absinkende Temperatur konstant zu halten.
+
+Nun betrachten wir den adiabatischen Fall. Hier ist $dQ=0$, da das System isoliert ist. Dann gilt
+\begin{align*}
+dE &= -dW = -pdV\;.
+\end{align*}
+Wir stellen \eq{eq:heat:EQW} um in der Form
+\begin{align*}
+dQ &= dE + dW\;.
+\end{align*}
+Dann können wir die Änderung der {\color{blue}Wärme} des Gases auffassen als die Differenz zwischen der Energieänderung des Systems, welche durch die Energie festgelegt ist, und der geleisteten Arbeit des Gases.
+
+Die Wärmeübertragung an das Bad kann auch als mikroskopische Arbeit durch fluktuierende Kräfte verstanden werden. Dazu stellen wir uns die undurchdringbare Wand des Behälters 
+als dünnes elastische Folie mit konstanter Dichte vor. Diese Wand ist umgeben von den Bad-Teilchen. Wenn ein Teilchen des System gegen diese Wand stößt, erzeugt es darin Wellen (Phononen), die einen Teil der Energie des streuenden Teilchens wegtragen. Irgendwann wird ein Badteilchen geeignet gegen die Wand treffen und hierbei von der Welle einen Stoß bekommen. Die Welle verliert hierbei Energie  und das Badteilchen gewinnt Energie. Anders als bei dem Stoß an den bewegten Kolben fluktuieren diese Kraftübertragungen. Es handelt sich auf mikroskopischen Nivea nur um mechanische  Kräften, allerdings fluktuieren sie.
+Anders als die Arbeit des Kolbens, sind diese Kräfte nicht kontrollierbar. Wärme ist dann die mittlere Arbeit dieser fluktuierenden Kräfte. 
+
+
+\subsection{Statistische  Betrachtung}
+
+Die innere Energie eines	Systems (klassisch und quantenmechanisch) ist gegeben durch
+\begin{align*}
+E = U &=\sum_{n} P_{n} E_{n}
+\end{align*}
+Änderungen des Systems können zu Änderungen der inneren Energie führen
+\begin{align*}
+dE  &=\underbrace{
+\sum_{n} P_{n} dE_{n}
+}_{\color{blue} = dE_{1}} + \underbrace{
+\sum_{n} d P_{n} E_{n}
+}_{\color{blue} = dE_{2}}\;.
+\end{align*} 
+Das ist keine Zerlegung nach den Einflüssen von $E_{n}$, $dV$ und $dT$,
+sondern danach, ob sich $P_{n}$ ändert oder nicht. Ansonsten würde die Änderung von $E_{n}$ über $P_{n} = e^{-\beta E_{n}}/Z$ auch $P_{n}$ ändern.
+D.h. wenn wir $V$ und damit  $E_{n}$ ändern wird in $dE_{1}$ davon ausgegangen, dass 
+$P_{n}$ trotzdem konstant bleibt, z.B. durch gleichzeitige Änderung der Temperatur.
+Für die QM entspricht das dem Ausdruck in der Eigenbasis von $\hat H$.
+Wir betrachten weiterhin ein ideales Gas. Die (Eigen-)Energien ändern sich dann nur mit dem Volumen und wir haben
+\begin{align*}
+dE_{1} &= \sum_{n} P_{n} \frac{d E_{n}}{dV }  dV
+\end{align*}
+Die Änderung der Eigenwerte von $\hat H$ mit  dem Volumen lauten
+\begin{align*}
+d E_{n} &= \frac{d E_{n}}{dV} dV  = \underbrace{
+\frac{d E_{n}}{dV} A
+}_{\color{blue} = K_{n}} dx \;.
+\end{align*}
+Wir nehmen an, das System ist genau in diesem Eigenzustand.
+Um das Volumen mit einem Kolben zu ändern muss die Kraft $K_{n}$ auf gewendet werden.
+Umgekehrt erzeugt ein Teilchen in diesem Eigenzustand den Druck
+\begin{align*}
+-p_{n} &= \frac{K_{n}}{A} = \frac{d E_{n}}{dV}
+\end{align*}
+auf die  Wand. Wenn nun die Zustände mit der Wahrscheinlichkeit $P_{n}$ besetzt sind, entspricht
+\begin{align*}
+\sum_{n} P_{n} p_{n} 
+\end{align*}
+gerade dem mittleren Druck $p$. Es gilt also
+\begin{align*}
+dE_{1} &= \sum _{n}P_{n} d E_{n} \\&= - p dV = -dW
+\end{align*}
+Demnach sollte wegen $dE = dQ - dW$ gelten
+\begin{align*}
+dQ &= \sum_{n} dP_{n} E_{n}\;.
+\end{align*}
+Das ist zumindest konsistent mit dem adiabatischen Änderungen. Adiabatisch bedeutet, dass die Änderungen so langsam sind, dass das System immer im selben Zustand bleibt, also
+$P_{n}$ sich nicht ändert.
+Wir betrachten nun die Gibbs Entropie
+\begin{align*}
+S &= -k_{B} \sum_{n} P_{n} \ln(P_{n})\\
+dS &= -k_{B} \sum_{n} dP_{n} \ln(P_{n})
+-k_{B} \sum_{n} P_{n} \frac{1}{P_{n}} dP_{n}\\
+&= -k_{B} \sum_{n} dP_{n} \ln(P_{n})
+-k_{B} d \big(\underbrace{
+\sum_{n} P_{n}
+}_{\color{blue} = 1}\big)\\
+&= -k_{B} \sum_{n} dP_{n} \ln(P_{n})\;.
+\end{align*}
+In der kanonischen Gesamtheit gilt
+\begin{align*}
+P_{n} &=\frac{ e^{-\beta E_{n}}}{Z}\\
+\ln(P_{n}) &= -\beta E_{n} - \ln(Z) 
+\end{align*}
+Damit wird
+\begin{align*}
+dS &= -k_{B} \sum_{n} dP_{n} \big(
+-\beta E_{n} - \ln(Z)
+\big)\\
+&= \frac{1}{T} \sum_{n} dP_{n} E_{n} + k_{B} \ln(Z) \underbrace{
+\sum_{n} dP_{n}
+}_{\color{blue} = 0}\\
+T dS&= \sum_{n} dP_{n} E_{n} = dE_{2} = dQ\;.
+\end{align*}
+Demnach besteht der Zusammen zwischen der Wärmeänderung und der Entropieänderung
+\begin{align*}
+dQ &= TdS\;.
+\end{align*}
+bzw. 
+\begin{align*}
+dS &=\frac{dQ}{T}\;.
+\end{align*}
+Diese Beziehung gilt nur für irreversible Zustandsänderungen. Allgemein gilt
+\begin{align*}
+dS &\ge \frac{dQ}{T}\;.
+\end{align*}

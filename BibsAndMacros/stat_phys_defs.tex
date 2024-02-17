@@ -1,0 +1,231 @@
+\usepackage{ifthen}
+
+\newcounter{relpagecountera}
+\newcounter{relpagecounterb}
+
+\newcommand{\pder}[3]{ \frac{\partial #1}{\partial #2}\bigg|_{#3}}
+\newcommand{\avg}[1]{\left\langle#1\right\rangle}
+\newcommand{\app}[1]{appendix (\ref{#1})}
+\newcommand{\deleted}[1]{{\color{magenta} \sout{#1}}}
+\newcommand{\canceled}[1]{{\color{magenta} \cancel{#1}}}
+\newcommand{\canceledk}[1]{{\cancel{#1}}}
+%::::::::::::::
+\newcommand{\vv}[1]{\mathbf #1}
+
+\DeclareMathOperator{\He}{He}
+\DeclareMathOperator{\IInt}{\int\cdots\int}
+%\newcommand{\abs}[1]{| #1|}
+%\newcommand{\bra}[1]{\langle #1|}
+%\newcommand{\ket}[1]{| #1\rangle}
+%\newcommand{\braket}[2]{\langle #1|#2\rangle}
+\newcommand{\Hefour}{\sideset{^4}{}\He}
+\newcommand{\Hethree}{\sideset{^3}{}\He}
+\newcommand{\NN}{{\cal N}}
+\newcommand{\Nt}{\mathcal{N}_{1}^{(t)}}
+\newcommand{\Ndt}{\mathcal{N}_{1}^{(t+dt)}}
+\newcommand{\Ntinf}{\mathcal{N}_{1}^{(t\to\infty)}}
+\newcommand{\VV}{{\cal V}}
+\newcommand{\Vo}{V_{o}}
+\newcommand{\Vu}{V_{u}}
+\newcommand{\No}{N_{o}}
+\newcommand{\Nu}{N_{u}}
+
+\newcommand{\Ni}{N^{(i)}}
+\newcommand{\Noi}{N_{o}^{(1)}}
+\newcommand{\Noii}{N_{o}^{(2)}}
+\newcommand{\Nui}{N_{u}^{(1)}}
+\newcommand{\Nuii}{N_{u}^{(2)}}
+
+\newcommand{\Mo}{M_{o}}
+\newcommand{\Mu}{M_{u}}
+\newcommand{\qo}{q_{o}}
+\newcommand{\qu}{q_{u}}
+\newcommand{\So}{S_{o}}
+\newcommand{\Su}{S_{u}}
+\newcommand{\xx}[1]{\vb{#1}}
+
+\newcommand{\adag}{a^\dagger}
+\newcommand{\anodag}{a^{\phantom\dagger}}
+%\renewcommand{\dag}[2]{#1^\dagger_{#2}}
+\newcommand{\nodag}[2]{#1^{\phantom\dagger}_{#2}}
+
+\newcommand{\uu}{1\hspace{-4pt}1}
+
+\newcommand{\Eo}{E_{o}}
+\newcommand{\Eu}{E_{u}}
+
+\newcommand{\hrho}{\hat\rho}
+\newcommand{\at}{\bigg|}
+\newcommand{\sig}{\sigma}
+
+%\newcommand{\eq}[1]{equation (\ref{#1}) \clb{[page \pageref{#1}]}}
+
+\newcommand{\eq}[1]{equation~(\ref{#1})~\clb{\macref{#1}}}
+
+
+\newcommand{\macref}[1]{%
+\setcounter{relpagecountera}{\value{page}}%
+\setcounter{relpagecounterb}{\value{page}}%
+\addtocounter{relpagecountera}{-1}%
+\addtocounter{relpagecounterb}{1}%
+%[lower limit = \the\numexpr\value{relpagecountera}\relax],%
+%[current page = \the\numexpr\value{page}\relax],%
+%[upper limit = \the\numexpr\value{relpagecounterb}\relax],%
+%[ref. page = \pageref{#1}\relax],%
+\ifthenelse{ \pageref{#1}<\value{relpagecountera} \or \pageref{#1}>\value{relpagecounterb}	}%
+{~[p.~\pageref{#1}]}{%
+\ifthenelse{ \pageref{#1}=\value{page}	}%
+{}{%
+\ifthenelse{ \pageref{#1}=\value{relpagecountera}	}%
+{[previous page]}{next page}
+}}}
+
+
+%\newcommand{\macref}[1]{%
+%\setcounter{relpagecountera}{\value{page}}%
+%\setcounter{relpagecounterb}{\value{page}}%
+%\addtocounter{relpagecountera}{-1}%
+%\addtocounter{relpagecounterb}{1}%
+%[lower limit = \the\numexpr\value{relpagecountera}\relax],%
+%[current page = \the\numexpr\value{page}\relax],%
+%[upper limit = \the\numexpr\value{relpagecounterb}\relax],%
+%
+%[ref. page = \pageref{#1}\relax],%
+%\ifthenelse{ \pageref{#1}<\value{relpagecountera} \or \pageref{#1}>\value{relpagecounterb}	}%
+%{~[a.~\pageref{#1}]}{~[closer]}
+%}
+
+\newcommand{\chap}[1]{chapter (\ref{#1}) \clb{[page \pageref{#1}]}}
+\newcommand{\eqx}[1]{(\ref{#1})}
+\newcommand{\fig}[1]{figure \ref{#1}}
+\newcommand{\Fig}[1]{figure \ref{#1}}
+\newcommand{\SEC}[1]{{\color{red} section (\ref{#1})} \clb{[Seite \pageref{#1}]}}
+\newcommand{\APP}[1]{{\color{red} appendix (\ref{#1})} \clb{[Seite \pageref{#1}]}}
+\newcommand{\TAB}[1]{{\color{blue} table (\ref{#1})}} 
+\newcommand{\zz}{{\it z}}
+\newcommand{\napi}{\nabla_{\pi}}
+\newcommand{\napip}{\nabla_{\pi'}}
+\newcommand{\ddpartf}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dpartf}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ddpart}[1]{\frac{\partial^2 }{\partial #1^2}}
+\newcommand{\dpart}[1]{\frac{\partial }{\partial #1}}
+\newcommand{\SE}{{\cal S}}
+\newcommand{\EE}{\overline{E}}
+\newcommand{\BK}{{\cal B}}
+\newcommand{\dpi}{\;d^{2\NN}\pi}
+\newcommand{\dpp}{\;d^{\NN} p}
+\newcommand{\dxx}{\;d^{\NN}x}
+\newcommand{\dpim}{\;{\cal D}^{\NN}_{\pi}}
+\newcommand{\dpimz}{\;{\cal D}^{\NN_{B}}_{\pi_{B}}}
+
+%\newcommand{\tr}[1]{{\rm tr\left\{#1\right\}}}
+\newcommand{\Ln}[1]{{\rm ln\left[#1\right]}}
+
+\newcommand{\clr}[1]{{\color{red}#1}}
+\newcommand{\clb}[1]{{\color{blue}#1}}
+\newcommand{\equalref}[1]{\overset{\eqx{#1}}{=}}
+
+\def\boxit#1{\indent\vbox{\hrule\hbox{\vrule\kern3pt
+\vbox{\kern3pt \vbox{\hsize 13.5truecm \noindent\strut
+#1\strut}\kern3pt}\kern3pt\vrule}\hrule}}
+
+\newcommand{\tboxit}[2]{\par\vspace{5mm}\boxit{\centerline{\sc
+      #1}\\[-1.5ex]\hrule\vspace{5mm} #2}\par\vspace{5mm}}
+
+\newcommand{\tboxitp}[3]{\par\vspace{5mm}\boxit{\centerline{\sc
+      #1}\\\centerline{(\it #2)}\\[-1.5ex]\hrule\vspace{5mm} #3}\par\vspace{5mm}}
+
+\newcommand{\tboxitpp}[4]{\par\vspace{5mm}
+\boxit{
+\centerline{\sc #1}\\
+\centerline{(\it #2)}\\
+\centerline{[{\it #3}]}\\[-1.5ex]
+\hrule\vspace{5mm} #4}\par\vspace{5mm}}
+
+
+      
+\newcommand{\overeq}[1]{\overset{\small(\ref{#1})}{=}}
+\newcommand{\ome}{\overset{!}{=}}
+
+\newcommand{\nboxit}[2]{\par
+\cbcolor{#1}
+\vspace{1mm}
+\cbstart
+{\color{#1}#2}
+\cbend
+\par\vspace{1mm}
+}
+      
+      
+      
+\newcommand{\AddonBegin}{
+\setlength{\marginparsep}{5mm}
+\setlength{\marginparwidth}{3cm}
+\marginpar{  
+\rule{3cm}{0.5pt}\\
+\centerline{ErgÃ¤nzung}\\
+\centerline{$\vdots$}
+\centerline{$\vee$}
+  }}
+
+\newcommand{\AddonEnd}{
+\setlength{\marginparsep}{5mm}
+\setlength{\marginparwidth}{3cm}
+\marginpar{  
+\centerline{$\wedge$}
+\centerline{$\vdots$}
+\centerline{ErgÃ¤nzung}
+\rule{3cm}{0.5pt}
+  }}
+  
+
+
+\newcommand{\emphasize}[2]{\pagebreak[3]\vspace{10mm}
+\par  
+\marginpar[\rule{15cm}{0.2pt}\\ {\it #1}]{\rule{15cm}{0.2pt}\\ {\it #1}}
+  \par\vspace{10mm}
+{\color{gray}  {#2}}
+  \par\vspace{10mm}
+  \marginpar[{\rm q.e.d.} $\checkmark$\\\rule{15cm}{0.2pt}]{{\rm q.e.d.} $\checkmark$\\\rule{15cm}{0.2pt}}
+  \par\vspace{10mm}
+   }
+
+
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\black}[1]{\textcolor{black}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+%\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\myfoilhead}[1]{\foilhead{\red{#1}}}
+
+\definecolor{wheat}{rgb}{1,1,0.90}
+\definecolor{wheat1}{rgb}{1,0.94,0.92}
+\definecolor{wheat2}{rgb}{1,0.90,0.88}
+\definecolor{light}{gray}{0.95}
+\definecolor{gray}{rgb}{0.5,0.5,0.50}
+\definecolor{heavy}{gray}{0.55}
+\definecolor{braun}{rgb}{.5,.3,.1}
+\definecolor{lightyellow}{rgb}{0.8,.8,.8}
+\definecolor{dunkelrot}{rgb}{.75,.0,.0}
+\definecolor{dunkelgrau}{rgb}{.5,.5,.5}
+\definecolor{dunkelblau}{rgb}{0.05,.27,0.7}
+\definecolor{dunkelbraun}{rgb}{0.52,.30,0.09}
+%\definecolor{savanna}{rgb}{0.53,0.34,0.44}
+%\definecolor{savanna}{rgb}{0.4,0.2,0.3}
+\definecolor{savanna}{rgb}{0.84,.74,0.16}
+\definecolor{darkgreen}{rgb}{0.0,.4,0.0}
+%\definecolor{darkgreen}{rgb}{0.53,0.34,0.44}
+\definecolor{braun}{rgb}{.5,.3,.1}
+\definecolor{dunkelrot}{rgb}{.75,.0,.0}
+\newcommand{\graybox}[1]{\fcolorbox{heavy}{light}
+  {\parbox{0.97\textwidth}{#1}}}
+\newcommand{\formbox}[1]{\fcolorbox{heavy}{wheat2}
+  {\parbox{0.97\textwidth}{#1}}}
+\newcommand{\formhead}[1]{\begin{center}\blue{#1}\end{center}}
+
+
+\newcommand{\spcl}[2]{\color{#2}{\uline{\textcolor{#2}{#1}}}}
+\newcommand{\spcll}[2]{\color{#2}{\uuline{\textcolor{#2}{#1}}}}
+
+\newcommand{\spkl}[2]{\color{#2}{\uline{\textcolor{black}{#1}}}}
+\newcommand{\spkll}[2]{\color{#2}{\uuline{\textcolor{black}{#1}}}}

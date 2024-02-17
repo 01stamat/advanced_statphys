@@ -1,0 +1,314 @@
+\subsection{Pottsmodel}
+It can be considered as generalisation of the Ising model, where the spin can take on more than just two values. Usually they are enumerated $s\in \{1,2,\ldots,q\}$. It is called the {\em q-state Potts model}. The   Hamiltonian of the Potts model reads
+%
+\tboxitp{Pottsmodel}{$q$ states}{
+\begin{align}
+H_{P} &= -J \sum_{ij} \delta_{s_{i}s_{j}}\;,
+\end{align}}
+%
+i.e. when spins on neighbouring sites are equal, they experience a lower energy ($E=-J$)
+than when the have different spin values ($E=0$).
+The Potts model is used to study  the behaviour of ferromagnets and other
+phenomena of solid-state physics. 
+
+Apart from statistical physics it is also used in computer science (signal processing) and biology (neural networks). 
+
+The strength of the Potts model is not so much 
+that it models these physical systems well; it is rather that the one-dimensional case is exactly 
+solvable, and that it has interesting physical properties. For $d\ge 2$ it shows a phase transition.
+It is second order for $q\le 4$ and first order for $q>4$.
+
+
+
+
+
+
+\subsection{Maxwell Relations}
+
+We know
+%
+\begin{align*}
+d U(S,V,N) &= T dS -p dV +\mu dN
+\end{align*}
+%
+Hence
+%
+
+\begin{align*}
+\pder{U(S,V,N)}{S}{V,N} &= T(S,V,N)\\
+\pder{U(S,V,N)}{V}{S,N} &= -p(S,V,N)\;.
+\end{align*}
+%
+From this we obtain
+%
+\begin{align*}
+\pder{T}{V}{S,N} &=\frac{\partial }{\partial V}\bigg(\pder{U}{S}{V,N}\bigg)\at_{S,N}
+ =\frac{\partial }{\partial S}\bigg(\pder{U}{V}{S,N}\bigg)\at_{V,N}
+ =-\pder{p}{S}{V,N}
+\end{align*}
+%
+In the following we use the convention
+%
+\begin{align*}
+\frac{\partial^{2}f(x,y,z)}{\partial x\partial y } 
+=\frac{\partial }{\partial y}\bigg(\pder{f}{x}{y,z}\bigg)\at_{x,z}\;.
+\end{align*}
+%
+and we can simplify the former equation to
+%
+\begin{align*}
+\pder{T}{V}{S,N} &= -\pder{p}{S}{V,N}
+ =\frac{\partial^{2}U(S,V,N) }{\partial S\partial V}\;.
+\end{align*}
+%
+Similarly we find with
+\begin{align*}
+\pder{F(T,V,N)}{T}{V,N} &= -S(T,V ,N)\\
+\pder{F(T,V,N)}{V}{S,N} &= -p(T,V ,N)\;.
+\end{align*}
+%
+the relation
+%
+\begin{align*}
+\pder{S(T,V,N)}{V}{T,N} & =\pder{p(T,V,N)}{T}{V,N}
+=-\frac{\partial^{2} F(T,V,N)}{\partial V\partial T}
+\end{align*}
+%
+Based on the free enthalpy $G(T,p,N)$
+we obtain with
+%
+\begin{align*}
+\pder{G(T,p,N)}{T}{p,N} &= -S(T,p ,N)\\
+\pder{G(T,p,N)}{p}{S,N} &= V(T,p ,N)\;.
+\end{align*}
+%
+the relation
+%
+\begin{align*}
+-\pder{S(T,p,N)}{p}{T,N} & =\pder{V(T,p,N)}{T}{p,N}
+=\frac{\partial^{2} G(T,p,N)}{\partial p\partial T}
+\end{align*}
+%
+Finally, we introduce the {\em enthalpy} $H(S,p,N)$ via the Legendre transformation of
+$U(S,V,N)$ with respect to $V$, i.e.
+%
+\begin{align*}
+H(S,p,N) &= U(S,V,N) + pV\;,
+\end{align*}
+% 
+for which we have
+%
+\begin{align*}
+\pder{H(S,p,N)}{S}{p,N} &= T(S,p ,N)\\
+\pder{H(S,p,N)}{p}{S,N} &= V(S,p ,N)\;.
+\end{align*}
+%
+Then we find
+\begin{align*}
+\pder{T(S,p,N)}{p}{S,N} & =\pder{V(S,p,N)}{S}{p,N}
+=\frac{\partial^{2} H(S,p,N)}{\partial p\partial S}
+\end{align*}
+
+We summaries these results 
+\tboxit{Maxwellrelations}{
+\begin{subequations}\label{eq:}
+\begin{align}
+\pder{T(S,V,N)}{V}{S,N} &= -\pder{p(S,V,N)	}{S}{V,N}
+ &&=\frac{\partial^{2}U(S,V,N) }{\partial S\partial V}\\
+\pder{S(T,V,N)}{V}{T,N} & =\pder{p(T,V,N)}{T}{V,N}
+&&=-\frac{\partial^{2} F(T,V,N)}{\partial V\partial T}\\
+-\pder{S(T,p,N)}{p}{T,N} & =\pder{V(T,p,N)}{T}{p,N}
+&&=\frac{\partial^{2} G(T,p,N)}{\partial p\partial T}\\
+\pder{T(S,p,N)}{p}{S,N} & =\pder{V(S,p,N)}{S}{p,N}
+&&=\frac{\partial^{2} H(S,p,N)}{\partial p\partial S}\;.
+\end{align}
+\end{subequations}
+}
+
+\subsection{Ehrenfest equations}
+
+Next we derive the analogue of Clausius-Clapeyron for second order phase transitions.
+In this case, $S$ and $V$ are continuous when crossing 
+the phase boundary. Along a phase boundary between phase $\alpha$ and $\beta$ we therefore have in the Gibbs ensemble $(T,p,N)$ fixed
+%
+\begin{align*}
+S_{\alpha}(T,p,N) &= S_{\beta}(T,p,N)\\
+V_{\alpha}(T,p,N) &= V_{\beta}(T,p,N)\;,
+\end{align*}
+%
+and also
+%
+\begin{align*}
+dS_{\alpha} &= dS_{\beta}\\
+dV_{\alpha} &= dV_{\beta}\;.
+\end{align*}
+%
+We can use these equations, to obtain $dp/dT$ along the phase boundary.
+We combine  these equation as
+%
+\begin{align*}
+dX_{\alpha}(T,p,N) &= dX_{\beta}(T,p,N)\;,
+\end{align*}
+%
+where $X$ stands either for $S$ or $V$.
+Since $N$ is fixed, it will not vary along the phase boundary. We therefore have
+\begin{align*}
+\pder{X_{\alpha}}{T}{p,N} dT +\pder{X_{\alpha}}{p}{T,N} dp
+&=\pder{X_{\beta}}{T}{p,N} dT +\pder{X_{\beta}}{p}{T,N} dp\;,
+\end{align*}
+%
+from which we obtain
+%
+\begin{align*}
+\bigg(\pder{X_{\beta}}{T}{p,N}-\pder{X_{\alpha}}{T}{p,N}\bigg)dT
+&=
+-\bigg(\pder{X_{\beta}}{p}{T,N}-\pder{X_{\alpha}}{p}{T,N}\bigg)dp\\
+\frac{dp}{dT}
+&=
+-\frac{\pder{X_{\beta}}{T}{p,N}-\pder{X_{\alpha}}{T}{p,N}}
+{\pder{X_{\beta}}{p}{T,N}-\pder{X_{\alpha}}{p}{T,N}}
+:=
+-\frac{\Delta \pder{X_{\beta}}{T}{p,N}}
+{\pder{\Delta X_{\beta}}{p}{T,N}}
+\end{align*}
+%
+If we insert $S$ for $X$ we find
+%
+\begin{align}\label{eq:}
+\frac{d p}{dT} &=-\frac{\Delta \pder{S}{T}{p,N}}
+{\pder{\Delta S}{p}{T,N}}\;.
+\end{align}
+%
+We use 
+%
+\begin{align*}
+\pder{S}{T}{p,N} &= \frac{1}{T} C_{p}\;,
+\end{align*}
+%
+and from the Maxwell relations we use 
+%
+\begin{align*}
+\pder{S}{p}{T,N} &= -\pder{V}{T}{p,N} \;.
+\end{align*}
+%
+The change in volume w.r.t. temperature is related to the 
+$\alpha$
+%
+\tboxitp{coefficient of thermal expansion}{for constant pressure}{
+\begin{align}
+\alpha_{p} &:= \frac{1}{V}\pder{V}{T}{p,N}  
+\end{align}}
+%
+With these response functions, we find
+%
+\begin{align}\label{eq:}
+\frac{dp}{dT}\at_\text{ph.b.} &= \frac{1}{V T}\frac{\Delta C_{p}}{\Delta \alpha_{p}}\;.
+\end{align}
+%
+Alternatively, if we use $V$ as $X$, we have
+%
+\begin{align}\label{eq:}
+\frac{d p}{dT} &=-\frac{\Delta \pder{V}{T}{p,N}}
+{\pder{\Delta V}{p}{T,N}}\;.
+\end{align}
+%
+Here we employ the relations
+%
+\begin{align*}
+\alpha_{p} &= \frac{1}{V} \pder{V}{T}{p,N}\\
+\kappa_{p} &= -\frac{1}{V} \pder{V}{p}{T,N} \;,
+\end{align*}
+%
+and find
+\begin{align}\label{eq:}
+\frac{dp}{dT}\at_\text{ph.b.} &= \frac{\Delta \alpha_{p}}{\Delta \kappa_{p}}\;.
+\end{align}
+
+In summary we have the
+\tboxit{Ehrenfest equations}{
+%
+\begin{align}\label{eq:}
+\frac{dp}{dT}\at_\text{ph.b.} &= \frac{\Delta \alpha_{p}}{\Delta \kappa_{p}}
+=\frac{1}{V T}\frac{\Delta C_{p}}{\Delta \alpha_{p}}\;.
+\end{align}
+%
+}
+
+
+\section{Ising again}
+
+%
+\begin{align*}
+s&:=\sinh(2K)\\
+f=\frac{F}{JN} &= -K\bigg[\frac{\ln(2)}{2} +\frac{1}{4\pi}\int_{0}^{2\pi}
+\log\bigg( 1+ s^{4} + \sqrt{1+s^{4} -2 s^{2}\cos(x)}\bigg) dx\bigg]
+\end{align*}
+%
+$T_{c}$ from
+%
+\begin{align*}
+s_{c} &= \sinh(2K_{c}) = 1\\
+K_{c} &= J \beta_{c} = 0.440687\\
+\frac{k_{B} T_{c}}{J} &=2.26919\;.
+\end{align*}
+%
+%
+\begin{align*}
+u=\frac{U}{JN} &= -   \coth(2 K)
+\bigg[ 
+1+\frac{2( 2 \tanh^{2}\big( 2K \big)-1 )}{\pi}
+\int_{0}^{\pi/2}\frac{1}
+{
+\sqrt{1-\frac{4k}{(1+k)^{2}}\sin^{2}(x)}
+}
+ \bigg]
+\end{align*}
+%
+
+
+For $T\le T_{c}$
+%
+\begin{align*}
+M(T) &= \bigg[ 1 - \bigg(\sinh^{-4}(2K)  \bigg) \bigg]^{1/8}\;.
+\end{align*}
+%
+
+%
+\begin{align*}
+S &= -\frac{\partial F}{\partial T} = -\frac{\partial F}{\partial \beta} \frac{d\beta}{dT}
+= \frac{J}{k_{B}T^{2}} \frac{\partial F}{\partial J \beta} \\
+&= \frac{K}{T} \frac{\partial F}{\partial K} = \frac{K J N}{T} \frac{\partial f}{\partial K}\\
+\frac{S}{N}&= k_{B}\frac{K J}{k_{B}T} \frac{\partial f}{\partial K}\\
+s&=\frac{S}{k_{B}N}= K^{2} \frac{\partial f}{\partial K}\\
+\end{align*}
+%
+%
+\begin{align*}
+U &= F+TS = f J N + T s k_{B} N  \\
+&= JN\bigg( f  + \frac{T  k_{B}}{J} s\bigg) \\
+u&= f + \frac{s}{K}
+\end{align*}
+%
+
+%
+\begin{align*}
+s&= K f - K^{3}\frac{d}{dK} \frac{1}{4\pi}\int_{0}^{2\pi}
+\log\bigg( 1+s^{2} +  \sqrt{1+s^{4} -2 s^{2}\cos(x)}\bigg) dx\\
+&= K f - K^{3}\bigg(\frac{d}{ds} \frac{1}{4\pi}\int_{0}^{2\pi}
+\log\bigg( 1+s^{2} +  \sqrt{1+s^{4} -2 s^{2}\cos(x)}\bigg) dx\bigg)
+\;\frac{d}{dK} \sinh(2K)\\
+&= K \bigg(f - K^{2}\bigg(\frac{d}{ds} \frac{1}{4\pi}\int_{0}^{2\pi}
+\log\bigg( 1+s^{2} +  \sqrt{1+s^{4} -2 s^{2}\cos(x)}\bigg) dx\bigg)!
+\;2 \sqrt{1+s^{2}}\bigg)\;.
+\end{align*}
+%
+
+%
+\begin{align*}
+u &= f + \frac{s}{K}
+\end{align*}
+%
+
+
+
+

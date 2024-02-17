@@ -1,0 +1,199 @@
+close all; clear all; clc
+
+L_e = [-2:0.001:2];
+L_e(abs(L_e)<1.e-8) = [];
+L_rho = ellipke(1-(L_e/2).^2)/(pi^2);
+L_drho = L_rho-L_rho(1);
+
+de    = L_e(2)-L_e(1);
+norm_rho=sum(L_rho)*de
+
+j_C   = log(1+sqrt(2))/2;
+
+
+L_j    = [0.1:0.01:0.9 0.9:0.0001:1.1 1.1:0.01:10]*j_C;
+%L_j    = [0.9:0.001:1.1]*j_C;
+
+N_j    = numel(L_j);
+L_C    = zeros(N_j,1);
+L_U    = zeros(N_j,1);
+L_S    = zeros(N_j,1);
+
+
+for ij = 1: N_j
+    j          = L_j(ij);
+    kappa      = sinh(2*j);
+    eta        = (1-kappa)^2/kappa;
+    L_deno     = (1-kappa)^2 + kappa*(2+L_e);
+    L_deno_q   = L_deno.^2;
+    
+    L_gp       = L_rho.*( (L_e +2 *kappa)./L_deno);
+    L_gpa      = L_drho.*( (L_e +2 *kappa)./L_deno);
+    aa         = (kappa^2-1)*(log((kappa+1)^2)-log((kappa-1)^2));
+    gpb        = (L_rho(1)/kappa^2)*(4*kappa + aa);
+    gp         = sum(L_gpa)*de + gpb;
+    
+    L_gpp1      = L_rho.*( 2./L_deno);
+    L_gpp1a      = L_drho.*( 2./L_deno);
+    L_gpp1b      = L_rho(1).*( 2./L_deno);
+    gpp1b       = (2*L_rho(1)/kappa)*(log(abs(4+(1-kappa)^2/kappa)) -log(abs((1-kappa)^2/kappa)));
+    
+    L_gpp2     = -L_rho.*((L_e+2*kappa).^2)./L_deno_q;
+    L_gpp2a    = -L_drho.*((L_e+2*kappa).^2)./L_deno_q;
+    L_gpp2b    = -L_rho(1).*((L_e+2*kappa).^2)./L_deno_q;
+    
+    gpp2b      = -gpb*2/kappa;
+    
+    gpp        = sum(L_gpp1a+L_gpp2a)*de +gpp1b+gpp2b;
+    
+    L_C(ij,1)    = 2*j^2*((1+kappa^2).*gpp +kappa * gp);
+    
+    
+    L_U(ij)    = -gp*sqrt(1+kappa^2);
+    ln_Z       = log(2) + .5*sum(L_rho.*log(L_deno))*de;
+    L_ln_Z(ij) = ln_Z;
+    L_S(ij)    = ln_Z - gp*sqrt(1+kappa^2)*j;
+    
+end
+
+
+L_x =j_C./L_j;
+
+if 0
+    fig10 = figure(10);
+    plot(L_x,L_C,'-b','linewidth',2); hold on
+    
+    L_xx = 1+[-0.01:0.0001:0.01];
+    a= -.52;
+    b= 4* L_rho(1);
+    L_y = (a-b*log(abs(2*(L_xx-1))));
+    %  plot(L_xx,L_y,'-b','linewidth',1)
+    lt=xlabel('$T/T_C$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    lt=ylabel('$C/N k_B$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    
+    ylim([0 4])
+    xlim([0 2])
+    set(gca,'fontsize',18)
+    saveas(fig10,'ising_spec_heat.pdf','pdf');
+    
+    
+    fig20 = figure(20);
+    L_Ux = L_U;
+    ind=find(isnan(L_Ux));
+    L_Ux(ind)=[];
+    L_xx = L_x;
+    L_xx(ind)=[];
+    plot(L_xx,L_Ux,'linewidth',2); hold on
+    
+    xlim([0 2]);
+    ylim([-2 0])
+    
+    lt=xlabel('$T/T_C$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    lt=ylabel('$U/N J$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    
+    ylim([-2 0])
+    xlim([0 2])
+    set(gca,'fontsize',18)
+    saveas(fig20,'ising_internal_energy.pdf','pdf');
+    
+    fig30 = figure(30);
+    
+    plot(L_x,L_S,'-','linewidth',2); hold on
+    plot([0,2],log(2)*[1,1],'-k','linewidth',2); hold on;
+    lt = text(2.05,log(2),'$\ln(2)$');
+    set(lt,'fontsize',20,'interpreter','latex')
+    
+    ylim([0 1]);
+    xlim([0 2]);
+    lt=xlabel('$T/T_C$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    lt=ylabel('$S/N k_B$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    
+    
+    set(gca,'fontsize',18);
+    saveas(fig30,'ising_entropy.pdf','pdf');
+    
+    fig40 = figure(40);
+    
+    L_F    = L_U - L_S./L_j';
+    ind=find(isnan(L_F));
+    L_F(ind)=[];
+    L_xx = L_x;
+    L_xx(ind)=[];
+    plot(L_xx,L_F,'-','linewidth',2); hold on
+    
+    
+    
+    %ylim([0 1])
+    %xlim([0 2])
+    lt=xlabel('$T/T_C$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    lt=ylabel('$F/N J$');
+    set(lt,'fontsize',16,'interpreter','latex')
+    
+    
+    set(gca,'fontsize',18);
+    saveas(fig40,'ising_free_energy.pdf','pdf');
+end
+fig50=figure(50);
+L_x = [0.01:0.0001:1];
+L_j = (1./L_x)*j_C;
+L_M = (1-sinh(2*L_j).^(-4)).^(1/8);
+p1 = plot(L_x,L_M,'-b','linewidth',2); hold on
+p2 = plot([1,1.5],[0,0],'-b','linewidth',2); hold on
+
+
+
+%=====mean field
+
+L_beta = [1:0.001:10 1000]';
+N_beta = numel(L_beta);
+Nmax   = 10000
+L_x    = zeros(N_beta,1);
+for i_beta = 1: N_beta
+    beta  = L_beta(i_beta);
+    x     = beta;
+    dx    = 1;
+    for i = 1: Nmax
+        phi  = beta*tanh(x)-x;
+        phip = beta/(cosh(x))^2 - 1;
+        dx   = phi/phip;
+        x    = x - dx;
+        flag = abs(dx)<1.e-10;
+        if flag
+            break
+        end
+    end
+    if flag
+        L_x(i_beta) = abs(x);
+    else
+        L_x(i_beta) = nan;
+    end
+end
+
+L_M =L_x./L_beta;
+
+p3 = plot(1./L_beta,L_M,'-- r','linewidth',2);
+
+lt=legend([p1,p3],'exact result','MFA');
+set(lt,'fontsize',16,'interpreter','latex');
+%====
+
+
+
+ylim([0 1.1])
+xlim([0 1.5])
+lt=xlabel('$T/T_C$');
+set(lt,'fontsize',16,'interpreter','latex')
+lt=ylabel('$M/N$');
+set(lt,'fontsize',16,'interpreter','latex')
+
+
+set(gca,'fontsize',18);
+saveas(fig50,'ising_magnetization.pdf','pdf');
+

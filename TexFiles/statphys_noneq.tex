@@ -1,0 +1,130 @@
+\section{Boltzmann Equation}
+\section{Stochastic Method}
+\subsection{Brownian motion}
+
+We consider the irregular motion of particles
+caused by the random scatter by much smaller particles. The latter form a fluid, in which the bigger
+particle moves. The eom therefore reads
+%
+\tboxit{Langevin equation}{
+\begin{align}\label{eq:}
+m \frac{d}{dt} \vv v &=-\alpha \vv v + \vv F(t)\;,
+\end{align}}
+%
+The first term on the rhs describes the friction (Newtonian fluid) and the last term the
+stochastic (random) force due to the collisions of the light particles. It is assumed to be independent of velocity and fluctuating on small times scale, compared to the time scale typical for the heavy particle.
+For simplicity we consider only 1D motion and introduce
+%
+\begin{align}\label{eq:Langevin:1d}
+ \frac{d}{dt} v + \gamma v&=  \vv A(t)\;,
+\end{align}
+%
+where $\lambda=\alpha/m$ and $A(t) = F(t)/m$. The homogeneous equation has the solution
+%
+\begin{align*}
+v(t) &= v_{0} e^{-\gamma t}\;,.
+\end{align*}
+%
+For the inhomogeneous equation we use the ansatz
+\begin{align*}
+v(t) &= v_{0}(t) e^{-\gamma t}\;,.
+\end{align*}
+%
+Insertion into the \eq{eq:Langevin:1d} yields
+\begin{align*}
+\dot v(t) &= -\gamma \underbrace{
+v_{0}(t) e^{-\gamma t}
+}_{\color{blue} = v(t)} + \dot v_{0}(t) e^{-\gamma t} 
+\overset{!}{=} - \gamma v(t) + A(t)\\
+\Rightarrow\qquad \dot v_{0}(t) &=e^{\gamma t}  A(t)\;.\\
+\text{with}\qquad v_{0}(0) &=v_{0}\;.
+\end{align*}
+Integration yields
+%
+\begin{align*}
+v_{0}(t) &= v_{0} + \int_{0}^{t} e^{t' \gamma} A(t') dt'\;.
+\end{align*}
+%
+In total we have 
+%
+\begin{align}\label{eq:stoch:v:t}
+v(t) &= v_{0} e^{-\gamma t} + \int_{0}^{t} e^{-\gamma(t-t')} A(t') dt'\;.
+\end{align}
+%
+This is the solution of a particular for one  particular  realization of the 
+stochastic force $A(t)$. As a matter of fact, we are interested in the pdf
+$ p_{t}(v|v_{0}) $, that  the particle has a velocity in the interval $(v,v+dv)$ at time $t$.
+%
+For sufficiently long time, we assume that we will recover the Maxwell-Boltzmann velocity distribution, i.e.
+%
+\begin{align}\label{eq:stochastic:MB}
+p_{t}(v|v_{0}) &\underset{t\to\infty}{\longrightarrow} \bigg(\frac{m}{2\pi k_{B} T}\bigg)^{1/2} e^{-\frac{m v^{2}}{2 k_{B}T}}\;.
+\end{align}
+%
+We can compute the mean 
+%
+\begin{align*}
+\avg{v(t)} &= \int dv v\;p_{t}(v|v_{0}) 
+\end{align*}
+%
+via the pdf or directly by averaging  \eq{eq:stoch:v:t}, resulting in
+\begin{align}\label{eq:stoch:v:t}
+\avg{v(t)} &= v_{0} e^{-\gamma t} + \int_{0}^{t} e^{-\gamma(t-t')} \avg{A(t')} dt'\;.
+\end{align}
+It is to be expected that stochastic force has zero mean, hence $\avg{v(t)}=0$.
+Hence, there is an exponentially decreasing mean velocity for a given initial velocity $v_{0}$.
+%
+\begin{align*}
+\avg{v(t)} &= v_{0} e^{-\gamma t}\;.
+\end{align*}
+%
+Next we compute the variance of the velocity
+%
+\begin{align*}
+\avg{\big( v(t)-\avg{v(t)} \big)^{2}} &=
+\avg{\bigg(\int_{0}^{t} e^{-\gamma(t-t')} \big(A(t') -\avg{A(t')}\big)dt'\bigg)^{2}}\\
+&=\int_{0}^{t} dt' \int_{0}^{t} dt'' e^{-\gamma(t-t')} e^{-\gamma(t-t'')}
+\avg{A(t')A(t'')} \;.
+\end{align*}
+%
+Finally we assume that the stochastic forces for different times are uncorrelated and homogeneous in time,  i.e.
+%
+\begin{align}
+\avg{A(t')A(t'')} &= \tau \delta(t'-t'')\;.
+\end{align}
+%
+Then
+%
+\begin{align*}
+\avg{\big( v(t)-\avg{v(t)} \big)^{2}} 
+&=\tau \; \int_{0}^{t} dt'  e^{-2\gamma(t-t')} =
+\frac{\tau}{2\gamma} \big( 1-e^{-2 \gamma t} \big)
+\underset{t\to \infty}{\longrightarrow} \frac{\tau }{2\gamma}\;.
+\end{align*}
+%
+According to our initial assumption that the pdf approaches the Maxwell-Boltzmann distribution
+in the long run, which has $\avg{\big( \Delta v \big)^{2}} = \frac{k_{B}T}{m}$ (see \eq{eq:stochastic:MB}). Hence
+%
+\begin{align}
+\tau&=  \frac{2 \gamma k_{B}T}{m}\;.
+\end{align}
+%
+The variance of the velocity for finite times is then given by
+%
+\begin{align*}
+\sigma^{2}(t):=\avg{\big( v(t)-\avg{v(t)} \big)^{2}} 
+&=
+\frac{k_{B} T}{m} \big( 1-e^{-2 \gamma t} \big)\;.
+\end{align*}
+%
+If the first  moments  $0-2$ is the only (reliable) information about the pdf, then MaxEnt yields that it has to be Gaussian, with these moments, i.e.
+%
+\begin{align}
+p_{t}(v|v_{0}) &= 
+\frac{1}{\sqrt{2\pi \sigma^{2}(t)}} e^{-\frac{\big(v-\avg{v(t)}\big)^{2}}{2 \sigma^{2}(t)}}\\
+\avg{v(t)} &= v_{0} e^{-\gamma t}\;.
+\end{align}
+%
+
+
+
