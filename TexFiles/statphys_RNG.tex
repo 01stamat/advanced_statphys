@@ -2,6 +2,8 @@
 
 \chapter{Renormalization Group}
 
+%TODO: write a general introduction
+
 \section{1D Ising}
 
 We discuss and motivate the basic ideas of the renormalization group (RNG) approach in terms of the 1d Ising model  
@@ -15,7 +17,7 @@ as every step can be performed analytically.
 We assume $N=2^{L}$, which allows us to 
 thin out every other spin repeatedly. In addition we assume periodic boundary conditions (pbc), i.e. $s_{N+1}=s_{1}$.
 For the partition function we need
-\begin{align}\label{eq:}
+\begin{align}\label{eq:rng_ising_1d_hamiltonian}
 \tilde H := - \beta H &:= 
 K\sum_{i} s_{i}s_{i+1} + 
 h\sum_{i} s_{i} + N \cdot C\;,
@@ -27,8 +29,8 @@ The pdf for a spin configuration $\{s\}$ is then given by
 \prod_{i=1}^{N}
 e^{K s_{i}s_{i+1} + \frac{h}{2} (s_{i}+s_{i+1}) + C}\;.
 \end{align}
-We have written the B-field term slightly differently for later use.
-Next we want to determine the reduced pdf for "even sites only", which is obtained by   tracing out the  spins on the odd sites. To this end we rewrite $\rho_{N}$ as follows
+In the B-field term we have expanded the sum over two different spins $s_i$ and $s_{i+1}$. To avoid the double counting of these spins, the factor $\frac{1}{2}$ is introduced. As we will see, writing the sum like this turns out to be useful later.
+Next we want to determine the reduced pdf for "even sites only", which is obtained by   tracing out the  spins on the odd sites. To this end we rewrite $\rho_{N}$ as follows (starting again from the form of \autoref{eq:rng_ising_1d_hamiltonian})
 \begin{align}
 \rho_{N}(s) &=\prod_{i=1}^{N} e^{K s_{i}s_{i+1} + hs_{i} + C}\\
 &=\prod_{i=1}^\text{even} e^{hs_{i} + 2C}
@@ -38,7 +40,8 @@ Next we want to determine the reduced pdf for "even sites only", which is obtain
 \prod_{i=1}^\text{odd} e^{\qty(K \qty(s_{i-1} + s_{i+1}) + h) s_{i} }
 \end{align}
 %
-Then we obtain
+The product sum over the $hs_i$ is simply split up into the odd and even components. The product sum over $s_is_{i+1}$ is carried out only for odd values of $i$ - in order not to loose any factors, both directions $s_{i+1}$ and $s_{i-1}$ are considered in this term.
+Then we obtain by the marginalization of $\rho_N$
 \begin{align}\label{eq:RNG:Z2}
 \rho_\text{even} &= 
 \bigg( \prod_{i}^\text{odd}\sum_{s_{i}=\pm 1}
@@ -192,7 +195,7 @@ f(x) &:=\frac{4 x}{\big( 1+x \big)^{2}}
 \includegraphics[width=7cm]{NRG_ising}
 \caption{{\bf Recursion relation for $x$ in the 1d Ising model. Starting with an arbitrary $x^{(1)}\in(0,1]$ the fixed point is $x^{(\infty)}=1$. Only for
 $x^{(1)}=0$ the other fixed point $x^{(\infty)}=0$ is relevant.}}
-%\label{}
+\label{fig:RNG_ising_x}
 \end{center}
 \end{figure}
 The figure illustrates that if we start the recursion with any value $0< x^{(1)}\le 1$, i.e. $0\le  K< \infty$, which 
@@ -206,10 +209,11 @@ This fixed point is stable or attractive.
 
 The other fixed point $x^{*}=0$ is the non-trivial {\em critical fixed point}.  It corresponds to $K=\infty$, i.e. $T=0$.
 In this case, starting with the physical parameter $x=0$, i.e. $T=0$, the system stays at $x=0$
-and has therefore long-range order.
-Here it is the trivial case, without thermal fluctuations, there
-is long range order, since there are no quantum fluctuations,
-in contrast to the case of the spin-$1/2$ Heisenberg model.
+and is therefore ordered even over long range. This is the trivial case: At $T\to 0$ there are no thermal fluctuations, since there are no quantum fluctuations. Accordingly, the spins of such a 1-dimensional Ising will be ordered no matter how far the considered spins lie apart from each other. This result is in contrast to the case of the spin-$1/2$ Heisenberg model.
+
+% Here it is the trivial case, without thermal fluctuations, there
+% is long range order, since there are no quantum fluctuations,
+% in contrast to the case of the spin-$1/2$ Heisenberg model.
 
 
 
@@ -222,7 +226,7 @@ Next we study the energy parameter $C$ for the case $h=0$. Then we have
 \end{align}
 %
 As the recursion for $K^{(n)}$ is independent of that for
-$C^{(n)}$, we can insert the previous result for $K^{(n)}$. Hence for $n\to\infty$ (very long length scale),we have $K^{(n)}\to 0$ and we find
+$C^{(n)}$, we can insert the previous result for $K^{(n)}$. Hence for $n\to\infty$ (very long length scale),we have $K^{(n)}\to 0$ (or $x\to 1$ in \autoref{fig:RNG_ising_x}) and we find
 %
 \begin{align*}
  C^{(n+1)} &= 2C^{(n)} + \ln(2)\;.
