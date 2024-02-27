@@ -508,7 +508,7 @@ The trace over $S_{7}$ yields
 %
 \begin{align}\label{eq:Z:7a}
 Z_{7}:=
-\sum_{S_{0}} e^{C + S_{7}\big( K \;\Snn +h\big) }
+\sum_{S_{7}} e^{C + S_{7}\big( K \;\Snn +h\big) }
 &= e^{C} \cdot 2\cosh\big(K \Snn  +h  \big)\;.
 \end{align}
 %
@@ -527,7 +527,7 @@ b \sum'_{ijk} S_{i}S_{j} S_{k}  + c \; S_{2}S_{6}S_{8}S_{12}\bigg)\;.
 \end{align}
 %
 The indices in the sums are from the set $I^{nn}_{7} =\{2,6,8,12\}$,
-and the prims indicate that  no indices must occur twice and all the indices shall be ordered, e.g. $S_{i}<S_{j}<S_{k}$. 
+and the prime symbols over the summation sign indicate that  no indices must occur twice and all the indices shall be ordered, e.g. $S_{i}<S_{j}<S_{k}$. 
 We have used the symmetry that \eq{eq:Z:7a}
 is invariant against interchange of any two indices $i\leftrightarrow j$.
 Otherwise , each product of spins would have its own prefactor.
@@ -582,7 +582,8 @@ As before, the indices in the sums are from the set $I^{nn}_{7} =\{2,6,8,12\}$.
 The term with 3 spins can equivalently be written as
 %
 \begin{align*}
-\sum'_{ij} S_{i}S_{j}S_{k}   &= {\cal S} \cdot  S_{2}S_{6}S_{8}S_{12} 
+\sum'_{ij} S_{i}S_{j}S_{k}   &= {\cal S} \cdot  S_{2}S_{6}S_{8}S_{12}  \\
+\mathcal{S} &= \big( S_{12}+S_{8}+S_{6} +S_{2}\big)
 \end{align*}
 %
 \emphasize{proof}{
@@ -593,11 +594,11 @@ The term with 3 spins can equivalently be written as
 + S_{2}S_{6}S_{12}
  + S_{2}S_{8}S_{12}
   + S_{6}S_{8}S_{12}\\
-  &= S_{2}S_{6}S_{8} S_{12}^{2}
+  S_i^2 = 1 &\Rightarrow S_{2}S_{6}S_{8} S_{12}^{2}
 + S_{2}S_{6}S_{12} S_{8}^{2}
  + S_{2}S_{8}S_{12} S_{6}^{2}
   + S_{6}S_{8}S_{12} S_{2}^{2}\\
-  &=S_{2} S_{6}S_{8}S_{12} \big( S_{12}+S_{8}+S_{6} +S_{2x^{}}\big)
+  &=S_{2} S_{6}S_{8}S_{12} \big( S_{12}+S_{8}+S_{6} +S_{2}\big)
 \end{align*}
 }
 
@@ -606,10 +607,11 @@ So we have the constraint
 \begin{align}\label{eq:constr}
 C + \ln\bigg(2\cosh\big[K{\cal S} +h  \big]  \bigg)&=
 C' + h' {\cal S} + \overline K \sum'_{ij} S_{i}S_{j}  +
-\bigg(b{\cal S} + c\bigg) S_{1}S_{2}S_{3}S_{4}
+\bigg(b{\cal S} + c\bigg) S_{1}S_{2}S_{3}S_{4} .
 \end{align}
 %
-Now we consider this constraint for all possible spin configurations:
+This allows us to establishing a connection between the parameters $h$, $h'$, $K$ and $\bar{K}$ and thus, we know how the parameters in our renormalization scheme are related to each other. It is now our goal to obtain the recursion formula for the parameters $h'$ and $\bar{K}$ by specifically looking at all possible spin configurations and thus, finding a suitable renormalization scheme:
+% Now we consider this constraint for all possible spin configurations:
 %
 \begin{align*}
 1)&&(++++)&:&C + \ln\bigg(2\cosh\big[4 K+h  \big]  \bigg) &=
@@ -664,7 +666,7 @@ b')&:&2\ln\bigg(\cosh\big[2 K+h  \big]/\cosh\big[2 K-h  \big]  \bigg) &=
 Equation 3) yields
 %
 \begin{align*}
-c)\Delta C +c   &=
+c) &:& \Delta C +c   &=
 \ln\bigg(2\cosh\big[h  \big]  \bigg) + 2 \overline K
 \end{align*}
 %
@@ -675,7 +677,7 @@ Inserting c) into a) gives
 \tilde a)&:& \ln\bigg(4\cosh\big[4 K+h  \big] \cosh\big[4 K-h  \big] \bigg) &= 2
  \ln\bigg(2\cosh\big[h  \big]  \bigg)+ 16\overline K   \\
 &&16 \overline K &= \ln\bigg(
-\frac{\cosh\big[4 K+h  \big] \cosh\big[4 K-h  \big] }{\cos^{2}([h]}
+\frac{\cosh\big[4 K+h  \big] \cosh\big[4 K-h  \big] }{\cosh^{2}[h]}
   \bigg)
 \end{align*}
 %
@@ -736,12 +738,7 @@ In the following we will consider only the case $h=0$. Then we obtain
 = \frac{1}{8}\ln(\cosh[4 K])\;.
 \end{align}
 %
-Later on we will also need the derivative
-%
-\begin{align}\label{eq:der:ul:K}
-\alpha(K) &= \dv{\overline K(K)}{K} =\frac{1}{2} \tanh(4 K)
-\end{align}
-%
+
 For the determination for the other parameters for $h=0$ we have to solve
 
 %
@@ -951,14 +948,20 @@ L^{*}_{3} &= \frac{K^{*}}{3} = 0.169\;.
 %
 Next we will analyse this fixed point in more detail and we will omit
 the index for simplicity.
-We consider the close neighbourhood of this fixed point and expand the iteration equation
+So now we consider again the iteration equation:
 %
 \begin{align*}
 K' &= 2 \overline K(K) + L\\
 L' &= \overline K(K) \;,
 \end{align*}
 %
-about the fixed point
+We are now interested in the close neighbourhood of the fixed point and by making use of the derivative
+%
+\begin{align}\label{eq:der:ul:K}
+\alpha(K) &= \dv{\overline K(K)}{K} =\frac{1}{2} \tanh(4 K)
+\end{align}
+%
+we expand the iteration in the following way about the fixed point:
 %
 \begin{align*}
 K' &= 
@@ -969,10 +972,12 @@ K' &=
 \var  K
 + \var  L
 \\
+\Rightarrow K' &= K^* + 2\alpha^*~\var K + \var L\\
 L' &= \underbrace{\overline K(K^{*})}_{\color{blue} = L^{*}} 
 + \underbrace{
 \eval{\frac{d \overline K(K)}{d K}}_{K^{*}}
-}_{\color{blue} = \alpha^{*}} \var  K
+}_{\color{blue} = \alpha^{*}} \var  K \\
+\Rightarrow L' &= L^* + \alpha^* \var K
 \end{align*}
 %
 The derivative is according to \eq{eq:der:ul:K}
@@ -1093,6 +1098,8 @@ or diverge.
 
 \section{Scaling and critical exponents}
 
+We originally introduced the renormalization group formalism to inspect the physics that is happening at long-range distances. So now we will now try and obtain both the correlation length of the spins and a corresponding critical exponent like we did before for the 1-dimensional Ising model RNG.
+
 To illustrate this idea we consider again the first approximation (ignoring the nnn
 iterations). The iteration equation  was given in
 \eq{eq:RG:2D:first} by
@@ -1116,8 +1123,7 @@ The derivative yields
 \lambda &= \frac{3}{2} \tanh(4 K^{*}) = 1.4489\;.
 \end{align}
 %
-In the present decimation scheme the length is scaled by $b=\sqrt{2}$. 
-If we choose a different decimation factor $b$ also $\lambda$ will change, i.e.
+In the present decimation scheme the length is scaled by $b=\sqrt{2}$ since, if we remove all sites from sublattice B, the remaining sites from sublattice A lie diagonally in the original lattice. Obviously, the length scaling for the diagonal is $\sqrt{2}$. If the further trace out spin sites, this length scaling paramter $b$ changes again. Accordingly, also $\lambda$ will change, i.e.
 %
 \begin{align*}
 \lambda &= \lambda(b)\;.
@@ -1132,7 +1138,7 @@ When we perform 2 successive decimation steps  we have
 On the other hand, we could have performed the two decimation steps as one combined step of a new decimation scheme with $b'=b\cdot b$, then
 %
 \begin{align}
-\var K'' &=\lambda(b') \var K\;,\nonumber \\
+\var K'' &=\lambda(b') \var K = \lambda(b^2) \var K\;,\nonumber \\
 \Rightarrow\qquad \lambda(b^{2}) &= \lambda^{2}(b)\;\label{eq:RG:b}
 \end{align}
 %
@@ -1146,30 +1152,30 @@ where $y$ is a parameter that depends on the underlying physical system but not 
 otherwise \eq{eq:RG:b} would not hold. For the present decimation scheme $b=\sqrt{2}$ and 
 $\lambda=1.4489$ (see \eq{eq:lambda}), resulting in 
 %
-\begin{align*}
+\begin{align}\label{eq:2d:rng:y}
 y &= \frac{\ln(\lambda)}{\ln(\sqrt{2})} = 1.070\;.
-\end{align*}
+\end{align}
 %
 
 
 \subsubsection{Correlation length}
-We have
+Since we now know, how the scaling factor $\lambda$ in our series expansion behaves dependin on $b$, we can use this to gain insight about the correlation length. We have:
 
 %
 \begin{align*}
 \var K &= K - K_{c} = \frac{J}{k_{B} } \qty(\frac{1}{T} - \frac{1}{T_{c}})
-= \frac{J}{k_{B} T} \qty(\frac{T_{c}-T}{T_{c}}) = K \varepsilon \approx K_{c} \varepsilon\;.
+= \frac{J}{k_{B} T} \qty(\frac{T_{c}-T}{T_{c}}) = K \varepsilon \approx K^* \varepsilon\;.
 \end{align*}
 %
-From the relation
+Where in the last step, the $K^*$ can be used for $K$ since we performed an expansion of $K$ around the fixed point. From the relation
 %
 \begin{align*}
 \var K' &= b^{y} \var K
 \end{align*}
 %
-we obtain
+we obtain (again for $K\approx K^*$)
 \begin{align}\label{eq:epsilon}
-\varepsilon' &= b^{y} \varepsilon\;.
+K^*\varepsilon' = b^y K^*\varepsilon \Rightarrow \varepsilon' &= b^{y} \varepsilon\;.
 %\text{or rather } {\varepsilon'}^{-\nu} &= b^{- \nu y} \varepsilon^{-\nu}\;.
 \end{align}
 %
@@ -1196,7 +1202,9 @@ Then \eq{eq:epsilon} yields
 \xi' &= b^{1 - \nu y} \;\xi\;.
 \end{align*}
 %
-On the other hand, on approaching the fixed point the correlation length is converged and does not change. I.e.
+Where the definition of the length-scaling factor $b$ that was discussed before was used: $b$ gives the changing of the lattice constant throughout one step of lattice decimation.
+
+Again approaching the fixed point, the correlation length is converged and does not change. I.e.
 %
 \begin{align*}
 \xi^{*} &= b^{1 - \nu y} \;\xi^{*}\;.
@@ -1366,7 +1374,7 @@ Comparison with \eq{eq:f:epsilon} yields
 \alpha &= 2 - \frac{d}{y}\;.
 \end{align*}
 %
-Inserting the numerical value from \eq{} gives
+Inserting the numerical value from \eq{eq:2d:rng:y} gives
 %
 \begin{align*}
 \alpha &= 0.131\;.
