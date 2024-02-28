@@ -89,15 +89,15 @@ Here all $dU_{\nu}$ are independent and the square brackets have to vanish indiv
 \lambda^{V}&=\frac{\partial }{\partial V_{\nu}}S_{\nu}(U_{\nu},V_{\nu},\vv N_{\nu})\at_{U_{\nu},\vv N_{\nu}} &&=\frac{p_{\nu}}{T_{\nu}}\;.
 \intertext{and}
 %
-\lambda_{j}^{N}=
-\frac{\partial }{\partial N_{j\nu}}  
-\lambda^{V}_{j} &=S_{\nu}(U_{\nu},V_{\nu},\vv N_{\nu})\at_{U_{\nu},V_{\nu},N_{i\nu},i\ne j} 
+\lambda_{j}^{N} &=
+\frac{\partial}  {\partial N_{j\nu}}
+S_{\nu}(U_{\nu},V_{\nu},\vv N_{\nu})\at_{U_{\nu},V_{\nu},N_{i\nu},i\ne j}
 &&=-\frac{\mu_{j\nu}}{T_{\nu}}\;,\qquad\text{for } j= 1,\ldots,\alpha\;.
 \end{align}
 \end{subequations}
-Since the Laplace multipliers on the lhs of these equations are indepenendet of $\nu$,
+Since the Laplace multipliers on the lhs of these equations are independent of $\nu$,
 we find that in an isolated system in equilibrium all phases have the same temperature $T$,
-the same pressure $p$ and the same chemical potential $\mu_{j}$ for component $j$. But in general, we still have  $\mu_{j}\ne \mu_{j'}$.
+the same pressure $p$ and the same chemical potential $\mu_{j}$ for component $j$. But in general, we still have  $\mu_{j}\ne \mu_{j'}$: The chemical potential in the different phases of one component is equal, but the chemical potential of the different components must not be equal.
 
 \tboxit{State variables in different phases }{
 %
@@ -120,7 +120,7 @@ additive w.r.t. the phases
 G &= \sum_{\nu=1}^{\Nphases } G_{\nu}(T,p,\vv N_{\nu})
 \end{align}
 %
-Here, we have already exploited that all phases have the same temperature and pressure, which is given at the outset. So the only d.o.f. that can be varied are the particle numbers, still under the constrain used before. A similar derivation now yields
+Here, we have already exploited that all phases have the same temperature and pressure, which is given at the outset. So the only degree of freedom that can be varied are the particle numbers, still under the constrain used before. A similar derivation now yields
 %
 \begin{align}\label{eq:mu:condition}
 \lambda^{N}_{j}&=\frac{\partial }{\partial N_{j\nu}} G_{\nu}(T,p,\vv N_{\nu})\at_{T,p,N_{i,\nu},i\ne j} = \mu_{j,\nu}\;.
@@ -212,7 +212,6 @@ f &=\big( \alpha \Nphases +2\big) - \big(\sigma \Nphases -\alpha+\Nphases \big)
 f &=  2 + \alpha - \Nphases \;.
 \end{align}}
 %
-\newpage 
 
 \subsubsection{Example: $H_{2}O$ Phase diagram}
 \begin{figure}[htbp]
@@ -220,36 +219,41 @@ f &=  2 + \alpha - \Nphases \;.
 \includegraphics[width=14cm]{pd_water}
 \caption{\bf Phase diagram of water, taken from 'wikipedia'. The dashed green line
 is the melting-point line of water (negative slope, anomalous). The solid green line is the melting-point line of most other substances (positive slope, normal).}
-%\label{}
+\label{fig:water:phasediagram}
+%TODO: change this figure to either self-made figure or some copyright-free image
 \end{center}
 \end{figure}
 
+In \autoref{fig:water:phasediagram} the phase diagram of water is shown. The lines in this diagram indicate the conditions of pressure and temperature, where a phase transition can happen - in the areas between the lines, water exists only in the corresponding phase. 
 
-For water:
-$T_{tp}=273,16000 K (0,01000 C)$, $p_{tp}=611,657 Pa$.
-$T_{c} = 647.096 K$, $p_{c} = 22.064 MPa$ and $\rho_{c} = 356 kg/m^{3}$.
-
-Names of phase transitions
 \begin{itemize}
-	\item solid $\leftrightarrow$ liquid: melting, freezing 
- 	\item liquid $\leftrightarrow$ gas:  vaporization, condensation
- 	\item solid $\leftrightarrow$ gas: sublimation, deposition
+	\item 
+		triple point: $T_{tp}=273.16000 ~\text{K} ~(0.01000 ~\text{°C})$, $p_{tp}=611.657 ~\text{Pa}$. \\
+		All three phases can coexist at these conditions
+	\item
+		critical point: $T_{c} = 647.096 ~\text{K}$, $p_{c} = 22.064 ~\text{MPa}$ and $\rho_{c} = 356 ~\text{kg/m}^{3}$. \\
+		Past this point, the phase transition between gaseous and liquid water vanishes.
+	\item 
+		transition solid $\leftrightarrow$ liquid: melting, freezing 
+ 	\item 
+		transition liquid $\leftrightarrow$ gas:  vaporization, condensation
+ 	\item 
+		transition solid $\leftrightarrow$ gas: sublimation, deposition
 \end{itemize}
 
-Anomaly of water: increasing temperature reduces volume and the density increases. By increasing 
-pressure, solid water becomes liquid. Hence, the density of solid water (ice) is smaller than that of liquid water. That is the reason why ice floats on water and why  creatures living in water  survive in winter.
+What is interesting about water is the phase transition between solid and liquid phase. Contrary to other chemical substances, the line corresponding to this transition in the phase diagram has a negative slope. When we increase the temperature, the pressure, at which the transition happens decreases or phrased in a more intuitive way: The density of ice is smaller than the density of water. What we would normally expect would be a decrease of density when the temperature rises but apparently, water behaves differently. This effect is called the anomaly of water and it is the reason why ice floats on water and why  creatures living in water  survive in winter.
 
-Water is a one component liquid, i.e. $\alpha=1$. 
+Water is a one component liquid, i.e. $\alpha=1$, in the following we will consider the different areas of the phase diagram where different phases coexist:
 
 \subsubsection{a) Pure phases (solid,liquid,gas), $\Nphases =1$}
 
-The number of d.o.f. is 
+The number of degrees of freedom is, according to Gibb's phase rule, 
 %
 \begin{align*}
 f = 2 + \alpha -\Nphases  = 2 + 1 - 1 = 2\;,
 \end{align*}
 %
-which means we can vary to state vasriables, here $T$ and $p$, independently.
+which means we can vary to state variables, here $T$ and $p$, independently.
 
 \subsubsection{b) Two coexisting phases, $\Nphases =2$}
 \begin{itemize}
@@ -264,7 +268,7 @@ which means we can vary to state vasriables, here $T$ and $p$, independently.
 \end{itemize}
 
 
-The number of d.o.f. is 
+The number of degrees of freedom is 
 %
 \begin{align*}
 f = 2 + 1 - 2 = 1\;,
@@ -279,7 +283,7 @@ which means, we have to vary  $T$ and $p$ on a curve, $p(T)$, e.g. melting-point
 Here $f=0$. There is no degree of freedom. 
 
 It also follows that for a one-component substance there are at most 3 phases, otherwise the
-number of d.o.f. would become negative.
+number of degrees of freedom would become negative.
 
 
 \subsection{Clausius-Clapeyron}
@@ -409,12 +413,12 @@ that
 \frac{\partial \mu_{g}}{\partial p}\at_{T} &\ne \frac{\partial \mu_{fl}}{\partial p}\at_{T}\;.
 \end{align*}
 %
-Such a phase transition is a first order phase transition.
+So apparently, the chemical potential $\mu(T)$ is continuous at the temperature of phase transition, but its first derivative is not (i.e. $\mu(T$) is continuous, but not differentiable). Such a phase transition is called a first order phase transition.
 
-The Clausius-Clapeyron relation is only valid for first order phase transitions.
+Generally, if we have similar behaviour where the the $n$-th derivative of $\mu(T)$ is not continuous, but up until the $(n-1)$-th derivative, they are all continuous, we call this a phase transition of $n$-th order. This means that the Clausius-Clapeyron relation is only valid for first order phase transitions.
 
 \subsection{Real gases (van der Waals equation)}
-In an  earlier chapter we have discussed the ideal gas and its equation of state
+In statistical physics we have discussed the ideal gas and its equation of state
 
 %
 \begin{align*}
@@ -487,13 +491,12 @@ resulting in
 -\underbrace{
 \bigg(\frac{a'b'}{p_{cr} v_{cr}^{3} }\bigg)
 }_{\color{blue} = T_{3}} - 
-\bigg(\frac{k_{B}T_{cr} }{p_{cr} v_{cr} } \bigg)
-t \nu^{2}&=0 \\
-\pi \nu^{3} + T_{1}\nu - T_{2} \pi \nu^{2}
--T_{3} - 
 \underbrace{
 \bigg(\frac{k_{B}T_{cr} }{p_{cr} v_{cr} } \bigg)
-}_{\color{blue} = T_{4}} t \nu^{2}&=0 \;.
+}_{\color{blue} = T_{4}}
+t \nu^{2}&=0 \\
+\pi \nu^{3} + T_{1}\nu - T_{2} \pi \nu^{2}
+-T_{3} - T_{4} t \nu^{2}&=0 \;.
 \end{align*}
 %
 Now we have the freedom to choose the parameters $p_{cr}$, $v_{cr}$, and $T_{cr}$ suitably.
