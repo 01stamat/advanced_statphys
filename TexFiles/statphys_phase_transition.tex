@@ -539,8 +539,8 @@ If we plot $\pi(\nu)$ for fixed $t$ (isotherm) then we find different behaviour 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=10cm]{Maxwell}
-\caption{\bf Maxwell construction.}
-\label{fig:Maxwell}
+\caption{Different types of isotherms in the $\pi$-$\nu$-diagram and Maxwell construction}
+\label{fig:Maxwell:isotherms}
 \end{center}
 \end{figure}
 %
@@ -572,7 +572,7 @@ p_{cr} &=\frac{3}{8} k_{B} T_{cr} \rho_{cr}\;.
 
 \subsection{Maxwell-Construction}
 
-We have just seen that the equation of state for the van der Walls model reads in dimensionless units
+We have just seen that the equation of state for the van-der-Waals model reads in dimensionless units
 %
 \begin{align*}
 \bigg( \pi - \frac{3}{\nu^{2}} \bigg)\bigg(\nu  -\frac{1}{3}\bigg) &=\frac{8}{3} t\;,
@@ -586,8 +586,6 @@ and that  $t<1$ there   are regions in the $\pi-\nu$-diagramm where the isotherm
 \end{align}
 %
 becomes negative. This implies that the system is mechanically unstable, it would shrink by itself.
-
-\newpage 
 
 \blue{The reason is  that the van der Waals model describes a single phase of a one-component system.}
 It is applicable  in the pure gas or  liquid phase (grey shaded areas in the figure),
@@ -604,16 +602,16 @@ but in between there is a phase transition, where two phases coexist, which cann
 
 
 What happens in reality is the following. We have seen before that generally on the coexistence 
-line between liquid and gas, the number of d.o.f. is merely 1 and it is described by $p=p(T)$.
-On isotherms, $T$ is also fixed and therefore $p$ is fixed as well.
+line between liquid and gas, the number of degrees of freedom is merely 1 and it is described by $p=p(T)$.
+On isotherms, $T$ is also fixed and therefore $p$ is fixed as well and takes a constant value.
 
 %
-\nboxit{blue}{All isotherms for ($T<T_{c}$) in the two-phase region have to be horizontal lines in the pV-diagram. (See golden line in the figure )} 
+\nboxit{blue}{All isotherms for ($T<T_{c}$) in the two-phase region have to be horizontal lines in the pV-diagram. (See golden line in the \autoref{fig:Maxwell})} 
 
 We denote the pressure on the coexistence line between the points $\alpha$ and $\beta$ in the 
-$\pi-\nu-$ diagram by $p_{\alpha\beta}$.
+$\pi$-$\nu$-diagram by $p_{\alpha\beta}$.
 
-In the pure phases of a one-component system we have only two d.o.f., e.g.
+In the pure phases of a one-component system we have only two degrees of freedom, e.g.
 $p$ and $T$.
 Since the van-der-Waals model is still valid in the pure phase regions (grey shaded),
 we have the condition (\eq{eq:mu:coexist})
@@ -648,7 +646,7 @@ F_{\alpha}-F_{\beta} &= -p_{\alpha\beta}(V_{\alpha}-V_{\beta})\;.
 \end{align}
 %
 This is the result for the end points of the coexistence line, where we have exploited some of the features of the  two phase region in between, for which we have used $\pi(\nu) = p_{\alpha\beta}$, independent of volume $\nu$.
-Alternatively, if we stick to one phase then the van-der-Waals equation determines the pressure curve, the one given in figure \ref{fig:Maxwell} with the wavy look.
+Alternatively, if we stick to one phase then the van-der-Waals equation determines the pressure curve, the one given in figure \ref{fig:Maxwell:isotherms} with the wavy look.
 In that case, the differential of the free energy is, since $N$ is fixed and $T$ is fixed (isotherm),
 %
 \begin{align*}
@@ -680,7 +678,7 @@ I.e., the area under the vdW curve $p(t,V,N)$ as function of volume in the inter
 has to be the same as the area under the constant  $p(V)=p_{\alpha\beta}$ curve in the two-phase region. Consequently, the subareas $A$ and $B$ have to be same.
 This tells us how to determine the points $\alpha$ and $\beta$.
 
-Finally, we will show that the pure phase is unstable w.r.t. to the mixed phase. To this end we compare two states with the same $T$ and $V$ but different pressures $p_{\alpha\beta}$
+Finally, we will show that the pure phase is unstable w.r.t. the mixed phase. To this end we compare two states with the same $T$ and $V$ but different pressures $p_{\alpha\beta}$
 and the vdW pressure $p(T,V,N)$. Since $T$ and $V$ is fixed, we have to compare the free energies.
 
 In the pure phase we compute the free energy for a given $V$ in the interval $(V_{\alpha},V_{\beta})$. To this end we use $dF=-pdV$ and integrate from $V_{\alpha}$ to $V$
@@ -740,10 +738,17 @@ F_{mp} &=
  F_{\alpha}+p_{\alpha\beta} \big(V-V_{\alpha}\big)
 \label{eq:F:mp}
 \end{align}
-The difference of the free energies is according to \eq{eq:F:vdW} and \eq{eq:F:mp}
-
-
-%
+% The difference of the free energies is according to \eq{eq:F:vdW} and \eq{eq:F:mp}
+Since, according to \eq{eq:F:vdW}, 
+\begin{align*}
+F_\alpha = F_{vdW}(V,T) + \int_{V_\alpha}^{V} p(V',T) dV'
+\end{align*}
+we can rewrite \eq{eq:F:mp} As
+\begin{align*}
+F_{mp} = F_{vdW}(V,T) + \int_{V_\alpha}^{V} p(V', T) dV' + p_{\alpha\beta}(V-V_\alpha)
+\end{align*}
+and obtain for the difference of the free energies:
+%TODO: fix the error in the - sign??
 \begin{align*}
 F_{vdW}(V,T) - F_{mp}(V,T) &= 
 p_{\alpha\beta} \big(V-V_{\alpha}\big) 
