@@ -531,7 +531,7 @@ Solving for $\pi$ yields
 \end{align*}
 %
 The term $(3\nu-1)$ originated from $V-V_{0}$, and therefore it is always positive,
-as the total volume has to be greater than the eigen volume. 
+as the total volume has to be greater than the eigenvolume. 
 
 If we plot $\pi(\nu)$ for fixed $t$ (isotherm) then we find different behaviour for $t<1$, $t=1$ and $t>1$.
 %
@@ -800,7 +800,7 @@ called latent heat with respect to the variable.
 Such phase transitions, that involve {\em latent heat} are {\em first order phase transitions}.
 {\em Latent heat} in contrast to {\em sensible heat} does not lead to a change in temperature.
 
-Only for first order phase transitions, the Clausius-Claperyron equation is applicable, as it 
+Only for first order phase transitions, the Clausius-Clapeyron equation is applicable, as it 
 requires that entropy and volume per particle are different in the two phases.
 
 We recall that 
@@ -844,8 +844,6 @@ Therefore we have
 I.e. $G$ is concave in both variables $p$ and $T$. Due to $F=G-pV$, it follows that
 $F$ is also concave in $T$, but convex in $p$.
 
-\newpage
-
 \subsection{Free energy versus $V$, for $T$ and $N$ fixed}
 Since $F>0$ is convex in $V$ and $\frac{\partial F}{\partial V}=-p<0$, $F(V)$  is a decreasing,   left curving line that is always positive and it is strictly monotonically decreasing, as a zero slope  would mean $p=0$. 
 
@@ -884,7 +882,6 @@ For $T<T_{c}$, however, there is an interval $(V_{\alpha},V_{\beta})$ in which $
 %\end{figure}
 %
 
-\newpage
 
 \subsection{$F$ and $G$ as function of $T$}
 
@@ -906,8 +903,11 @@ which is then associated with
 
 $\Delta Q$ is, however not a material constant, it also depends on the state variables e.g.
 for the liquid-gas system, $\Delta Q$ depends on pressure. On approaching the \blue{critical point},
-$\Delta Q$ vanishes. Therefore, the definition of the order of the phase transition has to refined
+$\Delta Q$ vanishes. Therefore, the definition of the order of the phase transition has to be refined.
 \subsection{Ehrenfest classification\label{sec:ehrenfest:classification}}
+%
+We will now define our phase transitions solely by looking at the derivatives of the thermodynamic potential $G$. In fact, the order of a phase transition will be defined by the first occurring derivative, that shows a discontinuity. In other words, if the first $n-1$ derivatives of $G$ are continuous, but the $n$-th derivative is not, then we are dealing with a phase transition of order $n$.
+%
 \tboxit{N-th order phase transition}{
 %
 \begin{subequations}\label{eq:}
@@ -956,7 +956,7 @@ $\abs{\varepsilon} < 10^{-2}$,
 physical observables $f(T)$ show the following behaviour
 %
 \begin{align*}
-f(\varepsilon) &= a \varepsilon^{\varphi} \big( 1 +  b \varepsilon^{\psi} +\ldots\big)\;\psi>0\;,
+f(\varepsilon) &= a \varepsilon^{\varphi} \big( 1 +  b \varepsilon^{\psi} +\ldots\big)\quad , \quad\psi>0\;,
 \end{align*}
 %
 here $\varphi$ and $\psi$ are real valued exponents. This behaviour is abbreviated as
@@ -975,7 +975,7 @@ The critical exponent is more generally defined by
 %
 In general, the critical exponent depends on whether we compute it below or above $T_{c}$.
 For the \blue{order parameter} it actually makes only sense below  $T_{c}$, as the order parameter
-by definition is zero above $T_{c}$.
+by definition is zero above $T_{c}$ (consider e.g. the spontaneous magnetization from the Ising model, that vanished above the critical temperature).
 
 Of course, different observables may have different critical exponents. The critical exponent for 
 one observable, however, is almost universal, it only depends on
@@ -986,7 +986,7 @@ one observable, however, is almost universal, it only depends on
 \end{itemize}
 
 This is the so-called {\em universality hypothesis} of Griffiths.
-Te range of the particle interaction is grouped into three classes:
+The range of the particle interaction is grouped into three classes, depending on the value of $\alpha$ in the following definitions:
 \begin{itemize}
 	\item short-range, if the interaction decreases like
 %
@@ -1013,9 +1013,7 @@ The critical exponents depend on $\alpha$
 \end{itemize}
 
 
-Magnetic systems are typically discussed as interacting spin-systems. As spin-dimension ($n$) we understand the relevant components of the spin vector. Ising model /Potts model has $n=1$ and is considered as one-dimensional vector, the $x-y$-model has $n=2$ and the vectors are two-dimensional, and finally the Heisenberg model $n=3$ is three-dimensional. The critical exponents.
-
-
+Magnetic systems are typically discussed as interacting spin-systems. As spin-dimension ($n$) we understand the relevant components of the spin vector. Ising model /Potts model has $n=1$ and is considered as one-dimensional vector, the $x-y$-model has $n=2$ and the vectors are two-dimensional, and finally the Heisenberg model $n=3$ is three-dimensional. 
 
 Possible behaviour:
 
@@ -1025,10 +1023,12 @@ Possible behaviour:
 	\item\blue{logarithmic divergence:} $f(\varepsilon) = a + b\ln(|\varepsilon|)$ we obtain by
 	the definition of the critical exponent in \eq{def:critical:exponent} $\varphi =0$ 
 \end{itemize}
-In general, the critical exponent for $\varepsilon>0$ (denoted by $\varphi_{}$) can differ from that for $\varepsilon<0$ (denoted by $\varphi'$)
+In general, the critical exponent for $\varepsilon>0$ (denoted by $\varphi_{}$) can differ from that for $\varepsilon<0$ (denoted by $\varphi'$).
 
 \subsection{Important critical exponents}
 
+% In the following, a few examples for the most important critical exponents that are associated to specific physical quantities often relevant in statistical physics will be given. This to be understood as an outlook for the next chapters: The actual theory behind the models mentioned in the examples will be presented in the following chapters, some of which in more detail than others.
+% TODO: Include this in case this chapter moves to the beginning of the script
 
 \begin{figure}[htbp]
 \begin{center}
@@ -1041,13 +1041,13 @@ In general, the critical exponent for $\varepsilon>0$ (denoted by $\varphi_{}$) 
 
 
 \begin{enumerate}
-	\item Heat capacity ($\alpha:_{\pm}$) for real gases 
+	\item Heat capacity: ($\alpha_{\pm}$) for real gases 
 %
 \begin{align}\label{eq:heat:capacity}
 C_{V}&\simeq A_{\pm} \abs{\varepsilon}^{-\alpha_{\pm}}
 :\qquad\begin{cases}
-- &\text{for path II, i.e. } T \nearrow 	T_{c}, \text{with } \rho=\rho_{g,fl}\\
-+ &\text{for path I, i.e. } T \searrow 	T_{c}, \text{with } \rho=\rho_{c}
++ &\text{for path I, i.e. } T \searrow 	T_{c}, \text{with } \rho=\rho_{c} \\
+- &\text{for path II, i.e. } T \nearrow 	T_{c}, \text{with } \rho=\rho_{g,fl}
 \end{cases}\;.
 \end{align}
 %
@@ -1055,16 +1055,16 @@ Heat capacity ($\alpha',\alpha$) for magnets
 \begin{align}\label{eq:}
 C_{B}&\simeq  A_{\pm} \abs{\varepsilon}^{-\alpha_{\pm}}
 :\qquad \begin{cases}
-- & T \nearrow 	T_{c}, \text{with } B=0\\
- + &\text{for path I, i.e. } T \searrow 	T_{c}, \text{with } B=0
++ &\text{for path I, i.e. } T \searrow 	T_{c}, \text{with } B=0 \\
+- & T \nearrow 	T_{c}, \text{with } B=0
 \end{cases}\;.
 \end{align}
-The experiment yields $\alpha_{\pm}\approx 0$. Ising 2D, exact solution, logarithmic divergence, i.e. $\alpha_{\pm}=0$. 
+The experiment yields $\alpha_{\pm}\approx 0$. For the 2D Ising model the exact solution yields a logarithmic divergence, i.e. $\alpha_{\pm}=0$. 
 {\color{blue}(see section \ref{sec:Ising:2D:spec:heat}).}
-Classic theories (i.e. Weißferrro-magnet, vdW gas) yield discontinuity,
+Classic theories (i.e. Weißferrro-magnet, vdW gas) yield a discontinuity,
 which is equivalent to $\alpha_{\pm}=0$.
-\item Order parameter ($\beta$ [not inverse temperature!]). A variable that exists only below $T_{c}$ and which characterises the order of the system.
-E.g. magnetization $M$ or the for real gases the density difference 
+\item Order parameter $\beta$ (not inverse temperature!). This parameter exists only below $T_{c}$ and characterises the order of the system.
+Two examples are the magnetization $M$ or for real gases the density difference 
 $\Delta \rho = \rho_{fl}-\rho_{g}$, or rather $\Delta \rho = \rho_{fl,g}-\rho_{c}$, in the 
 two-phase region
 %
@@ -1076,12 +1076,10 @@ two-phase region
 %
 The normalizations are introduced to make sure that $B$ is $O(1)$.
 In principle, $\beta$ should be $\beta'$, as we are below $T_{c}$, but since the order parameter 
-is only defined below $T_{c}$, it is common to use $\beta$. Typical experimental values are $0.35\pm 0.02$. classical theories yield $\beta=1/2$. 2D Ising exact, $\beta=1/8$. {\color{blue}(See section \ref{sec:Ising:2D:beta}).}
-For the 3D Ising model one finds $\beta=0.325\pm 0.001$. While 3D Heisenberg gives $\beta=0.3445\pm 0.002$.
+is only defined below $T_{c}$, it is common to use $\beta$. Typical experimental values are $0.35\pm 0.02$. classical theories yield $\beta=1/2$. The exact solution of the 2D Ising model yields $\beta=1/8$. {\color{blue}(See section \ref{sec:Ising:2D:beta}).}
+For the 3D Ising model one finds $\beta=0.325\pm 0.001$, while 3D Heisenberg gives $\beta=0.3445\pm 0.002$.
 
-\item Compressibilities and susceptibilities ($\gamma_{\pm}$)
-
-
+\item Compressibilities and susceptibilities ($\gamma_{\pm}$):
 %
 \begin{align*}
 \kappa_{T} &= -\frac{1}{V}\pder{V}{p}{T} = \frac{1}{\rho} \pder{\rho}{p}{T}\;,\\
@@ -1118,11 +1116,11 @@ with $C^{*}$ being the Curie constant.
 \end{align}
 %
 Typical experimental values differ somewhat about $\gamma\approx \gamma' \approx 1.3$.
-Model calculations all yield $\gamma=\gamma'$. Classical models $\gamma=1$, 2D Ising exact,
-$\gamma =7/4$, 3D Ising $\gamma\approx 1.24$, 3d Heisenberg $\gamma=1.39$.
+Model calculations all yield $\gamma=\gamma'$. Classical models yield $\gamma=1$, the exact solution of the 2D Ising model yields
+$\gamma =7/4$, the 3D Ising yields $\gamma\approx 1.24$ and 3D Heisenberg yields $\gamma=1.39$.
 
-\item Critical isotherm ($\delta$)
-We define the critical pressure of the ideal gase as the pressure of the ideal gas at $T_{c}$ and 
+\item Critical isotherm ($\delta$): \\
+We define the critical pressure of the ideal gas as the pressure of the ideal gas at $T_{c}$ and 
 $\rho_{c}$ via the ideal gas law
 %
 \begin{align*}
@@ -1150,7 +1148,7 @@ with $m$ being the magnetic moment  per particle, then the corresponding relatio
 \bigg|^{\delta} \;\text{sign} (M)\;.
 \end{align*}
 %
-Experimental values are in the range $\delta\in (4,5)$. The 2D Ising model yields $\delta=15$, which 
+Experimental values are in the range $\delta\in (4,5)$. The 2D Ising model yields $\delta=15$, which is apparently
 far off. The 3D Ising and Heisenberg model yields $\delta=4.9$ (much better). Classical theories 
 yield $\delta=3$.
 
@@ -1204,7 +1202,7 @@ The behaviour is slightly different and expressed by
 g(\vv r,\vv r') &=\big|\vv r-\vv r'\big|^{-(d-2+\eta)}
 \begin{cases}
 p=p_{C}  &\text{, real gases}\;,\\
-B=0\text{, magnets}\;.
+B=0 	 &\text{, magnets}\;.
 \end{cases}
 \end{align*}
 %
@@ -1216,10 +1214,6 @@ from the slope of a fit of
 \end{align*}
 %
 versus $r$. Here the last term enters only logarithmically in $r$.
-
-
-
-
 \end{enumerate}
 
 
@@ -1290,22 +1284,28 @@ M(\lambda^{a_{\varepsilon}}\varepsilon,\lambda^{a_{B}}B)
 	\item[a)] {\color{blue}Exponent $\beta$:} We use $B=0$ and obtain
 %
 \begin{align*}
-\lambda M(\varepsilon,0) &=M(\lambda^{a_{\varepsilon}}\varepsilon,0) \;,
+\lambda^{a_B} M(\lambda^{a_{\varepsilon}}\varepsilon,0) &= \lambda M(\varepsilon,0) \;,
 \end{align*}
 %
 which is valid for any $\lambda$, also for 
 %
 \begin{align*}
-\lambda&=(-\varepsilon)^{-1/a_{\varepsilon}}\;,
+\lambda&=(-\varepsilon)^{-1/a_{\varepsilon}}\;.
 \end{align*}
 %
-resulting in 
-%
+This value for $\lambda$ was chosen in such a way, that, if plugged in, the $\varepsilon$-dependency of $M(\lambda^{a_{\varepsilon}}\varepsilon,0)$ vanishes and we are only left with a constant expression $M(O(1), 0)$. Only then, the $\varepsilon$-dependency of the entire expression lies only in the factor $\varepsilon^\beta$, which is the desired form for the critical exponent $\beta$. We obtain then:
 \begin{align*}
-M(\varepsilon,0) &= (-\varepsilon)^{\frac{1-a_{B}}{a_{\varepsilon}}} M(-1,0)\simeq (\varepsilon)^{\frac{1-a_{B}}{a_{\varepsilon}}} \;.
+\lambda^{a_\varepsilon} &= (-\varepsilon)^{-1} = -\frac{1}{\varepsilon} \; ,\\
+\lambda^{a_B} &= -(\varepsilon)^{-\frac{a_B}{a_\varepsilon}} \, ,\\
+\lambda^{a_B-1} &= -(\varepsilon)^{-\frac{a_B-1}{a_\varepsilon}}
 \end{align*}
 %
-Hence, 
+Plugging this into the above equation yields
+\begin{align*}
+M(\varepsilon,0)  &= \lambda^{a_B-1} M(\lambda^{a_{\varepsilon}}\varepsilon,0) = (-\varepsilon)^{\frac{1-a_{B}}{a_{\varepsilon}}} M(-1,0)\simeq (\varepsilon)^{\frac{1-a_{B}}{a_{\varepsilon}}} \;.
+\end{align*}
+%
+Hence we obtain the following result for the order parameter: 
 %
 \begin{align*}
 \beta=\frac{1-a_{B}}{a_{\varepsilon}} \;.
@@ -1318,7 +1318,7 @@ Next we use $\varepsilon=0$ and have
 M(0,B) &= \lambda^{a_{B}-1}\;M(0,\lambda^{a_{B}}B)\;.
 \end{align*}
 %
-Here we choose $\lambda =B^{-1/a_{B}}$ and obtain
+Here we choose $\lambda =B^{-1/a_{B}}$ for similar reasons as above and obtain
 %
 \begin{align*}
 M(0,B) &\simeq  B^{\frac{1-a_{B}}{a_{B}}}\\
@@ -1326,7 +1326,7 @@ B &\simeq M^{\frac{a_{B}}{1-a_{B}}}\;,
 \end{align*}
 %
 and hence $\delta=\frac{a_{B}}{1-a_{B}}$.
-In summar, we have
+In summary, we have
 %
 \begin{align}\label{eq:}
 a_{B} &= \frac{\delta}{1+\delta}\\
@@ -1334,7 +1334,7 @@ a_{\varepsilon} &= \frac{1}{\beta}\frac{1}{1+\delta}\\
 \end{align}
 %
 \end{enumerate}
-We can express further critical exponents in terms of the scaling parameters, which then in turn allows to find relations among the 
+We can express further critical exponents in terms of the scaling parameters, which then in turn allows us to find relations among the 
 critical exponents:
 %
 From the scaling laws one finds
