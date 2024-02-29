@@ -27,7 +27,7 @@ and the Bohr magneton
 \end{align}
 %
 The last term in \eq{eq:H:a} covers relativistic effects, such as the spin orbit coupling, which we will briefly discuss later on.
-In the hamiltonian the dipol-dipol interaction of the spins is neglected, as is of minor importance.
+In the hamiltonian the dipole-dipole interaction of the spins is neglected, as it is of minor importance.
 First, we transform  the first part of the hamiltonian 
 %
 \begin{align*}
@@ -71,8 +71,8 @@ Moreover, we need
 &=B_{j}  \varepsilon_{jki} r_{k} p_{i} \;.
 \end{align*}
 %
-IN the last step we have used that $r_{k}$ and $p_{j}$ commute for different indices, which is guaranteed be the Levi Civita tensor.
-Hence
+In the last step we have used that $r_{k}$ and $p_{j}$ commute for different indices. If the indices of $r$ and $p$ would be equal, then the Levi-Civita symbol would vanish.
+Hence,
 %
 \begin{align}\label{eq:}
 \vv p_{j}\cdot \big( \vv B\times \vv r_{j} \big)  &=
@@ -178,7 +178,7 @@ B\;\frac{e^{2} }{4 m} \sum_{j} \big( \langle \vv r_{j}^{2}\rangle
 \vv e_{z} - \langle z_{j} \vv r_{j}\rangle \big)\;.
 \end{align*}
 %
-where $r_{j,\nu}$ is the $\nu$-the cartesian component  of the vector
+where $r_{j,\nu}$ is the $\nu$-th cartesian component  of the vector
 $\vv r_{j}$. We consider
 %
 \begin{align*}
@@ -186,7 +186,7 @@ $\vv r_{j}$. We consider
 \langle z_{j} r_{j,\nu}\rangle\;,
 \end{align*}
 %
-For closed atomic shells, the ground state wavefunction is rotational invariant, therefore 
+For closed atomic shells, the ground state wavefunction is rotationally invariant, therefore 
 %
 \begin{align*}
 \langle z_{j} r_{j,\nu}\rangle &= \delta_{\nu,z}\langle z_{j}^{2}\rangle = \delta_{\nu,z}\frac{1}{3}\;\langle r_{j}^{2}\rangle
@@ -216,29 +216,28 @@ To estimate the order of magnitude, we replace $\langle r_{j}^{2}\rangle$ by the
 One obtains 
 %
 \begin{align*}
-\chi \text{per mole} &= \approx - 3 \times 10^{-6}\frac{cm^{3}}{\text{mol}}\;.
+\chi ~ \text{per mole} &\approx - 3 \times 10^{-6}\frac{cm^{3}}{\text{mol}}\;.
 \end{align*}
 %
-For noble gases this value value is
+For noble gases the values of $\chi$ are listed in the table below. 
 \begin{table}
 \begin{tabular}{l|ccccc}
   \hline
   & He& Ne&Ar&Kr&Xe\\
   \hline
-$\chi \text{ per mole in } 10^{-6} \text{cm}^{3}/\text{mole}$& $-1.9$&$-7.2$&$-15.4$&$-28.0$&$-43.0$ \\
+$\chi \text{ per mole in } 10^{-6} ~ \text{cm}^{3}/\text{mole}$& $-1.9$&$-7.2$&$-15.4$&$-28.0$&$-43.0$ \\
   \hline
 \end{tabular}
 \end{table}
 % 
 This diamagnetic contribution is also present in in open shell systems, but then it is orders of magnitude smaller than the contribution of the other term.
-
 \section{Density matrix and thermodynamic relations}
 
 We consider the canonical ensemble with fixed particle number $N$, which we will not explicitly mention as natural variable in the arguments. We only write $T$ and $\vv B$
 %
 \begin{align*}
 \rho(T,\vv B) &= \frac{1}{Z(T,\vv B)} e^{-\beta H}\\
-Z &= \text{tr} e^{-\beta H} \;.
+Z &= \tr{e^{-\beta H}}\;.
 \end{align*}
 %
 The free energy reads
@@ -292,7 +291,7 @@ S
 &=-k_{B} \langle \ln(\rho)\rangle\;.
 \end{align*}
 %
-Hence the entropy is the trace of the quantum entropy operator.
+Hence the entropy is the trace of the quantum density operator.
 
 
 
@@ -305,7 +304,7 @@ dF &= \pder{F(T,\vv B)}{T}{\vv B} dT + \nabla_{\vv B} F(T,\vv B)\at_{T} \cdot d\
 &= - S dT - \vv M \cdot d\vv B
 \end{align*}
 %
-Prove of the last step
+Proof of the last step:
 %
 \begin{align*}
  \nabla_{\vv B} F(T,\vv B)\at_{T} &=-k_{B}T  \nabla_{\vv B} \ln(Z)\\
@@ -330,16 +329,14 @@ Hence
 
 \subsection{Magnetic response functions}
 
-Specific heat in analogy to the  case of gases
+We define the specific heat in analogy to the case of gases that was treated before:
 %
 \begin{align}
 C_{\vv B} &= \pder{U}{T}{\vv B}  = T \pder{S}{T}{\vv B}
 =-T\frac{\partial^{2} F}{\partial T^{2}} \at_{\vv B}\;.
 \end{align}
 %
-Derivation as before without magnetic field.
-
-Magnetic susceptibility
+The derivation of the following result is conducted in a similar way to before without a magnetic field. For the magnetic susceptibility we obtain:
 %
 \begin{align}
 \chi_{T,\nu\mu} &=\mu_{0}\;\pder{M_{\nu}}{B_{\mu}}{T} =
@@ -348,7 +345,7 @@ Magnetic susceptibility
 %
 {\color{blue}In many times, the susceptibility is also expressed per volume.}
 \subsection{Internal energy}
-We have defined the internal energy as $U=\langle H \rangle$, which is the energy of the material including the interaction of the electro magnetic field. 
+We have defined the internal energy as $U=\langle H \rangle$, which is the energy of the material including the interaction of the electromagnetic field. 
 It was derived from the purely electronic part.
 However, the field energy itself is not included. It is common to define a second internal energy $U'$ that also includes the 
 field energy
@@ -372,7 +369,7 @@ With
 \pder{U'}{\vv M}{S}&= \vv B\;.
 \end{align*}
 %
-It results in the Maxwell relation
+This results in the Maxwell relation
 %
 \begin{align*}
 \pder{\vv B}{S}{\vv M}&=\pder{T}{\vv M}{S}\;.
@@ -399,13 +396,13 @@ H^{(i)} &= H_{0} + \underbrace{
 }_{\color{blue} \text{Zeeman term} }\;.
 \end{align}
 %
-Here  $J^{z} = L_{^{z}} + S^{z}$.
+Here  $J^{z} = L^{z} + S^{z}$.
 w.l.o.g. we have assumed that $\vv B = B \vv e_{z}$. In addition we have used $g_{e}\approx 2$.
 
-$H_{0}$ commutes with $L^{2},S^{2},L^{z},S^{z}$. Which is also true for the total hamiltonian without spin-orbit coupling. For the calculation of the partition function we have, since there is no interaction between the atoms
+$H_{0}$ commutes with $L^{2},S^{2},L^{z},S^{z}$, which is also true for the total hamiltonian without spin-orbit coupling. For the calculation of the partition function we have, since there is no interaction between the atoms
 %
 \begin{align*}
-Z^{N} &= \big(Z^{1}\big)^{N}\;,
+Z = \prod_{i=1}^N Z^{(i)} = (Z^{(1)})^N \; ,
 \end{align*}
 %
 i.e. it suffices to consider a single atom.
@@ -416,7 +413,7 @@ In this case we ignore the spin-orbit term and the eigenvectors are given by
 \ket{\kappa,L,S,L_{z},S_{z}}\;,
 \end{align*}
 %
-where $\gamma$ covers all other quantum numbers. The corresponding eigenvalues
+where $\kappa$ covers all other quantum numbers. The corresponding eigenvalues
 are based on \eq{eq:H:spin:orbit:a} with $J^{z}$ replaced by $L^{z}+S^{z}$.
 %
 \begin{align*}
@@ -559,7 +556,7 @@ L_{0} {\cal B}_{L_{0}}(b L_{0})
 \end{align}
 %
 \subsubsection{Properties of the Brillouin function}
-For small or large arguments, $\coth(x)$ behave like
+For small or large arguments, $\coth(x)$ behaves like
 %
 \begin{align*}
 x\ll 1:&&\coth(x) &= \frac{1}{x} + \frac{x}{3} -\frac{x^{3}}{45} O(x^{5})\\
@@ -604,7 +601,7 @@ L_{0}(L_{0}+1)
 \bigg) \;
 \end{align*}
 %
-The susceptibility then reads
+The susceptibility $\chi_{\mu\nu} = \mu_0 \frac{\partial M_\mu}{\partial B_\nu}$ then reads
 %
 \tboxit{Curie law}{
 \begin{align}
@@ -622,7 +619,7 @@ L_{0}(L_{0}+1)
 \bigg)
 \end{align*}
 %
-We still need to consider the large $b$ limit. Here we have
+We still need to consider the large $b$ limit. Here we have:
 %
 \begin{align*}
 b\to \infty:&&\frac{\vv M}{N}
@@ -667,7 +664,7 @@ Hence
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=7cm]{Brillouin}
-\caption{{\bf .}}
+\caption{Brillouin function for $M = 1/2$ and $M = \infty$.}
 %\label{}
 \end{center}
 \end{figure}
@@ -880,6 +877,7 @@ and for large $b$ we have
 \end{align*}
 
 \subsubsection{Plot of the Brillouin function}
+%TODO include
 \subsubsection{Entropy}
 %
 For the entropy we obtain
@@ -917,6 +915,7 @@ For  $b \ll 1$ (i.e. $T\to \infty$) we find
 %
 The argument is the number of eigenvalues of $J_{z}$.
 \subsection{Plot of $S$ and specific heat}
+%TODO: include
 \section{Magnetism of the free electron model}
 The free electron gas is based on the following assumptions: no electron-electron interactions, 
 the electrons experience no potential due to the crystal, they  are confined to a box. In addition,
@@ -926,7 +925,7 @@ we apply a constant homogeneous external magnetic field.
 \subsection{Pauli paramagnetism}
 
 First, we restrict the discussion to the coupling of the electronic spin to the magnetic field, i.e.
-we ignore the angular moment.
+we ignore the angular momentum.
 The energy one-particle eigenvalues are
 %
 \begin{align*}
@@ -1208,6 +1207,7 @@ So far we have only considered the spin degrees of freedom of the free electron 
 }
 For the derivation see appendix \ref{app:free:electron:gas}
 
+%TODO: Include here the part from the appendix!
 
 \section{Collective magnetism }
 
