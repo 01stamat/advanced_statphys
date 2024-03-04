@@ -1488,8 +1488,8 @@ After a straightforward but tedious calculation, which can be found in appendix 
 \end{align}
 \end{subequations}
 %
-For finite $T$ the rhs in 1D 2D goes to zero for vanishing field ($b\to 0$).
-Hence there is no finite order parameter possible, irrespective of the wve vector $\vv Q$ (order). 
+For finite $T$ the rhs in 1D and 2D goes to zero for vanishing field ($b\to 0$).
+Hence there is no finite order parameter possible, irrespective of the wave vector $\vv Q$ (order). 
 For 3D, however, the Mermin-Wagner theorem does not rule out spontaneous  magnetization for finite $T$.
 
 
@@ -1537,29 +1537,29 @@ Obviously, $\ket{0}$ is an eigenvector.
 We consider
 %
 \begin{align*}
-\big( \vv S_{j} + \vv S_{j} \big)^{2} &= \vv S_{j}^{2}+\vv S_{j'}^{2} + 2 \vv S_{j} \vv S_{j'}\\
+\big( \vv S_{j} + \vv S_{j'} \big)^{2} &= \vv S_{j}^{2}+\vv S_{j'}^{2} + 2 \vv S_{j} \vv S_{j'}\\
 - \vv S_{j} \vv S_{j'} &= \frac{1}{2}\big(\vv S_{j}^{2}+\vv S_{j'}^{2} \big)- 
-\frac{1}{2}\big( \vv S_{j} + \vv S_{j} \big)^{2}
+\frac{1}{2}\big( \vv S_{j} + \vv S_{j'} \big)^{2}
 \end{align*}
 %
 All spins have magnitude $S$. We consider an arbitrary vector $\ket{\psi}$, which is an eigenstate 
 of all $\vv S_{j}^{2}$  with eigenvalue $S(S+1)$ but otherwise arbitrary. Then
 \begin{align*}
 - \avg{\vv S_{j}} \vv S_{j'} &= S(S+1) 
-- \frac{1}{2}\avg{\big( \vv S_{j} + \vv S_{j} \big)^{2}}
+- \frac{1}{2}\avg{\big( \vv S_{j} + \vv S_{j'} \big)^{2}}
 \end{align*}
-Now $\vv S' :=\vv S_{j} + \vv S_{j}$ is an effective spin where the eigenvalues of
-$\vv S'^{2}$ are given bei $S'(S'+1)$ with $S'\in \hbar \{0,1,\ldots,2 S\}$.
+Now $\vv S' :=\vv S_{j} + \vv S_{j'}$ is an effective spin where the eigenvalues of
+$\vv S'^{2}$ are given by $S'(S'+1)$ with $S'\in \hbar \{0,1,\ldots,2 S\}$.
 Consequently,
 %
 \begin{align*}
-\frac{1}{2}\avg{\big( \vv S_{j} + \vv S_{j} \big)^{2}} \le 2S(2S+1)\;.
+\avg{\big( \vv S_{j} + \vv S_{j'} \big)^{2}}  = \avg{\vv S'^2} \le 2S(2S+1)\;.
 \end{align*}
 %
-Then
+Then by plugging this inequality into the equation above we obtain
 %
 \begin{align*}
-- \avg{\vv S_{j}} \vv S_{j'} &\ge S(S+1)  S(2S+1) = S^{2}
+- \avg{\vv S_{j}} \vv S_{j'} &\ge S(S+1) - S(2S+1) = - S^{2}
 \end{align*}
 %
 Finally that means if $J_{jj'}\ge 0 \forall j,j'$
@@ -1594,7 +1594,7 @@ The groundstate is an eigenstate of $S^{z}_{total}$ and also of
 %
 \begin{align*}
 \vv S_{total}^{2} &=\sum_{j\ne j'} \vv S_{j} \vv  S_{j'} + \sum_{j} \vv S_{j}^{2}\\
-\vv S_{total}^{2}\ket{0} &=\sum_{j\ne j'} \vv S_{j} \vv  S_{j'}\vv S_{total}^{2}\ket{0} + N 
+\vv S_{total}^{2}\ket{0} &=\sum_{j\ne j'} \vv S_{j} \vv  S_{j'} \ket{0} + N 
 \hbar^{2}S(S+1)\ket{0}\\
 \vv S_{total}^{2}\ket{0} &=\sum_{j\ne j'} \hbar^{2}S^{2} \ket{0} + \underbrace{
 S_{j}^{+} S_{j'}^{-} \ket{0}
@@ -1609,7 +1609,7 @@ So it $\ket{0}$ an eigenstate of $\vv S_{total}$ with maximum magnitude $NS\hbar
 \subsection{Spin waves in the ferromagnetic Heisenberg model}
 %
 Next we study the low-laying excited states. To this end we 
-first consider the  hamiltonian in  Fourier space. 
+first consider the  Hamiltonian in  Fourier space. 
 The details of the 
 Fourier transform as introduced in \eq{eq:FT:magnetism} are
 \begin{subequations}\label{eq:FT:magnetism2}
@@ -1644,16 +1644,18 @@ Then
 \end{align}
 \end{subequations}
 
+These commutators can be proved by employing \eq{eq:FT:magnetism2} in the commutator and then making use of the commutation relations that are given above. In the following equations, first the necessary commutators will be calculated and then used in the ansatz using the Fourier transformed version. Lastly, by identifying again the Fourier transformed operators, the compact form of the commutation relations is obtained.
 
+We need to know the following commutators:
 
-%\emphasize{Proof}{
+% \emphasize{Proof}{
 %
 \begin{align*}
 \big[S_{j}^{z} S^{\pm}_{j'}\big] &=\big[S_{j}^{z} S^{x}_{j'}\big] \pm i
 \big[S_{j}^{z} S^{y}_{j'}\big]\\
 &=\delta_{jj'}
-i \hbar \bigg( \varepsilon_{z x y} S^{y}_{j}
-\pm i \varepsilon_{z y x} S^{x}_{j}\\
+i \hbar \bigg( \varepsilon_{z x y} S^{y}_{j} 
+\pm i \varepsilon_{z y x} S^{x}_{j} \bigg)\\
 &=\delta_{jj'}
  \hbar \bigg(i \underbrace{
 \varepsilon_{z x y}
@@ -1693,6 +1695,7 @@ i \hbar \bigg( \varepsilon_{z x y} S^{y}_{j}
 \end{align*}
 %
 %
+Now we look at the commutators of the operators as given above:
 \begin{align*}
 \bigg[S^{-}_{\vv k},S^{+}_{\vv k'}\bigg] &= \sum_{jj'}
 e^{i\big(\vv k \xx{j}+\vv k' \xx{j'}\big)}
@@ -1705,8 +1708,9 @@ S^{z}_{j}\\
 &= -2 \hbar S^{z}_{\vv k +\vv k'}\
 \end{align*}
 %
-%}
-and obtain
+% }
+
+and obtain by employing the Fourier trasnform in the known Hamiltonian
 %
 \begin{align*}
 H &= -\sum_{jj'} J_{jj'} \bigg(S_{j}^{z}S_{j'}^{z}+S_{j}^{+}S_{j'}^{-}\bigg)
@@ -1730,7 +1734,7 @@ e^{-i \vv R_{j} (\vv k+ \vv k')}
 +b  S_{k=0}^{z}\;.
 \end{align*}
 %
-Eventually, we have with \eq{eq:heisenberg:J:q}
+Eventually, we have with \eq{eq:heisenberg:J:q} (Fourier transform of the exchange coupling $J$)
 %
 \begin{align}\label{eq:Heisenberg:Fourier}
 H
@@ -1805,7 +1809,7 @@ The last term vanishes because
 }_{\color{blue} = N \delta_{l,0}} = N J_{ll} = 0\;.
 \end{align*}
 %
-We also have
+For the first terms we need to consider how $S_z^k$ acts on the state $\ket{0}$:
 %
 \begin{align*}
 S^{z}_{k} \ket{0} &= \sum_{l} e^{i \vv k\vv R_{l}} \underbrace{
@@ -1815,7 +1819,7 @@ S_{l}^{z}\ket{0}
 =-\hbar S N\delta_{k,0}\ket{0}\;.
 \end{align*}
 %
-Hence
+Hence,
 \begin{align*}
 \big[H_{H},  S_{q}^{+}\big] \ket{0} 
 &=  \frac{\hbar^{2} S N}{N} \sum_{\vv k} \tilde J(\vv k)
@@ -1854,7 +1858,7 @@ For nearest neighbour exchange interactions,
 %
 \begin{align*}
 \tilde J(q) &= J \sum_{\vv \delta}  e^{i \vv \delta \vv q} 
-=	2 J \sum_{\nu=1}^{D}	 \cos(q_{\nu})\;,.
+=	2 J \sum_{\nu=1}^{d}	 \cos(q_{\nu})\;,.
 \end{align*}
 % 
 The sum runs over the cartesian coordinates.
@@ -1864,10 +1868,14 @@ Hence
 \tilde J(0) - \tilde J(q) &= 2 J \sum_{\nu} (1-\cos(q_{\nu}))\;.
 \end{align*}
 %
-For $b=0$ and small values of $q_{\alpha}$ the leading order of the  Taylor expansion yields
+For $b=0$ and small values of $q_{\nu}$ the leading order of the  Taylor expansion yields
 %
 \begin{align*}
-\hbar \omega_{q}&=2\hbar^{2} S \big(\tilde J(0) - \tilde J(q) \big)= D \vv q^{2}\;.
+\hbar \omega_{q}&=2\hbar^{2} S \big(\tilde J(0) - \tilde J(q) \big) \\
+&= 2\hbar^2 S \cdot 2J \sum_{\nu} \left(1 - \left(1-\frac{q_\nu^2}{2}\right)\right) \\
+&= 4\hbar^2 S J \sum_{\nu} \frac{q_\nu^2}{2} \\
+&= 2\hbar^2 S J \vv q^{2} \\
+&= D \vv q^{2}
 \end{align*}
 %
 The excitation has a quadratic dispersion with  a {\em spin wave stiffness} $D = 2\hbar^{2} S J$. The excitation energy tends 
