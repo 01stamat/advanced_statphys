@@ -520,7 +520,7 @@ Then
 \begin{align*}
 \frac{z'_{M}(\eta)}{z_{M}(\eta)}
 &=\big( M+\frac{1}{2} \big)\;\coth(\eta(M+1/2))-\frac{1}{2}\coth(\eta/2)\\
-&=M\;\bigg( \frac{2M+1}{2M}\;\coth(\frac{M\eta (2M+1)}{2M}))-\frac{1}{2M}\coth(\frac{M\eta}{2M})\bigg)\;.
+&=M\;\bigg( \frac{2M+1}{2M}\;\coth(\frac{M\eta (2M+1)}{2M})-\frac{1}{2M}\coth(\frac{M\eta}{2M})\bigg)\;.
 \end{align*}
 Finally we have
 %
@@ -533,7 +533,7 @@ with
 \tboxit{Brillouin Function}{
 %
 \begin{align}\label{eq:Brillouin:fct}
-{\cal B}_{M}(x)&=\frac{2M+1}{2M}\;\coth(\frac{x(2M+1)}{2M}))-\frac{1}{2M}\coth(\frac{x}{2M})\bigg)\\
+{\cal B}_{M}(x)&=\frac{2M+1}{2M}\;\coth(\frac{(2M+1)}{2M}x)-\frac{1}{2M}\coth(\frac{x}{2M})\\
 \end{align}
 %
 }
@@ -976,7 +976,7 @@ n_{F}(\varepsilon|T,\mu)
 +\sigma b D \int_{0}^{\infty} d\varepsilon \sqrt{\varepsilon} \;n'_{F}(\varepsilon|T,\mu) +{\cal O}(b^{2})
 \end{align*}
 %
- The total particle number follows as
+By now plugging in $\sigma = \pm 1$ and adding $N_{+1}$ and $N_{-1}$ together, the term depending on $\sigma$ cancels out and only the first term is left. Hence, the total particle number follows as:
  %
 \begin{align}
 N &= N_{+}+N_{-} = 2 D \int_{0}^{\infty} d\varepsilon \sqrt{\varepsilon} \;n_{F}
@@ -993,19 +993,19 @@ For small $b$ and low temperature we can use the Sommerfeld expansion, outlined 
 \begin{align}\label{eq:}
 I&=\int_{0}^{\infty}  f(\varepsilon) n_{F}(\varepsilon|\mu,T) d\varepsilon\nonumber\\
  &=\int_{0}^{\mu} f(\varepsilon)d\varepsilon
-+ 2  \sum_{n=1}^{\text{odd}}\big(1-\frac{1}{2^{n}}\big)\;\zeta(n+1)
++ 2  \sum_{n=1}^{\text{odd}}\left(1-\frac{1}{2^{n}}\right)\;\zeta(n+1)
 \big(k_{B}T\big)^{n+1}\;f^{(n)}(\mu)\;,
 \end{align}}
 %
-which reads to leading order
+which reads to leading order using $\zeta(2) = \frac{\pi^2}{6}$:
 %
 \begin{align*}
-I &= \int_{0}^{\mu} f(\varepsilon) d\varepsilon +  \frac{\pi^{2}}{6}\;\big(k_{B}T\big)^{2} \;f'(\mu)+ {\cal O}(\big(\frac{k_{B}T}{\mu}\big)^{4})\;.
+I &= \int_{0}^{\mu} f(\varepsilon) d\varepsilon +  \frac{\pi^{2}}{6}\;\big(k_{B}T\big)^{2} \;f'(\mu)+ {\cal O}\bigg(\bigg(\frac{k_{B}T}{\mu}\bigg)^{4}\bigg)\;.
 \end{align*}
 %
 For the total particle number we obtain
 \begin{align*}
-N&=2 D \bigg(\int_{0}^{\mu}\sqrt{\varepsilon} 
+N&=2 D \bigg(\int_{0}^{\mu}\sqrt{\varepsilon} ~d\varepsilon
 +\frac{\pi^{2}}{6}\frac{d}{d\mu}\sqrt{\mu}\bigg( k_{B}T \bigg)^{2}+\ldots\bigg)\\
 &=2 D \bigg(\frac{2}{3}\mu^{3/2} 
 +\frac{\pi^{2}}{12}\mu^{-1/2}\big( k_{B}T \big)^{2}+\ldots
@@ -1075,14 +1075,14 @@ $\mu=\varepsilon_{F}$. The first iteration yields
 For low temperatures, 
 $\frac{ k_{B}T }{\varepsilon_{F}}<1$ we can as well write
 \begin{align*}
-\mu &=\varepsilon_{F}\bigg(1 -\frac{\pi^{2}}{8}\frac{2}{3}\bigg(\frac{ k_{B}T }{\varepsilon_{F}}\bigg)^{2} +{\cal O}\bigg( \big( \frac{k_{B}T}{\varepsilon_{F}} \big)^{4} \bigg)\bigg)\;.
+\mu &=\varepsilon_{F}\bigg(1 -\frac{\pi^{2}}{8}\frac{2}{3}\bigg(\frac{ k_{B}T }{\varepsilon_{F}}\bigg)^{2} +{\cal O}\bigg( \bigg( \frac{k_{B}T}{\varepsilon_{F}} \bigg)^{4} \bigg)\bigg)\;.
 \end{align*}
 %
 Further iterations do not change the second order term and we generally have
 %
 \tboxitp{Chemical potential}{free electron gas}{
 \begin{align}\label{eq:}
-\mu &=\varepsilon_{F}\bigg(1 -\frac{\pi^{2}}{12}\bigg(\frac{ k_{B}T }{\varepsilon_{F}}\bigg)^{2} \bigg)\;+{\cal O}\bigg( \big( \frac{k_{B}T}{\varepsilon_{F}} \big)^{4} \bigg)
+\mu &=\varepsilon_{F}\bigg(1 -\frac{\pi^{2}}{12}\bigg(\frac{ k_{B}T }{\varepsilon_{F}}\bigg)^{2} \bigg)\;+{\cal O}\bigg( \bigg( \frac{k_{B}T}{\varepsilon_{F}} \bigg)^{4} \bigg)
 \end{align}}
 %
 
@@ -1193,11 +1193,177 @@ We see that indeed $k_{B}T/\mu$ is the relevant small parameter.
 This describes the \red{Pauli-spin-paramagnetism}, which is almost temperature
 independent for low $T$; in strong contrast to the Curie $1/T$ behaviour.
 The reason for the discrepancy lies in the fermi-statistics. Only the spin of the electrons in the vicinity of $\mu$ can contribute. The number of thermally excited electrons
-is $k_{b} T \rho(\mu)$ which compensates the $1/T$ behaviour.
+is $k_{B} T \rho(\mu)$ which compensates the $1/T$ behaviour.
 
 
-\subsection{Langevin Diamagnetismus}
-So far we have only considered the spin degrees of freedom of the free electron gas. The orbital moments also contribute to the magnetization, which results in the
+\subsection{Langevin diamagnetism}
+So far we have only considered the spin degrees of freedom of the free electron gas. The orbital moments also contribute to the magnetization, which results in the Landau diamagnetism.
+
+The single electron energies are now
+%
+\begin{align*}
+\varepsilon_{n,\sigma}(k_{z}) &=\varepsilon(k_{z})
++\hbar \omega_{c} (n+\tfrac{1}{2}) + \sigma b\\
+\varepsilon(k_{z}) &=\frac{\hbar^{2} k_{z}^{2}}{2m}
+\end{align*}
+%
+with $b=\frac{\mu_{B} g_{e}}{2}$ and the cyclotron frequency $\omega_{c} = \frac{e B}{m}$, and $\mu_{B} = \frac{e \hbar}{2m}$.  
+The degeneracy of these levels is 
+%
+\begin{align*}
+N_\text{deg} &= \frac{L_{x}L_{y} e B}{2 \pi \hbar} = B C_{deg}\;.
+\end{align*}
+%
+We use again the formula for the grand canonical partition function of non-interacting particles 
+%
+\begin{align*}
+\ln(Z)
+&= \sum_{\nu} \ln\big( 1+^{-\beta(\varepsilon_{\nu}-\mu)} \big)
+\end{align*}
+%
+Inserting the one particle energies results in
+%
+\begin{align}
+\ln(Z)
+&= B C_{deg}\sum_{\sigma} \sum_{n=0}^{\infty}\underbrace{
+\int d\varepsilon\rho^{(1d)}(\varepsilon)
+\ln\bigg( 1+e^{-\beta(\varepsilon + \hbar \omega_{c}(n+\tfrac{1}{2}) + b\sigma-\mu)} \bigg)
+}_{\color{blue} := \underbrace{
+F(\mu - \hbar \omega_{c}(n+\tfrac12) -b\sigma)
+}_{\color{blue} := f(n+\tfrac12)}}\;.
+\end{align}
+%
+Now we invoke the leading Euler-Mac-Laurin formula (see \autoref{app:Euler:MacLaurin}) in \eq{eq:Euler:MacLaurin} to leading order 
+and use $f'(\infty)=0$.
+%
+\begin{align*}
+\sum_{n=0}^{\infty} f(n+\tfrac12) &= \int_{0}^{\infty} f(x) dx
++\frac{1}{24} f'(0) +\ldots\\
+&=\int_{0}^{\infty} F(\mu-\hbar \omega_{c} x -b \sigma ) dx
++\frac{1}{24}\frac{\partial }{\partial x} F(\mu-\hbar \omega_{c} x -b \sigma )\bigg|x=0 +\ldots\\
+&=\frac{1}{\hbar \omega_{c}}\int_{0}^{\infty} F(\mu-y -b \sigma) dy
+-\frac{\hbar \omega_{c}}{24}\frac{\partial }{\partial \mu} F(\mu-b \sigma ) +\ldots\;.
+\end{align*}
+%
+Next we expand this expression in terms of $B$, or rather $b$, up to second order. We also include already the sum over the electronic spin, which allows to omit term proportional to $\sigma^{m}$ for odd $m$.
+%
+\begin{align*}
+\sum_{\sigma} \sum_{n} f(n+\tfrac12) &=\sum_{\sigma}
+\frac{1}{\hbar \omega_{c}} 
+\bigg(
+\int_{0}^{\infty} F(\mu-y)dy - \canceled{b \sigma} \int_{0}^{\infty} \frac{\partial }{\partial \mu}F(\mu-y)dy +\\
+&\quad + \frac{b^{2}}{2}\int_{0}^{\infty} \frac{\partial^{2} }{\partial \mu^{2}}F(\mu-y)dy
+ -\frac{(\hbar \omega_{c})^{2}}{24}\frac{\partial }{\partial \mu} 
+ F(\mu)   
+ +{\cal O}(B^{4})\bigg)\\
+ %=========
+ &=
+\frac{2}{\hbar \omega_{c}} 
+\bigg(
+\int_{-\infty}^{\mu} F(z)dz  +\\
+&\quad + \frac{b^{2}}{2}\int_{0}^{\infty} \frac{\partial^{2} }{\partial y^{2}}F(\mu-y)dy
+ -\frac{(\hbar \omega_{c})^{2}}{24}\frac{\partial }{\partial \mu}  F(\mu)   
+ +{\cal O}(B^{4})\bigg)\\
+  &=
+\frac{2}{\hbar \omega_{c}} 
+\bigg(
+\int_{-\infty}^{\mu} F(z)dz  +\\
+&\quad + \frac{b^{2}}{2}\big(\frac{\partial }{\partial \mu}F(\mu-y)\big)\bigg|_{y=0}^{y=\infty}
+ -\frac{(\hbar \omega_{c})^{2}}{24}\frac{\partial }{\partial \mu}  F(\mu)   
+ +{\cal O}(B^{4})\bigg)\\
+   &=
+\frac{2}{\hbar \omega_{c}} 
+\bigg(
+\int_{-\infty}^{\mu} F(z)dz 
+ +\frac{1}{2}\big( b^{2}-\frac{(\hbar \omega_{c})^{2}}{12}\big)
+ \frac{\partial }{\partial \mu}F(\mu)
+ +{\cal O}(B^{4})\bigg)\;.
+\end{align*}
+%
+Inserting the definition of $\omega_{c}$ and $b$
+yields
+%
+\begin{align*}
+b^{2} -\frac{\big(\hbar \omega_{c}\big)^{2}}{12} 
+&=B^{2}\bigg( \mu_{B}^{2}\bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{1}{12}\bigg(\frac{\hbar e}{m}\bigg)^{2} \bigg)\\
+&=B^{2}\mu_{B}^{2}\bigg( \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{4}{12} \bigg)\\
+\end{align*}
+%
+The grand potential up to order $B^{2}$ reads 
+%
+\begin{align*}
+\Omega &= -k_{B}T \ln(Z)\\
+&=\underbrace{-
+\frac{2 k_{B} T C_{deg}B}{\hbar \omega_{c}} 
+}_{\color{blue} = D}
+\bigg(
+\int_{0}^{\infty} F(\mu-y)dy  
+ +\frac{\mu_{B}^{2}B^{2}}{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{4}{12}  \bigg)
+ \frac{\partial }{\partial \mu}F(\mu)\bigg)\\
+ &=
+D  \int_{0}^{\infty} F(\mu-y)dy  
+ +\frac{1}{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{4}{12}  \bigg)
+\;D \frac{\partial }{\partial \mu} F(\mu)\;.
+\end{align*}
+%
+For $B=0$ we obtain
+%
+\begin{align*}
+\Omega(T,\mu,B=0) &= D  \int_{0}^{\infty} F(\mu-y)dy 
+\end{align*}
+%
+We can exploit
+%
+\begin{align*}
+\frac{\partial }{\partial \mu} \int_{-\infty}^{\mu} F(z)dz &= F(\mu)\\
+\Rightarrow\qquad  \frac{\partial }{\partial \mu}F(\mu) &= \frac{\partial^{2} }{\partial \mu^{}2} \int_{-\infty}^{\mu} F(z)dz 
+\end{align*}
+%
+to rewrite  the grand potential as
+%
+\begin{align*}
+\Omega(T,\mu,B) &= \Omega(T,\mu,B=0) +
+\frac{\mu_{B}^{2}B^{2}}{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{1}{3}  \bigg)
+ \frac{\partial^{2} }{\partial \mu^{2}}\Omega(T,\mu,B=0)\;.
+\end{align*}
+%
+The susceptibility is defined as 
+%
+\begin{align*}
+\chi&= -\frac{\partial \Omega}{\partial B^{2}}\bigg|_{\mu,T} = 
+-\mu_{B}^{2}\bigg(  \bigg(\frac{g_{e}}{2}\bigg)^{2} - \frac{1}{3}  \bigg)
+ \frac{\partial^{2} }{\partial \mu^{2}}\Omega(T,\mu,B=0)\;,
+\end{align*}
+%
+Finally, we exploit the equation  $\pder{\Omega}{\mu}{T,B}=N(T,\mu,B)$ resulting in
+\begin{align*}
+\chi&= -\frac{\partial \Omega}{\partial B^{2}}\bigg|_{\mu,T} = 
+ \bigg(  1 - \frac{1}{3} \bigg(\frac{2}{g_{e}}\bigg)^{2} \bigg)
+\bigg(\mu_{B}^{2}\bigg(\frac{g_{e}}{2}\bigg)^{2}  \frac{\partial }{\partial \mu}N(T,\mu,B=0)\bigg)\;,
+\end{align*}
+
+
+According to \eq{eq:Pauli:dN:dmu} the last bracket is equal to the Pauli-spin susceptibility, i.e.
+
+\begin{align*}
+\chi&= 
+\chi_{P} - \frac{1}{3} \bigg(\frac{2}{g_{e}}\bigg)^{2} \chi_{P}
+\end{align*}
+
+The additional term is called {\em Landau diamagnetism} and for $g_{e}\approx 2$ is 
+is
+%
+\begin{align*}
+\chi_{L}&=-\frac{1}{3} \chi_{P}
+\end{align*}
+%
+The total susceptibility is still positive 
+%
+\begin{align*}
+\chi &\approx \frac{2}{3} \chi_{P}\;.
+\end{align*}
+%
+
 \tboxitp{Landau Diamagnetism}{free electron gas}{
 %
 \begin{align}\label{eq:}
@@ -1205,9 +1371,6 @@ So far we have only considered the spin degrees of freedom of the free electron 
 \end{align}
 %
 }
-For the derivation see appendix \ref{app:free:electron:gas}
-
-%TODO: Include here the part from the appendix!
 
 \section{Collective magnetism }
 
@@ -1241,8 +1404,8 @@ Hence
 %
 \begin{align*}
 H &= \frac{1}{2}\bigg(  -\sum_{\alpha}\sum_{jj'} J_{jj'} S^{\alpha}_{j}S^{\alpha}_{j'} 
-+ -\sum_{\alpha}\sum_{jj'} J_{j'j} S^{\alpha}_{j}S^{\alpha}_{j'}  \bigg)=
- -\sum_{\alpha}\sum_{jj'} \big(\frac{J_{jj'}+J_{j'j}}{2}\big) S^{\alpha}_{j}S^{\alpha}_{j'} \;.
+ -\sum_{\alpha}\sum_{jj'} J_{j'j} S^{\alpha}_{j}S^{\alpha}_{j'}  \bigg)=
+ -\sum_{\alpha}\sum_{jj'} \bigg(\frac{J_{jj'}+J_{j'j}}{2}\bigg) S^{\alpha}_{j}S^{\alpha}_{j'} \;.
 \end{align*}
 %
 We also introduce the ladder operators
@@ -1269,7 +1432,7 @@ J_{jj'}^{xy}S_{j}^{+} S_{j'}^{-}
  + b \sum_{j} S^{z}_{j}\;.
 \end{align}}
 
-\item ($\abs{J^{z}}\gg\abs{J^{xy}}$) results in the so-called {\em Ising model}, which is discussed in great detail chapter \chap{chap:ising}
+\item ($\abs{J^{z}}\gg\abs{J^{xy}}$) results in the so-called {\em Ising model}, which is discussed in great detail \chap{chap:ising}
 \item ($J^{z} = J^{xy}$)  represents the isotropic Heisenberg model
 
 %
