@@ -1972,8 +1972,13 @@ The value of $S_{j}^{z}$ is increased by $\hbar /N$ at each site, irrespective o
 
 \subsection{Mean field approximation of the isotropic Heisenberg model}
 
-The derivation of the MFA results is very similar to that in the Ising model.
-The  hamiltonian in MFA for an homogeneous magnetic field is
+The derivation of the MFA results is very similar to that in the Ising model. Remember that the approach for the mean field approximation for the Ising model was the following relation for two dynamical variables A and B:
+
+\begin{align*}
+AB \approx \langle A\rangle B + A\langle B\rangle - \langle A\rangle\langle B\rangle
+\end{align*}
+
+We employ this approximation and the  hamiltonian in MFA for an homogeneous magnetic field is
 %
 \begin{align}\label{eq:}
 H^\text{MFA} &= -\frac{1}{2}\sum_{jj'} J_{jj'} \big(\langle \vv S_{j} \rangle\vv  S_{j'} +
@@ -2105,7 +2110,7 @@ With these parameters \eq{eq:hb:mfa:oderparameter} turns into
 \langle \sigma_{1} \rangle &= \tanh\bigg( \beta\big( zJ_{I} \langle \sigma_{1}+b_{I} \rangle \big) \bigg)\;.
 \end{align*}
 %
-which is identical to that of the Ising model\eq{eq:eos:ising}.
+which is identical to that of the Ising model in \eq{eq:eos:ising}.
 
 \subsection{Curie temperature}
 According to \eq{eq:bernoulli:series} the equation for the order parameter without external field
