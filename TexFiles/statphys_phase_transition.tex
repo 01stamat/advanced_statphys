@@ -219,7 +219,6 @@ f &=  2 + \alpha - \Nphases \;.
 \includegraphics[width=0.8\textwidth]{water_phase_transitions.pdf}
 \caption{Schematic phase diagram for water. Note that the slope of the transition line from solid to liquid has a negative slope. The dashed line corresponds to the transition from solid to liquid for most other substances and shows a positive slope.}
 \label{fig:water:phasediagram}
-%TODO: change this figure to either self-made figure or some copyright-free image
 \end{center}
 \end{figure}
 
@@ -734,7 +733,7 @@ Here we can also use \eq{eq:DF:DV} resulting in
 F_{mp} &= 
  F_{\alpha}-p_{\alpha\beta} \frac{V-V_{\alpha}}{V_{\beta}-V_{\alpha}} \big(V_{\beta}-V_{\alpha}\big)
  =
- F_{\alpha}+p_{\alpha\beta} \big(V-V_{\alpha}\big)
+ F_{\alpha} - p_{\alpha\beta} \big(V-V_{\alpha}\big)
 \label{eq:F:mp}
 \end{align}
 % The difference of the free energies is according to \eq{eq:F:vdW} and \eq{eq:F:mp}
@@ -744,10 +743,10 @@ F_\alpha = F_{vdW}(V,T) + \int_{V_\alpha}^{V} p(V',T) dV'
 \end{align*}
 we can rewrite \eq{eq:F:mp} As
 \begin{align*}
-F_{mp} = F_{vdW}(V,T) + \int_{V_\alpha}^{V} p(V', T) dV' + p_{\alpha\beta}(V-V_\alpha)
+F_{mp} = F_{vdW}(V,T) + \int_{V_\alpha}^{V} p(V', T) dV' - p_{\alpha\beta}(V-V_\alpha)
 \end{align*}
 and obtain for the difference of the free energies:
-%TODO: fix the error in the - sign??
+%
 \begin{align*}
 F_{vdW}(V,T) - F_{mp}(V,T) &= 
 p_{\alpha\beta} \big(V-V_{\alpha}\big) 
