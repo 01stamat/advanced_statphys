@@ -876,7 +876,7 @@ and for large $b$ we have
 &\underset{b\to\infty}{\longrightarrow} \pm  \vv e_{z} g_{J}\mu_{B}J \;.
 \end{align*}
 
-\subsubsection{Plot of the Brillouin function}
+% \subsubsection{Plot of the Brillouin function}
 %
 \subsubsection{Entropy}
 %
@@ -1196,7 +1196,7 @@ The reason for the discrepancy lies in the fermi-statistics. Only the spin of th
 is $k_{B} T \rho(\mu)$ which compensates the $1/T$ behaviour.
 
 
-\subsection{Langevin diamagnetism}
+\subsection{Landau diamagnetism}
 So far we have only considered the spin degrees of freedom of the free electron gas. The orbital moments also contribute to the magnetization, which results in the Landau diamagnetism.
 
 The single electron energies are now
@@ -1545,7 +1545,7 @@ We consider
 All spins have magnitude $S$. We consider an arbitrary vector $\ket{\psi}$, which is an eigenstate 
 of all $\vv S_{j}^{2}$  with eigenvalue $S(S+1)$ but otherwise arbitrary. Then
 \begin{align*}
-- \avg{\vv S_{j}} \vv S_{j'} &= S(S+1) 
+- \avg{\vv S_{j} \vv S_{j'}}  &= S(S+1) 
 - \frac{1}{2}\avg{\big( \vv S_{j} + \vv S_{j'} \big)^{2}}
 \end{align*}
 Now $\vv S' :=\vv S_{j} + \vv S_{j'}$ is an effective spin where the eigenvalues of
@@ -1559,13 +1559,13 @@ Consequently,
 Then by plugging this inequality into the equation above we obtain
 %
 \begin{align*}
-- \avg{\vv S_{j}} \vv S_{j'} &\ge S(S+1) - S(2S+1) = - S^{2}
+- \avg{\vv S_{j} \vv S_{j'}} &\ge S(S+1) - S(2S+1) = - S^{2}
 \end{align*}
 %
 Finally that means if $J_{jj'}\ge 0 \forall j,j'$
 %
 \begin{align*}
-\avg{H_{0}} &= \sum_{jj'} J_{jj'} \bigg(-\avg{\vv S_{j}} \vv S_{j'}\bigg) \\
+\avg{H_{0}} &= \sum_{jj'} J_{jj'} \bigg(-\avg{\vv S_{j} \vv S_{j'}}\bigg) \\
 &\ge -S^{2}\hbar^{2}\;\sum_{jj'} J_{jj'}\\
 \avg{H_{0}} &\ge - N \hbar^{2} \tilde J(0)\;.
 \end{align*}

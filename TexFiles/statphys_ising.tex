@@ -907,25 +907,25 @@ Z &= \sum_{\vS{1}} \sum_{\vS{2}}\cdots  \sum_{\vS{L_{y}}}\prod_{l} {\cal T}_{\vS
 This is the straight-forward generalization of \eq{eq:transfer:1d}
 and  is to be understood as follows: 
 
-%--------------- maybe comment this section out? it's just a repetition -----------------------
-The sum over $\vS{l}$ runs over 
-the $2^{L_{x}}$ configurations, which the vector $\vS{l}$ can assume. 
-We introduce an index $I$ that enumerates these configurations and 
-instead of summing over $\vS{l}$, we could sum over the index $I$ , that enumerates 
-these configurations (the $I$-th configuration would be ${\cal S}_{I}$). Then we can define the transfer matrix alternatively by the matrix elements
-\begin{align*}
-{\cal T}_{I,I'} &= e^{A({\cal S}_{I}, {\cal S}_{I'})}
-\end{align*}
-%
-and then we would have
-%
-\begin{align*}
-Z &=  \sum_{I^{(1)}} \cdots  \sum_{I^{(L_{y})}} {\cal T}_{I^{(1)},I^{(2)}}
-{\cal T}_{I^{(2)},I^{(3)}},\ldots,{\cal T}_{I^{(L_{y}-1)},I^{(L_{y})}}
-{\cal T}_{I^{(L_{y})},I^{(1)}}\\
-&= \tr{{\cal T}^{L_{y}}} \\
-&= \lambda_\text{max}^{N}\;.
-\end{align*}
+%--------------- commented this out because it's a repetition: -----------------------
+% The sum over $\vS{l}$ runs over 
+% the $2^{L_{x}}$ configurations, which the vector $\vS{l}$ can assume. 
+% We introduce an index $I$ that enumerates these configurations and 
+% instead of summing over $\vS{l}$, we could sum over the index $I$ , that enumerates 
+% these configurations (the $I$-th configuration would be ${\cal S}_{I}$). Then we can define the transfer matrix alternatively by the matrix elements
+% \begin{align*}
+% {\cal T}_{I,I'} &= e^{A({\cal S}_{I}, {\cal S}_{I'})}
+% \end{align*}
+% %
+% and then we would have
+% %
+% \begin{align*}
+% Z &=  \sum_{I^{(1)}} \cdots  \sum_{I^{(L_{y})}} {\cal T}_{I^{(1)},I^{(2)}}
+% {\cal T}_{I^{(2)},I^{(3)}},\ldots,{\cal T}_{I^{(L_{y}-1)},I^{(L_{y})}}
+% {\cal T}_{I^{(L_{y})},I^{(1)}}\\
+% &= \tr{{\cal T}^{L_{y}}} \\
+% &= \lambda_\text{max}^{N}\;.
+% \end{align*}
 %
 
 %------------------------ up until here ----------------------------------------------------------
@@ -1964,35 +1964,35 @@ the statement, that it is a second order phase transition.
 %
 
 %
-\subsection{Proof}
+% \subsection{Proof}
 
-We seek the number of paths from the center $\vv x=0$ to site $\vv x$, where the Manhattan distance is 
-$n$. We consider only cases with $n>1$, actually we are interested in $n-1$ to $\infty$. 
-We are interested in the weighted sum over all paths from the center to site $\vv x$. Schematically this can be written as
-%
-\begin{align*}
-Z_{0 \vv x} &= \sum_{m=n}^{\infty}  W^{(m)}_{0,\vv x}\;,
-\end{align*}
-%
-where $W^{(m)}_{0,\vv x}$ stands for the contributions that contain $m$ steps. We will again use the previous matrix $M^{(m)}$. Here, however, we are not counting loops and therefore the weights are not entirely correct
-and it is not yet clear what we have to do with the directions of the last step, which points from the final point $\vv x$ to an arbitrary direction. It is, therefore, useful, to split off the last step. Then it seem reasonable to 
-start with the form
-%
-\begin{align*}
-W^{(m)}_{0,\vv x} &= \sum_{\vv d_{0}} \sum_{\vv x',\vv d'}  \bigg(M^{(m-1)}\bigg)_{(\vv 0,\vv d_{0}),(\vv x',\vv d')}  \big(M^{(1)}\big)_{(\vv x',\vv d'),(\vv x,\vv d'')}
-\end{align*}
-%
-There is one constraint:
-%
-\begin{align*}
-\vv x'  &= \vv x - \vv d'\;.
-\end{align*}
-%
-The last term adds a factor $th(j)$ plus a phase, that depends on the yet undefined $\vv d''$.
-The phase-factors are only correct in closed loops to add up to the sign, representing crossings.
-Therefore, we will add graph elements to form a closed loop, such that no additional crossings occur.
-There are 16 possibilities depending on $\vv d$ and $\\vv d'$
-%
+% We seek the number of paths from the center $\vv x=0$ to site $\vv x$, where the Manhattan distance is 
+% $n$. We consider only cases with $n>1$, actually we are interested in $n-1$ to $\infty$. 
+% We are interested in the weighted sum over all paths from the center to site $\vv x$. Schematically this can be written as
+% %
+% \begin{align*}
+% Z_{0 \vv x} &= \sum_{m=n}^{\infty}  W^{(m)}_{0,\vv x}\;,
+% \end{align*}
+% %
+% where $W^{(m)}_{0,\vv x}$ stands for the contributions that contain $m$ steps. We will again use the previous matrix $M^{(m)}$. Here, however, we are not counting loops and therefore the weights are not entirely correct
+% and it is not yet clear what we have to do with the directions of the last step, which points from the final point $\vv x$ to an arbitrary direction. It is, therefore, useful, to split off the last step. Then it seem reasonable to 
+% start with the form
+% %
+% \begin{align*}
+% W^{(m)}_{0,\vv x} &= \sum_{\vv d_{0}} \sum_{\vv x',\vv d'}  \bigg(M^{(m-1)}\bigg)_{(\vv 0,\vv d_{0}),(\vv x',\vv d')}  \big(M^{(1)}\big)_{(\vv x',\vv d'),(\vv x,\vv d'')}
+% \end{align*}
+% %
+% There is one constraint:
+% %
+% \begin{align*}
+% \vv x'  &= \vv x - \vv d'\;.
+% \end{align*}
+% %
+% The last term adds a factor $th(j)$ plus a phase, that depends on the yet undefined $\vv d''$.
+% The phase-factors are only correct in closed loops to add up to the sign, representing crossings.
+% Therefore, we will add graph elements to form a closed loop, such that no additional crossings occur.
+% There are 16 possibilities depending on $\vv d$ and $\\vv d'$
+% %
 %\begin{table}[]
 %\begin{tabular}{llllll}
 % 1)&  $\vv d = \$  & i.e. a loop is closed  &$\Rightarrow$ &   $f= Straight$  \\

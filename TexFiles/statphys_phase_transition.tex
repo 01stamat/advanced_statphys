@@ -1,6 +1,12 @@
 \chapter{Phase transitions}
 \newcommand{\Nphases}{n_{p}}
+
+At the beginning of this lecture, it will be our aim to get a fundamental understanding of different phases and the physics that happens at the boundary of transition between them. This will give some insight into thermodynamic properties of statiscal systems, e.g. for the case of real gases where the isotherms that result from van der Waal's equation give us a so-called coexistence region: For certain pressure and volume, multiple phases can coexist in a real gas. 
+
+We will then further generalize the definition of a phase transition and have a closer look at how physical quantities behave near a phase transition by introducing critical exponents. The latter will be useful in understanding the physics of the following chapters of this lecture covering the Ising model and magnetism.
+
 \section{Phases}
+
 We can generalise  the formalism introduced in statistical physics to incorporate different coexisting phases.
 
 \subsection{Isolated systems}
@@ -79,7 +85,7 @@ Then the remaining constraint reads
 \bigg[\frac{\partial }{\partial U_{\nu}}S_{\nu}(U_{\nu},V_{\nu},\vv N_{\nu})\at_{V_{\nu},\vv N_{\nu}} -\lambda^{U}\bigg]dU_{\nu}&=0;.
 \end{align*}
 %
-Here all $dU_{\nu}$ are independent and the square brackets have to vanish individually. Then we have for all $\nu$ (the last comes from \eq{eq:constr:nu})
+We have thus removed the dependence of the remaining $dU_\nu$ from each other by making use of our constraints from \eq{eq:constraints}. Now, all $dU_{\nu}$ are independent and the square brackets have to vanish individually. Then we have for all $\nu$ (the last comes from \eq{eq:constr:nu})
 \begin{subequations}
 \begin{align}
 \lambda^{U}&=\frac{\partial }{\partial U_{\nu}}S_{\nu}(U_{\nu},V_{\nu},\vv N_{\nu})\at_{V_{\nu},\vv N_{\nu}} &&= \frac{1}{T_{\nu}}\;.
@@ -1017,8 +1023,8 @@ Magnetic systems are typically discussed as interacting spin-systems. As spin-di
 Possible behaviour:
 
 \begin{itemize}
-	\item\blue{Power law decay:} $f(\varepsilon)\simeq \varepsilon^{\varphi}$ with $\varphi >0$
-	\item\blue{Power law divergence:} $f(\varepsilon)\simeq \varepsilon^{\varphi}$ with $\varphi <0$ 
+	\item\blue{Power law decay:} $f(\varepsilon)\simeq \varepsilon^{-\varphi}$ with $\varphi >0$
+	\item\blue{Power law divergence:} $f(\varepsilon)\simeq \varepsilon^{-\varphi}$ with $\varphi <0$ 
 	\item\blue{logarithmic divergence:} $f(\varepsilon) = a + b\ln(|\varepsilon|)$ we obtain by
 	the definition of the critical exponent in \eq{def:critical:exponent} $\varphi =0$ 
 \end{itemize}
@@ -1026,8 +1032,7 @@ In general, the critical exponent for $\varepsilon>0$ (denoted by $\varphi_{}$) 
 
 \subsection{Important critical exponents}
 
-% In the following, a few examples for the most important critical exponents that are associated to specific physical quantities often relevant in statistical physics will be given. This to be understood as an outlook for the next chapters: The actual theory behind the models mentioned in the examples will be presented in the following chapters, some of which in more detail than others.
-% TODO: Include this in case this chapter moves to the beginning of the script
+In the following, a few examples for the most important critical exponents that are associated to specific physical quantities often relevant in statistical physics will be given. This to be understood as an outlook for the next chapters: The actual theory behind the models mentioned in the examples will be presented in the following chapters, some of which in more detail than others.
 
 \begin{figure}[htbp]
 \begin{center}
