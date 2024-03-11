@@ -1,6 +1,9 @@
 
 \chapter{Magnetism}
 
+In this chapter we will study further theories on magnetism, including first the general Hamiltonian for a magnetic system and then looking at different approaches to obtain an expression for magnetization in different cases - some of which more involved than others.
+
+Lastly, we will revisit collective magnetism by introducing the Heisenberg Hamiltonian as a generalization of the by now well-known Ising model.
 \section{Hamiltonian}
 
 The hamiltionian reads
@@ -915,7 +918,25 @@ For  $b \ll 1$ (i.e. $T\to \infty$) we find
 %
 The argument is the number of eigenvalues of $J_{z}$.
 \subsection{Plot of $S$ and specific heat}
-%
+
+In \autoref{fig:magnetism-entropy} the before obtained entropy per particle $\frac{S}{N}$ is depicted. Note also that for $b \ll 1$ we can now check visually that $\frac{S}{N} \to k_B \ln(2J+1)$.
+
+Additionaly, the heat capacity is shown as it is connected to the entropy by:
+
+\begin{align*}
+  C_V &= T\frac{\partial S}{\partial T} = T \frac{\partial S}{\partial b} \frac{\partial b}{\partial T} = T \frac{\partial S}{\partial b} \frac{\partial}{\partial T} \frac{B\mu_B}{k_B T} \\ 
+  C_V &= T \frac{\partial S}{\partial b} \left(-\frac{B\mu_B}{k_BT^2}\right) = \frac{\partial S}{\partial b} \left(-\frac{B\mu_B}{k_B T}\right)   \\
+  C_V &= -b \frac{\partial S}{\partial b}
+\end{align*}
+
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics[width=0.8\textwidth]{magnetism_entropy.pdf}
+  \caption{Entropy and specific heat for strong spin-orbit coupling and $J=1$.}
+  \label{fig:magnetism-entropy}
+  \end{center}
+\end{figure}
+  %
 \section{Magnetism of the free electron model}
 The free electron gas is based on the following assumptions: no electron-electron interactions, 
 the electrons experience no potential due to the crystal, they  are confined to a box. In addition,
@@ -1432,7 +1453,7 @@ J_{jj'}^{xy}S_{j}^{+} S_{j'}^{-}
  + b \sum_{j} S^{z}_{j}\;.
 \end{align}}
 
-\item ($\abs{J^{z}}\gg\abs{J^{xy}}$) results in the so-called {\em Ising model}, which is discussed in great detail \chap{chap:ising}
+\item ($\abs{J^{z}}\gg\abs{J^{xy}}$) results in the {\em Ising model}, which is discussed in great detail in \chap{chap:ising}
 \item ($J^{z} = J^{xy}$)  represents the isotropic Heisenberg model
 
 %
